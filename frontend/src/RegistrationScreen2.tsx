@@ -55,7 +55,11 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
       inputRefs[index + 1].current?.focus();
     }
 
-    if (newOtp.every((digit) => digit !== '') && index === 3) {
+    // Auto-submit when all 4 digits are filled
+    if (newOtp.every((digit) => digit !== '')) {
+      setTimeout(() => {
+        handleVerifyWithOtp(newOtp.join(''));
+      }, 100);
     }
   };
 
@@ -74,12 +78,16 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
       setOtp(newOtp);
       setError('');
       inputRefs[3].current?.focus();
+
+      // Auto-submit pasted OTP
+      setTimeout(() => {
+        handleVerifyWithOtp(pastedData);
+      }, 100);
     }
   };
 
-  const handleVerify = async () => {
-    const otpCode = otp.join('');
-    if (otpCode.length !== 4) return;
+  const handleVerifyWithOtp = async (otpCode: string) => {
+    if (otpCode.length !== 4 || isVerifying) return;
 
     setIsVerifying(true);
     setError('');
@@ -100,6 +108,11 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
       setTimeout(() => setShake(false), 500);
       inputRefs[0].current?.focus();
     }
+  };
+
+  const handleVerify = async () => {
+    const otpCode = otp.join('');
+    handleVerifyWithOtp(otpCode);
   };
 
   const handleResend = async () => {

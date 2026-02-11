@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { RefreshCw, Edit2 } from 'lucide-react';
 import MatchCard from './MatchCard';
 import FilterBar, { FilterType } from './FilterBar';
@@ -19,6 +20,7 @@ export interface MatchFilters {
 }
 
 function MatchFeed() {
+  const navigate = useNavigate();
   const [matches, setMatches] = useState<Match[]>([]);
   const [displayedMatches, setDisplayedMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
@@ -277,11 +279,7 @@ function MatchFeed() {
           <MatchCard
             key={match.id}
             match={match}
-            onDontShow={() => handleDontShow(match.id)}
-            onShortlist={() => handleShortlist(match.id)}
-            onSpeedDate={() => handleSpeedDate(match.id)}
-            onSendInterest={() => handleSendInterest(match.id)}
-            onCardClick={() => console.log('Navigate to full profile:', match.id)}
+            onCardClick={() => navigate(`/match/${match.id}`)}
           />
         ))}
       </div>

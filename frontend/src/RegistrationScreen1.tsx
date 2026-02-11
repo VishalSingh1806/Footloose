@@ -2,7 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, Heart, Phone, Mail, Eye, EyeOff, Loader2 } from 'lucide-react';
 
 interface RegistrationScreen1Props {
-  onNext: (data: { type: 'phone'; phoneNumber: string } | { type: 'email'; email: string; password: string }) => void;
+  onNext: (data: {
+    type: 'phone';
+    firstName: string;
+    lastName: string;
+    phoneNumber: string
+  } | {
+    type: 'email';
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string
+  }) => void;
   onBack: () => void;
 }
 
@@ -10,22 +21,21 @@ type SignUpMode = 'phone' | 'email';
 
 function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
   const [mode, setMode] = useState<SignUpMode>('phone');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState({ phone: '', email: '', password: '' });
+  const [errors, setErrors] = useState({ firstName: '', lastName: '', phone: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
+  const firstNameInputRef = useRef<HTMLInputElement>(null);
   const phoneInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (mode === 'phone') {
-      phoneInputRef.current?.focus();
-    } else {
-      emailInputRef.current?.focus();
-    }
-  }, [mode]);
+    firstNameInputRef.current?.focus();
+  }, []);
 
   const validatePhoneNumber = (number: string): boolean => {
     const cleaned = number.replace(/\D/g, '');
@@ -75,7 +85,23 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
     }
   };
 
+  const validateName = (name: string, field: 'firstName' | 'lastName'): boolean => {
+    if (!name || name.trim().length < 2) {
+      setErrors(prev => ({ ...prev, [field]: `${field === 'firstName' ? 'First' : 'Last'} name must be at least 2 characters` }));
+      return false;
+    }
+    setErrors(prev => ({ ...prev, [field]: '' }));
+    return true;
+  };
+
   const handleNext = async () => {
+    const firstNameValid = validateName(firstName, 'firstName');
+    const lastNameValid = validateName(lastName, 'lastName');
+
+    if (!firstNameValid || !lastNameValid) {
+      return;
+    }
+
     if (mode === 'phone') {
       if (!validatePhoneNumber(phoneNumber)) {
         setErrors(prev => ({ ...prev, phone: 'Please enter a valid 10-digit mobile number' }));
@@ -84,7 +110,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
 
       setIsLoading(true);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      onNext({ type: 'phone', phoneNumber: '+91' + phoneNumber });
+      onNext({ type: 'phone', firstName: firstName.trim(), lastName: lastName.trim(), phoneNumber: '+91' + phoneNumber });
     } else {
       const emailValid = validateEmail(email);
       const passwordValid = validatePassword(password);
@@ -92,14 +118,15 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
       if (emailValid && passwordValid) {
         setIsLoading(true);
         await new Promise(resolve => setTimeout(resolve, 500));
-        onNext({ type: 'email', email, password });
+        onNext({ type: 'email', firstName: firstName.trim(), lastName: lastName.trim(), email, password });
       }
     }
   };
 
+  const isNamesValid = firstName.trim().length >= 2 && lastName.trim().length >= 2;
   const isPhoneValid = validatePhoneNumber(phoneNumber);
   const isEmailValid = email && password && !errors.email && !errors.password && password.length >= 8;
-  const isValid = mode === 'phone' ? isPhoneValid : isEmailValid;
+  const isValid = mode === 'phone' ? (isNamesValid && isPhoneValid) : (isNamesValid && isEmailValid);
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
@@ -157,6 +184,66 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
           </div>
 
           <div className="flex-1">
+            {/* Name Fields (Common for both modes) */}
+            <div className="space-y-5 mb-6">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-semibold text-[#1D3557] mb-2">
+                  First Name
+                </label>
+                <input
+                  ref={firstNameInputRef}
+                  id="firstName"
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                    setErrors(prev => ({ ...prev, firstName: '' }));
+                  }}
+                  onBlur={() => firstName && validateName(firstName, 'firstName')}
+                  placeholder="Enter your first name"
+                  className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
+                    errors.firstName
+                      ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
+                      : 'border-[#E5E7EB] focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20'
+                  }`}
+                  aria-describedby={errors.firstName ? 'firstName-error' : undefined}
+                />
+                {errors.firstName && (
+                  <p id="firstName-error" className="mt-2 text-[13px] text-[#DC2626] animate-[slideDown_0.2s_ease-out]">
+                    {errors.firstName}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-semibold text-[#1D3557] mb-2">
+                  Last Name
+                </label>
+                <input
+                  id="lastName"
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                    setErrors(prev => ({ ...prev, lastName: '' }));
+                  }}
+                  onBlur={() => lastName && validateName(lastName, 'lastName')}
+                  placeholder="Enter your last name"
+                  className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
+                    errors.lastName
+                      ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
+                      : 'border-[#E5E7EB] focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20'
+                  }`}
+                  aria-describedby={errors.lastName ? 'lastName-error' : undefined}
+                />
+                {errors.lastName && (
+                  <p id="lastName-error" className="mt-2 text-[13px] text-[#DC2626] animate-[slideDown_0.2s_ease-out]">
+                    {errors.lastName}
+                  </p>
+                )}
+              </div>
+            </div>
+
             {/* Phone Mode */}
             {mode === 'phone' && (
               <>

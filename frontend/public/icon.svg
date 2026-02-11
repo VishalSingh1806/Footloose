@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="#E63946"/>
+
+  <!-- Heart Icon -->
+  <path d="M256 448L228.8 423.2C145.6 347.2 88 294.4 88 227.2C88 174.4 129.6 132.8 182.4 132.8C212 132.8 240.4 147.2 256 169.6C271.6 147.2 300 132.8 329.6 132.8C382.4 132.8 424 174.4 424 227.2C424 294.4 366.4 347.2 283.2 423.2L256 448Z" fill="white"/>
+
+  <!-- F Letter -->
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white" text-anchor="middle">F</text>
+</svg>

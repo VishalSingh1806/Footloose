@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useBackButton } from './hooks/useBackButton';
 import LandingPage from './LandingPage';
 import RegistrationScreen1 from './RegistrationScreen1';
 import RegistrationScreen2 from './RegistrationScreen2';
@@ -71,49 +72,82 @@ interface RegistrationData {
 }
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState<Screen>('landing');
-  const [registrationData, setRegistrationData] = useState<RegistrationData>({
-    authType: 'phone',
-    phoneNumber: '',
-    email: '',
-    password: '',
-    gender: '',
-    maritalStatus: '',
-    heightFeet: 0,
-    heightInches: 0,
-    weight: 0,
-    city: '',
-    state: '',
-    familyBackground: '',
-    parentsOutlook: '',
-    familyComfort: '',
-    whereYouLive: '',
-    livingArrangement: '',
-    religion: '',
-    community: '',
-    country: '',
-    currentCity: '',
-    industry: '',
-    role: '',
-    income: '',
-    lifePace: '',
-    weekdayActivity: '',
-    weekendActivities: [],
-    spendingPreference: '',
-    partnerPriorities: [],
-    relationshipIntent: '',
-    childrenPreference: '',
-    photos: [],
-    lifestylePhotos: [],
-    governmentId: null,
-    companyId: null,
+  // Load persisted state from localStorage on mount
+  const [currentScreen, setCurrentScreen] = useState<Screen>(() => {
+    const saved = localStorage.getItem('currentScreen');
+    return (saved as Screen) || 'landing';
   });
+
+  const [registrationData, setRegistrationData] = useState<RegistrationData>(() => {
+    const saved = localStorage.getItem('registrationData');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        // If parse fails, return default
+      }
+    }
+    return {
+      authType: 'phone',
+      phoneNumber: '',
+      email: '',
+      password: '',
+      gender: '',
+      maritalStatus: '',
+      heightFeet: 0,
+      heightInches: 0,
+      weight: 0,
+      city: '',
+      state: '',
+      familyBackground: '',
+      parentsOutlook: '',
+      familyComfort: '',
+      whereYouLive: '',
+      livingArrangement: '',
+      religion: '',
+      community: '',
+      country: '',
+      currentCity: '',
+      industry: '',
+      role: '',
+      income: '',
+      lifePace: '',
+      weekdayActivity: '',
+      weekendActivities: [],
+      spendingPreference: '',
+      partnerPriorities: [],
+      relationshipIntent: '',
+      childrenPreference: '',
+      photos: [],
+      lifestylePhotos: [],
+      governmentId: null,
+      companyId: null,
+    };
+  });
+
+  // Persist state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('currentScreen', currentScreen);
+  }, [currentScreen]);
+
+  useEffect(() => {
+    // Don't save File objects to localStorage
+    const dataToSave = {
+      ...registrationData,
+      governmentId: null,
+      companyId: null,
+    };
+    localStorage.setItem('registrationData', JSON.stringify(dataToSave));
+  }, [registrationData]);
 
   const handleGetStarted = () => {
     setCurrentScreen('registration-1');
   };
 
   const handleBackToLanding = () => {
+    // Clear persisted data when going back to landing
+    localStorage.removeItem('currentScreen');
+    localStorage.removeItem('registrationData');
     setCurrentScreen('landing');
   };
 

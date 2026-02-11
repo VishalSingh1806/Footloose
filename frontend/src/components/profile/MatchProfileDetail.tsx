@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Share2, MoreVertical, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, MoreVertical, AlertTriangle } from 'lucide-react';
 import { Match, generateMockMatches } from '../../services/matchService';
+import { useBackButton } from '../../hooks/useBackButton';
 import ProfileHeader from './ProfileHeader';
 import AboutMe from './AboutMe';
 import ProfileSection, { InfoRow } from './ProfileSection';
@@ -31,26 +32,11 @@ function MatchProfileDetail() {
   const contactUnlocked = false;
 
   const handleBack = () => {
-    navigate(-1);
+    navigate('/matches');
   };
 
-  const handleShare = async () => {
-    const profileUrl = `https://footloosenomo.re/profile/${match.userId}`;
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${match.name}'s Profile`,
-          text: `Check out ${match.name}'s profile on Footloose No More`,
-          url: profileUrl,
-        });
-      } catch (error) {
-        console.log('Error sharing:', error);
-      }
-    } else {
-      navigator.clipboard.writeText(profileUrl);
-      alert('Profile link copied to clipboard!');
-    }
-  };
+  // Handle Android back gesture
+  useBackButton(handleBack);
 
   const handleToggleShortlist = () => {
     setIsShortlisted(!isShortlisted);
@@ -64,7 +50,9 @@ function MatchProfileDetail() {
 
   const handleRequestSpeedDate = () => {
     console.log('Speed date requested with:', match.name);
-    // In production, this would open a scheduling modal
+    // Navigate directly to speed date call for testing
+    // In production, this would open a scheduling modal first
+    navigate(`/speed-date-call/${match.id}`);
   };
 
   const handleReport = (reason: string, details?: string) => {
@@ -110,24 +98,14 @@ I come from a ${match.familyStatus.toLowerCase()} ${match.familyType.toLowerCase
 
         <h1 className="text-lg font-semibold text-[#1D3557]">{match.name}</h1>
 
-        <div className="flex gap-2">
-          <button
-            onClick={handleShare}
-            className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center
-                       transition-colors"
-            aria-label="Share profile"
-          >
-            <Share2 size={20} className="text-[#1D3557]" />
-          </button>
-          <button
-            onClick={() => setShowReportModal(true)}
-            className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center
-                       transition-colors"
-            aria-label="More options"
-          >
-            <MoreVertical size={20} className="text-[#1D3557]" />
-          </button>
-        </div>
+        <button
+          onClick={() => setShowReportModal(true)}
+          className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center
+                     transition-colors"
+          aria-label="More options"
+        >
+          <MoreVertical size={20} className="text-[#1D3557]" />
+        </button>
       </div>
 
       {/* Profile Content */}
@@ -249,7 +227,6 @@ I come from a ${match.familyStatus.toLowerCase()} ${match.familyType.toLowerCase
         onSendInterest={handleSendInterest}
         onRequestSpeedDate={handleRequestSpeedDate}
         onShortlist={handleToggleShortlist}
-        onShare={handleShare}
         onMore={() => setShowReportModal(true)}
         isShortlisted={isShortlisted}
       />
