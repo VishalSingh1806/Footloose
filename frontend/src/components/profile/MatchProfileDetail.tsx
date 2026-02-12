@@ -17,6 +17,8 @@ function MatchProfileDetail() {
   const { matchId } = useParams<{ matchId: string }>();
   const navigate = useNavigate();
 
+  console.log('MatchProfileDetail rendering with matchId:', matchId);
+
   // For demo, get match from mock data
   const [match] = useState<Match>(() => {
     const mockMatches = generateMockMatches(20);

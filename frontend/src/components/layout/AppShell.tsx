@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
-import { Filter, Bell, Edit2 } from 'lucide-react';
+import { Filter, Bell, Edit2, Wallet } from 'lucide-react';
 import Layout from './Layout';
 import HomePage from '../home/HomePage';
 import SpeedDatesPage from '../speeddate/SpeedDatesPage';
@@ -11,11 +11,34 @@ import SpeedDateCallWrapper from '../speeddate/SpeedDateCallWrapper';
 import ChatConversation from '../chat/ChatConversation';
 import InstallPrompt from '../common/InstallPrompt';
 import { useInstallPrompt } from '../../hooks/useInstallPrompt';
+import { useSubscription } from '../../contexts/SubscriptionContext';
+import {
+  CreditsWallet,
+  PurchaseCredits,
+  SubscriptionPlans,
+  SubscriptionUpgrade,
+  PaymentSuccess,
+  PaymentFailed,
+  TransactionHistory,
+  CreditUsageBreakdown,
+  SubscriptionManagement,
+  CancelSubscription,
+  PremiumFeatures,
+  CreditsLowBanner,
+} from '../subscription';
+import { EditProfile } from '../profile/EditProfile';
+import { ProfilePhotoManagerPage } from '../profile/ProfilePhotoManagerPage';
+import { VerificationCenterPage } from '../profile/VerificationCenterPage';
+import { PrivacySettingsPage } from '../profile/PrivacySettingsPage';
+import { PartnerPreferencesEditorPage } from '../profile/PartnerPreferencesEditorPage';
+import { ProfilePreviewPage } from '../profile/ProfilePreviewPage';
+import { ProfileAnalytics } from '../profile/ProfileAnalytics';
 
 function AppShell() {
   const navigate = useNavigate();
   const location = useLocation();
   const { canInstall, isInstalled, promptInstall } = useInstallPrompt();
+  const { creditBalance } = useSubscription();
 
   // Sample badge counts (in real app, these would come from API/state management)
   const [badgeCounts] = useState({
@@ -80,6 +103,16 @@ function AppShell() {
           rightAction: (
             <>
               <button
+                onClick={() => navigate('/credits')}
+                className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
+                aria-label="Credits wallet"
+              >
+                <Wallet className="w-5 h-5 text-[#1D3557]" />
+                {creditBalance < 200 && (
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                )}
+              </button>
+              <button
                 className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors"
                 aria-label="Filter matches"
               >
@@ -103,15 +136,27 @@ function AppShell() {
           title: 'Speed Dates',
           showBackButton: false,
           rightAction: (
-            <button
-              className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
-              aria-label="Notifications"
-            >
-              <Bell className="w-5 h-5 text-[#1D3557]" />
-              {hasNotifications && (
-                <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
-              )}
-            </button>
+            <>
+              <button
+                onClick={() => navigate('/credits')}
+                className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
+                aria-label="Credits wallet"
+              >
+                <Wallet className="w-5 h-5 text-[#1D3557]" />
+                {creditBalance < 200 && (
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                )}
+              </button>
+              <button
+                className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
+                aria-label="Notifications"
+              >
+                <Bell className="w-5 h-5 text-[#1D3557]" />
+                {hasNotifications && (
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                )}
+              </button>
+            </>
           ),
         };
 
@@ -119,6 +164,18 @@ function AppShell() {
         return {
           title: 'Messages',
           showBackButton: false,
+          rightAction: (
+            <button
+              onClick={() => navigate('/credits')}
+              className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
+              aria-label="Credits wallet"
+            >
+              <Wallet className="w-5 h-5 text-[#1D3557]" />
+              {creditBalance < 200 && (
+                <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+              )}
+            </button>
+          ),
         };
 
       case '/profile':
@@ -126,12 +183,24 @@ function AppShell() {
           title: 'Profile',
           showBackButton: false,
           rightAction: (
-            <button
-              className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors"
-              aria-label="Edit profile"
-            >
-              <Edit2 className="w-5 h-5 text-[#1D3557]" />
-            </button>
+            <>
+              <button
+                onClick={() => navigate('/credits')}
+                className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors relative"
+                aria-label="Credits wallet"
+              >
+                <Wallet className="w-5 h-5 text-[#1D3557]" />
+                {creditBalance < 200 && (
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                )}
+              </button>
+              <button
+                className="w-11 h-11 flex items-center justify-center hover:bg-[#FAFAFA] rounded-lg transition-colors"
+                aria-label="Edit profile"
+              >
+                <Edit2 className="w-5 h-5 text-[#1D3557]" />
+              </button>
+            </>
           ),
         };
 
@@ -158,16 +227,42 @@ function AppShell() {
         {/* Chat Conversation (no Layout wrapper - has custom header) */}
         <Route path="/chat/:conversationId" element={<ChatConversation />} />
 
+        {/* Payment Success/Failed (full screen, no Layout wrapper) */}
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/failed" element={<PaymentFailed />} />
+
+        {/* Cancel Subscription Modal (overlay) */}
+        <Route path="/subscription/cancel" element={<CancelSubscription />} />
+
         {/* Main app routes (with Layout) */}
         <Route
-          path="/*"
+          path="*"
           element={
             <Layout topBarProps={getTopBarProps()} navBadges={badgeCounts}>
               <Routes>
-                <Route path="/matches" element={<HomePage />} />
-                <Route path="/speed-dates" element={<SpeedDatesPage />} />
-                <Route path="/messages" element={<MessagesPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="matches" element={<HomePage />} />
+                <Route path="speed-dates" element={<SpeedDatesPage />} />
+                <Route path="messages" element={<MessagesPage />} />
+                <Route path="profile" element={<ProfilePage />} />
+
+                {/* Subscription & Credits Routes */}
+                <Route path="credits" element={<CreditsWallet />} />
+                <Route path="credits/purchase" element={<PurchaseCredits />} />
+                <Route path="credits/usage" element={<CreditUsageBreakdown />} />
+                <Route path="subscription" element={<SubscriptionPlans />} />
+                <Route path="subscription/upgrade" element={<SubscriptionUpgrade />} />
+                <Route path="subscription/manage" element={<SubscriptionManagement />} />
+                <Route path="transactions" element={<TransactionHistory />} />
+                <Route path="premium" element={<PremiumFeatures />} />
+
+                {/* Profile Management Routes */}
+                <Route path="profile/edit" element={<EditProfile />} />
+                <Route path="profile/photos" element={<ProfilePhotoManagerPage />} />
+                <Route path="profile/verification" element={<VerificationCenterPage />} />
+                <Route path="profile/privacy" element={<PrivacySettingsPage />} />
+                <Route path="profile/preferences" element={<PartnerPreferencesEditorPage />} />
+                <Route path="profile/preview" element={<ProfilePreviewPage />} />
+                <Route path="profile/analytics" element={<ProfileAnalytics />} />
 
                 {/* Catch all - redirect to matches */}
                 <Route path="*" element={<Navigate to="/matches" replace />} />
@@ -185,6 +280,9 @@ function AppShell() {
           variant="banner"
         />
       )}
+
+      {/* Credits Low Banner (global) */}
+      <CreditsLowBanner />
     </>
   );
 }

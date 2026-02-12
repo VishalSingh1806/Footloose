@@ -51,12 +51,13 @@ function MatchCard({
     const target = e.target as HTMLElement;
     if (
       target.closest('button') ||
-      target.closest('.expandable-section') ||
-      target.closest('.photo-section')
+      target.closest('.expandable-section')
     ) {
+      console.log('Click blocked - button or expandable section');
       return;
     }
     // Navigate to full profile
+    console.log('Navigating to profile:', match.id);
     navigate(`/match/${match.id}`);
   };
 
@@ -118,7 +119,14 @@ function MatchCard({
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent" />
 
           {/* User ID, Age, Active Status */}
-          <div className="absolute bottom-4 left-4 right-4 text-white">
+          <div
+            className="absolute bottom-4 left-4 right-4 text-white cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('User info clicked, navigating to:', match.id);
+              navigate(`/match/${match.id}`);
+            }}
+          >
             <h2 className="text-xl font-bold mb-1 drop-shadow-lg">
               {match.userId}, {match.age}
             </h2>
@@ -146,7 +154,13 @@ function MatchCard({
         </div>
 
         {/* Quick Info Section */}
-        <div className="p-4 space-y-3">
+        <div
+          className="p-4 space-y-3 cursor-pointer hover:bg-gray-50 transition-colors"
+          onClick={() => {
+            console.log('Quick info clicked, navigating to:', match.id);
+            navigate(`/match/${match.id}`);
+          }}
+        >
           {/* Name */}
           <div className="flex items-center justify-between">
             <h3 className="text-2xl font-bold text-[#1D3557]">{match.name}</h3>
