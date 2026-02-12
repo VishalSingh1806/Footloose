@@ -5,7 +5,9 @@ interface RegistrationScreen22Props {
   onNext: () => void;
   onBack: () => void;
   profileData: {
-    name?: string;
+    firstName?: string;
+    lastName?: string;
+    name?: string; // Legacy support
     age?: number;
     city?: string;
     state?: string;
@@ -55,11 +57,20 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
     onNext();
   };
 
+  // Get full name
+  const getFullName = () => {
+    if (profileData.firstName && profileData.lastName) {
+      return `${profileData.firstName} ${profileData.lastName}`;
+    }
+    return profileData.name || 'User';
+  };
+
   // Auto-generated about text based on profile data
   const generateAboutText = () => {
     const profession = profileData.role || 'professional';
     const city = profileData.city || 'the city';
-    return `I'm a ${profession} living in ${city} who values family and meaningful connections. I enjoy a balanced lifestyle with time for fitness and friends. Looking for a serious relationship with someone who shares similar values and life goals.`;
+    const firstName = profileData.firstName || 'I';
+    return `${firstName === 'I' ? "I'm" : `${firstName} is`} a ${profession} living in ${city} who values family and meaningful connections. I enjoy a balanced lifestyle with time for fitness and friends. Looking for a serious relationship with someone who shares similar values and life goals.`;
   };
 
   // Generate lifestyle tags based on responses
@@ -138,7 +149,7 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
 
             {/* Name & Age */}
             <h2 className="text-xl font-semibold text-[#1D3557] mb-1">
-              {profileData.name || 'User'}, {profileData.age || '28'}
+              {getFullName()}, {profileData.age || '28'}
             </h2>
 
             {/* Location */}

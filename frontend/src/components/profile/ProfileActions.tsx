@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heart, Video, Star, Share2, MoreVertical, Check, Loader2 } from 'lucide-react';
+import { Heart, Video, Star, MoreVertical, Check, Loader2 } from 'lucide-react';
 
 interface ProfileActionsProps {
   matchName: string;
@@ -7,7 +7,6 @@ interface ProfileActionsProps {
   onSendInterest: () => void;
   onRequestSpeedDate: () => void;
   onShortlist: () => void;
-  onShare: () => void;
   onMore: () => void;
   isShortlisted?: boolean;
 }
@@ -20,7 +19,6 @@ function ProfileActions({
   onSendInterest,
   onRequestSpeedDate,
   onShortlist,
-  onShare,
   onMore,
   isShortlisted = false,
 }: ProfileActionsProps) {
@@ -57,24 +55,17 @@ function ProfileActions({
   return (
     <div
       className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200
-                    px-4 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] z-30"
-      style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
+                    px-5 py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] z-30"
+      style={{ paddingBottom: 'max(16px, env(safe-area-inset-bottom))' }}
     >
       {/* Secondary Actions */}
-      <div className="flex items-center justify-center gap-6 mb-3 text-sm">
+      <div className="flex items-center justify-center gap-8 mb-4 text-sm">
         <button
           onClick={onShortlist}
           className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#E63946] transition-colors"
         >
           <Star size={16} fill={isShortlisted ? '#F4A261' : 'none'} />
           <span>{isShortlisted ? 'Shortlisted' : 'Shortlist'}</span>
-        </button>
-        <button
-          onClick={onShare}
-          className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#E63946] transition-colors"
-        >
-          <Share2 size={16} />
-          <span>Share</span>
         </button>
         <button
           onClick={onMore}
@@ -86,31 +77,31 @@ function ProfileActions({
       </div>
 
       {/* Primary Actions */}
-      <div className="flex gap-3">
+      <div className="flex gap-4">
         {interestSent ? (
           <button
             disabled
-            className="flex-1 h-13 bg-green-500 text-white rounded-xl font-semibold
-                       flex items-center justify-center gap-2"
+            className="flex-1 h-14 bg-green-500 text-white rounded-xl font-semibold
+                       flex items-center justify-center gap-2 px-4"
           >
-            <Check size={20} />
+            <Check size={22} />
             <span>Interest Sent</span>
           </button>
         ) : (
           <button
             onClick={handleSendInterest}
             disabled={interestState !== 'idle'}
-            className="flex-1 h-13 bg-[#E63946] text-white rounded-xl font-semibold text-base
-                       flex items-center justify-center gap-2
+            className="flex-1 h-14 bg-[#E63946] text-white rounded-xl font-semibold text-base
+                       flex items-center justify-center gap-2 px-4
                        hover:bg-[#D62839] active:scale-95 transition-all
                        disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {interestState === 'loading' ? (
-              <Loader2 size={20} className="animate-spin" />
+              <Loader2 size={22} className="animate-spin" />
             ) : interestState === 'success' ? (
-              <Check size={20} />
+              <Check size={22} />
             ) : (
-              <Heart size={20} fill="white" />
+              <Heart size={22} fill="white" />
             )}
             <span>
               {interestState === 'success' ? 'Sent!' : `Send Interest`}
@@ -121,17 +112,17 @@ function ProfileActions({
         <button
           onClick={handleSpeedDate}
           disabled={speedDateState !== 'idle'}
-          className="flex-1 h-13 bg-[#2A9D8F] text-white rounded-xl font-semibold text-base
-                     flex items-center justify-center gap-2
+          className="flex-1 h-14 bg-[#2A9D8F] text-white rounded-xl font-semibold text-base
+                     flex items-center justify-center gap-2 px-4
                      hover:bg-[#238276] active:scale-95 transition-all
                      disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {speedDateState === 'loading' ? (
-            <Loader2 size={20} className="animate-spin" />
+            <Loader2 size={22} className="animate-spin" />
           ) : speedDateState === 'success' ? (
-            <Check size={20} />
+            <Check size={22} />
           ) : (
-            <Video size={20} />
+            <Video size={22} />
           )}
           <span className="hidden sm:inline">
             {speedDateState === 'success' ? 'Requested!' : 'Speed Date'}

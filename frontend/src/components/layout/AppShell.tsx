@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Filter, Bell, Edit2 } from 'lucide-react';
 import Layout from './Layout';
@@ -7,10 +7,15 @@ import SpeedDatesPage from '../speeddate/SpeedDatesPage';
 import MessagesPage from '../chat/MessagesPage';
 import ProfilePage from '../profile/ProfilePage';
 import { MatchProfileDetail } from '../profile';
+import SpeedDateCallWrapper from '../speeddate/SpeedDateCallWrapper';
+import ChatConversation from '../chat/ChatConversation';
+import InstallPrompt from '../common/InstallPrompt';
+import { useInstallPrompt } from '../../hooks/useInstallPrompt';
 
 function AppShell() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { canInstall, isInstalled, promptInstall } = useInstallPrompt();
 
   // Sample badge counts (in real app, these would come from API/state management)
   const [badgeCounts] = useState({
@@ -21,6 +26,47 @@ function AppShell() {
 
   // Notification badge (for top bar)
   const [hasNotifications] = useState(true);
+
+  // Install prompt state
+  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
+  const [installPromptDismissed, setInstallPromptDismissed] = useState(false);
+
+  // Show install prompt after a delay if app can be installed
+  useEffect(() => {
+    // Check if prompt was dismissed in the last 7 days
+    const dismissedTime = localStorage.getItem('installPromptDismissed');
+    if (dismissedTime) {
+      const daysSinceDismissed = (Date.now() - parseInt(dismissedTime)) / (1000 * 60 * 60 * 24);
+      if (daysSinceDismissed < 7) {
+        setInstallPromptDismissed(true);
+        return;
+      }
+    }
+
+    if (canInstall && !installPromptDismissed) {
+      // Show prompt after 10 seconds
+      const timer = setTimeout(() => {
+        setShowInstallPrompt(true);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [canInstall, installPromptDismissed]);
+
+  const handleInstall = async () => {
+    const success = await promptInstall();
+    if (success) {
+      setShowInstallPrompt(false);
+    }
+    return success;
+  };
+
+  const handleDismissInstall = () => {
+    setShowInstallPrompt(false);
+    setInstallPromptDismissed(true);
+    // Store in localStorage to not show again for 7 days
+    localStorage.setItem('installPromptDismissed', Date.now().toString());
+  };
 
   // Get TopBar props based on current route
   const getTopBarProps = () => {
@@ -98,31 +144,48 @@ function AppShell() {
   };
 
   return (
-    <Routes>
-      {/* Default route - redirect to matches */}
-      <Route path="/" element={<Navigate to="/matches" replace />} />
+    <>
+      <Routes>
+        {/* Default route - redirect to matches */}
+        <Route path="/" element={<Navigate to="/matches" replace />} />
 
-      {/* Match profile detail (no Layout wrapper - has custom top bar) */}
-      <Route path="/match/:matchId" element={<MatchProfileDetail />} />
+        {/* Match profile detail (no Layout wrapper - has custom top bar) */}
+        <Route path="/match/:matchId" element={<MatchProfileDetail />} />
 
-      {/* Main app routes (with Layout) */}
-      <Route
-        path="/*"
-        element={
-          <Layout topBarProps={getTopBarProps()} navBadges={badgeCounts}>
-            <Routes>
-              <Route path="/matches" element={<HomePage />} />
-              <Route path="/speed-dates" element={<SpeedDatesPage />} />
-              <Route path="/messages" element={<MessagesPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
+        {/* Speed Date Call Flow (no Layout wrapper - fullscreen video call) */}
+        <Route path="/speed-date-call/:matchId" element={<SpeedDateCallWrapper />} />
 
-              {/* Catch all - redirect to matches */}
-              <Route path="*" element={<Navigate to="/matches" replace />} />
-            </Routes>
-          </Layout>
-        }
-      />
-    </Routes>
+        {/* Chat Conversation (no Layout wrapper - has custom header) */}
+        <Route path="/chat/:conversationId" element={<ChatConversation />} />
+
+        {/* Main app routes (with Layout) */}
+        <Route
+          path="/*"
+          element={
+            <Layout topBarProps={getTopBarProps()} navBadges={badgeCounts}>
+              <Routes>
+                <Route path="/matches" element={<HomePage />} />
+                <Route path="/speed-dates" element={<SpeedDatesPage />} />
+                <Route path="/messages" element={<MessagesPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+
+                {/* Catch all - redirect to matches */}
+                <Route path="*" element={<Navigate to="/matches" replace />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
+
+      {/* Install Prompt */}
+      {showInstallPrompt && canInstall && !isInstalled && (
+        <InstallPrompt
+          onInstall={handleInstall}
+          onDismiss={handleDismissInstall}
+          variant="banner"
+        />
+      )}
+    </>
   );
 }
 

@@ -12,16 +12,11 @@ import {
   Camera,
 } from 'lucide-react';
 import { Match } from '../../services/matchService';
-import ActionButtons from './ActionButtons';
 import PhotoGallery from './PhotoGallery';
 import CompatibilityBadge from './CompatibilityBadge';
 
 interface MatchCardProps {
   match: Match;
-  onDontShow: () => void;
-  onShortlist: () => void;
-  onSpeedDate: () => void;
-  onSendInterest: () => void;
   onCardClick?: () => void;
 }
 
@@ -35,10 +30,6 @@ type ExpandedSection =
 
 function MatchCard({
   match,
-  onDontShow,
-  onShortlist,
-  onSpeedDate,
-  onSendInterest,
   onCardClick,
 }: MatchCardProps) {
   const navigate = useNavigate();
@@ -320,16 +311,6 @@ function MatchCard({
             </div>
           )}
         </div>
-
-        {/* Action Buttons */}
-        <ActionButtons
-          matchId={match.id}
-          matchName={match.name}
-          onDontShow={onDontShow}
-          onShortlist={onShortlist}
-          onSpeedDate={onSpeedDate}
-          onSendInterest={onSendInterest}
-        />
       </div>
 
       {/* Photo Gallery Modal */}
