@@ -33,6 +33,20 @@ import { PrivacySettingsPage } from '../profile/PrivacySettingsPage';
 import { PartnerPreferencesEditorPage } from '../profile/PartnerPreferencesEditorPage';
 import { ProfilePreviewPage } from '../profile/ProfilePreviewPage';
 import { ProfileAnalytics } from '../profile/ProfileAnalytics';
+import Settings from '../settings/Settings';
+import AccountSettings from '../settings/AccountSettings';
+import NotificationSettings from '../settings/NotificationSettings';
+import BlockedUsers from '../settings/BlockedUsers';
+import HelpCenter from '../settings/HelpCenter';
+import ContactSupport from '../settings/ContactSupport';
+import SafetyCenter from '../settings/SafetyCenter';
+import TermsAndPrivacy from '../settings/TermsAndPrivacy';
+import DeleteAccount from '../settings/DeleteAccount';
+import DataAndPrivacy from '../settings/DataAndPrivacy';
+import AboutApp from '../settings/AboutApp';
+import LanguageSettings from '../settings/LanguageSettings';
+import AccessibilitySettings from '../settings/AccessibilitySettings';
+import FeedbackForm from '../settings/FeedbackForm';
 
 function AppShell() {
   const navigate = useNavigate();
@@ -263,6 +277,22 @@ function AppShell() {
                 <Route path="profile/preferences" element={<PartnerPreferencesEditorPage />} />
                 <Route path="profile/preview" element={<ProfilePreviewPage />} />
                 <Route path="profile/analytics" element={<ProfileAnalytics />} />
+
+                {/* Settings Routes */}
+                <Route path="settings" element={<Settings />} />
+                <Route path="settings/account" element={<AccountSettings />} />
+                <Route path="settings/notifications" element={<NotificationSettings />} />
+                <Route path="settings/blocked-users" element={<BlockedUsers />} />
+                <Route path="settings/help" element={<HelpCenter />} />
+                <Route path="settings/support" element={<ContactSupport />} />
+                <Route path="settings/safety" element={<SafetyCenter />} />
+                <Route path="settings/terms" element={<TermsAndPrivacy />} />
+                <Route path="settings/delete-account" element={<DeleteAccount />} />
+                <Route path="settings/data-privacy" element={<DataAndPrivacy />} />
+                <Route path="settings/about" element={<AboutApp />} />
+                <Route path="settings/language" element={<LanguageSettings />} />
+                <Route path="settings/accessibility" element={<AccessibilitySettings />} />
+                <Route path="settings/feedback" element={<FeedbackForm />} />
 
                 {/* Catch all - redirect to matches */}
                 <Route path="*" element={<Navigate to="/matches" replace />} />

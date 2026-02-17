@@ -1,7 +1,17 @@
-export type MessageStatus = 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
+export type MessageStatus = 'sending' | 'sent' | 'failed';
 export type MessageType = 'text' | 'image' | 'video' | 'system';
 export type ConversationFilter = 'all' | 'unread' | 'archived';
-export type MatchSource = 'speed_date' | 'mutual_interest' | 'premium_unlock';
+export type MatchSource = 'speed_date' | 'premium_unlock';
+
+// State machine for chat unlock flow
+export type ChatUnlockState =
+  | 'NOT_MET'
+  | 'SPEED_DATE_REQUESTED'
+  | 'SPEED_DATE_SCHEDULED'
+  | 'SPEED_DATE_COMPLETED'
+  | 'UNLOCK_AVAILABLE'
+  | 'CHAT_UNLOCKED'
+  | 'CLOSED';
 
 export interface Message {
   id: string;
@@ -23,8 +33,7 @@ export interface Conversation {
   matchPhoto: string;
   matchSource: MatchSource;
   isVerified: boolean;
-  isOnline: boolean;
-  lastSeen?: string;
+  unlockState: ChatUnlockState;
   lastMessage?: Message;
   unreadCount: number;
   isTyping: boolean;

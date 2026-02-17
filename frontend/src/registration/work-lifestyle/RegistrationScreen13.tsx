@@ -54,7 +54,7 @@ function RegistrationScreen13({ onNext, onBack }: RegistrationScreen13Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          What do you typically do after work?
+          Weekday evenings
         </h1>
 
         {/* Options */}

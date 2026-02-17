@@ -1,10 +1,11 @@
-import { Heart } from 'lucide-react';
+import { Camera } from 'lucide-react';
 
-interface PlaceholderAProps {
+interface PlaceholderDProps {
   onContinue: () => void;
+  onBack: () => void;
 }
 
-function PlaceholderA({ onContinue }: PlaceholderAProps) {
+function PlaceholderD({ onContinue }: PlaceholderDProps) {
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center px-5 py-8">
       <div className="max-w-md w-full">
@@ -12,18 +13,18 @@ function PlaceholderA({ onContinue }: PlaceholderAProps) {
           {/* Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E63946]/10 to-[#F4A261]/10 flex items-center justify-center">
-              <Heart className="w-8 h-8 text-[#E63946]" />
+              <Camera className="w-8 h-8 text-[#E63946]" />
             </div>
           </div>
 
           {/* Heading */}
           <h1 className="text-2xl font-semibold text-[#1D3557] text-center mb-4">
-            Family context
+            Photos and verification
           </h1>
 
           {/* Body Text */}
           <p className="text-base text-[#6C757D] text-center leading-relaxed mb-8">
-            Family backgrounds being similar often matters more than people expect. Answer honestly. There's no right or wrong response.
+            Put your best foot forward.
           </p>
 
           {/* Continue Button */}
@@ -39,4 +40,4 @@ function PlaceholderA({ onContinue }: PlaceholderAProps) {
   );
 }
 
-export default PlaceholderA;
+export default PlaceholderD;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, MapPin, Heart, ChevronDown, ChevronUp, Edit2, Lock } from 'lucide-react';
 
-interface RegistrationScreen22Props {
+interface RegistrationScreen23Props {
   onNext: () => void;
   onBack: () => void;
   profileData: {
@@ -28,7 +28,7 @@ interface RegistrationScreen22Props {
   };
 }
 
-function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScreen22Props) {
+function RegistrationScreen23({ onNext, onBack, profileData }: RegistrationScreen23Props) {
   const [showModal, setShowModal] = useState(false);
   const [expandedSections, setExpandedSections] = useState({
     family: false,
@@ -114,11 +114,18 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
       {/* Main Content */}
       <div className="flex-1 px-5 py-6 pb-32 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-2">
-          Review Your Profile
+          Review your profile
         </h1>
-        <p className="text-sm text-[#6C757D] mb-6">
-          This is how others will see you. Make any changes before submitting.
+        <p className="text-sm text-[#6C757D] mb-2">
+          This is how your profile will appear after approval.
         </p>
+
+        {/* Review Notice */}
+        <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl px-4 py-3 mb-6">
+          <p className="text-sm text-[#1E40AF]">
+            Your profile will be reviewed before becoming visible to others.
+          </p>
+        </div>
 
         {/* Profile Preview Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-[#E5E7EB] overflow-hidden mb-6">
@@ -158,12 +165,6 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
               <span>{profileData.city || 'Mumbai'}, {profileData.state || 'Maharashtra'}</span>
             </div>
 
-            {/* Compatibility Section */}
-            <div className="mt-4 inline-flex items-center gap-2 bg-[#FEE2E2] text-[#E63946] px-4 py-2 rounded-full">
-              <Heart className="w-4 h-4 fill-current" />
-              <span className="text-sm font-medium">High Compatibility</span>
-            </div>
-            <p className="text-xs text-[#9CA3AF] mt-2">Based on your preferences</p>
           </div>
 
           {/* Quick Info Pills */}
@@ -302,7 +303,7 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
         <div className="bg-[#FEF3C7] border border-[#FCD34D] rounded-xl p-4 mb-6 flex gap-3">
           <Lock className="w-5 h-5 text-[#92400E] flex-shrink-0 mt-0.5" />
           <p className="text-sm text-[#92400E] leading-relaxed">
-            Some fields like name, mobile number, and date of birth cannot be changed after verification. Contact support if you need to update these.
+            Some fields like name, mobile number, and date of birth cannot be changed after approval. Contact support if you need to update these.
           </p>
         </div>
       </div>
@@ -314,7 +315,7 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
             onClick={handleSubmit}
             className="w-full h-[52px] rounded-xl font-semibold text-base bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] transition-all"
           >
-            Looks Good - Submit Profile
+            Submit for Review
           </button>
           <button
             onClick={onBack}
@@ -330,10 +331,10 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-5">
           <div className="bg-white rounded-2xl p-6 max-w-[400px] w-full shadow-2xl">
             <h3 className="text-xl font-semibold text-[#1D3557] mb-3">
-              Submit your profile for verification?
+              Submit profile for review?
             </h3>
             <p className="text-sm text-[#6C757D] mb-6">
-              You can still edit some details after verification.
+              You will be notified once approved.
             </p>
             <div className="space-y-3">
               <button
@@ -372,4 +373,4 @@ function RegistrationScreen22({ onNext, onBack, profileData }: RegistrationScree
   );
 }
 
-export default RegistrationScreen22;
+export default RegistrationScreen23;

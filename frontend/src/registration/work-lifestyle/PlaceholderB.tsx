@@ -1,22 +1,11 @@
-import { ChevronLeft } from 'lucide-react';
-
 interface PlaceholderBProps {
   onContinue: () => void;
   onBack: () => void;
 }
 
-function PlaceholderB({ onContinue, onBack }: PlaceholderBProps) {
+function PlaceholderB({ onContinue }: PlaceholderBProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F4A261] to-[#E76F51] flex flex-col relative overflow-hidden">
-      {/* Back Button */}
-      <button
-        onClick={onBack}
-        className="absolute top-4 left-4 p-2 hover:bg-white/10 rounded-lg transition-colors z-10"
-        aria-label="Go back"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-
       {/* Decorative circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl" />

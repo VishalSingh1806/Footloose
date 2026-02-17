@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface RegistrationScreen18Props {
-  onNext: (data: { childrenPreference: string }) => void;
+interface RegistrationScreen11Props {
+  onNext: (data: { income: string }) => void;
   onBack: () => void;
 }
 
-function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
-  const [selectedPreference, setSelectedPreference] = useState<string>('');
+function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
+  const [selectedIncome, setSelectedIncome] = useState<string>('');
 
-  const childrenOptions = [
-    "Don't want",
-    'Want later',
-    'Want soon',
-    'Open to adoption',
-    'Already have'
+  const incomeRanges = [
+    'Below ₹50k',
+    '₹50k - ₹75k',
+    '₹75k - ₹1L',
+    '₹1L - ₹1.5L',
+    '₹1.5L - ₹2L',
+    'Above ₹2L'
   ];
 
   const handleContinue = () => {
-    if (selectedPreference) {
-      onNext({ childrenPreference: selectedPreference });
+    if (selectedIncome) {
+      onNext({ income: selectedIncome });
     }
   };
 
@@ -37,7 +38,7 @@ function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
           </button>
           <div className="text-center">
             <p className="text-xs font-semibold tracking-wider text-[#6C757D] uppercase">
-              Children
+              Work & independence
             </p>
           </div>
         </div>
@@ -46,7 +47,7 @@ function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
-            style={{ width: '85%' }}
+            style={{ width: '60%' }}
           />
         </div>
       </div>
@@ -54,25 +55,25 @@ function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          What are your thoughts on having children?
+          Monthly income
         </h1>
 
         {/* Options */}
         <div className="space-y-3">
-          {childrenOptions.map((option) => (
+          {incomeRanges.map((income) => (
             <button
-              key={option}
-              onClick={() => setSelectedPreference(option)}
+              key={income}
+              onClick={() => setSelectedIncome(income)}
               className={`
                 w-full h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
-                  selectedPreference === option
+                  selectedIncome === income
                     ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
                     : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
                 }
               `}
             >
-              {option}
+              {income}
             </button>
           ))}
         </div>
@@ -83,11 +84,11 @@ function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!selectedPreference}
+            disabled={!selectedIncome}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                selectedPreference
+                selectedIncome
                   ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
                   : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
               }
@@ -102,4 +103,4 @@ function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
   );
 }
 
-export default RegistrationScreen18;
+export default RegistrationScreen11;

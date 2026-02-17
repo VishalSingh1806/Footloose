@@ -140,11 +140,11 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-2">
-          Keeping this genuine
+          ID verification
         </h1>
 
         <p className="text-base text-[#6C757D] mb-6">
-          Upload documents for profile verification
+          Upload documents for identity verification
         </p>
 
         {/* Upload Sections */}
@@ -179,7 +179,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
         <div className="bg-[#DBEAFE] rounded-xl p-4 border-l-4 border-[#3B82F6] flex gap-3">
           <Info className="w-5 h-5 text-[#3B82F6] flex-shrink-0 mt-0.5" />
           <p className="text-sm text-[#1D3557] leading-relaxed">
-            Your documents are encrypted and only used for verification. They will not be shown publicly.
+            Documents are encrypted and used only for identity verification. Not shown publicly.
           </p>
         </div>
       </div>

@@ -1,11 +1,10 @@
-import { Camera } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
-interface PlaceholderDProps {
+interface PlaceholderAProps {
   onContinue: () => void;
-  onBack: () => void;
 }
 
-function PlaceholderD({ onContinue }: PlaceholderDProps) {
+function PlaceholderA({ onContinue }: PlaceholderAProps) {
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center px-5 py-8">
       <div className="max-w-md w-full">
@@ -13,18 +12,18 @@ function PlaceholderD({ onContinue }: PlaceholderDProps) {
           {/* Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E63946]/10 to-[#F4A261]/10 flex items-center justify-center">
-              <Camera className="w-8 h-8 text-[#E63946]" />
+              <Heart className="w-8 h-8 text-[#E63946]" />
             </div>
           </div>
 
           {/* Heading */}
           <h1 className="text-2xl font-semibold text-[#1D3557] text-center mb-4">
-            Photos & verification
+            Family context
           </h1>
 
           {/* Body Text */}
           <p className="text-base text-[#6C757D] text-center leading-relaxed mb-8">
-            Put your best foot forward with profile photos. Lifestyle photos help others understand you and connect with intent.
+            Family backgrounds being similar often matters more than people expect. Answer honestly. There is no right or wrong response.
           </p>
 
           {/* Continue Button */}
@@ -40,4 +39,4 @@ function PlaceholderD({ onContinue }: PlaceholderDProps) {
   );
 }
 
-export default PlaceholderD;
+export default PlaceholderA;

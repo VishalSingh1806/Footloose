@@ -62,7 +62,7 @@ function RegistrationScreen3A({ onNext, onBack }: RegistrationScreen3AProps) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          A little about you
+          Personal details
         </h1>
 
         {/* Gender Section */}

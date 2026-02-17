@@ -1,26 +1,22 @@
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface RegistrationScreen11Props {
-  onNext: (data: { income: string }) => void;
+interface RegistrationScreen15Props {
+  onNext: (data: { spendingPreference: string }) => void;
   onBack: () => void;
 }
 
-function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
-  const [selectedIncome, setSelectedIncome] = useState<string>('');
+function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
+  const [selectedPreference, setSelectedPreference] = useState<string>('');
 
-  const incomeRanges = [
-    'Below ₹50k',
-    '₹50k - ₹75k',
-    '₹75k - ₹1L',
-    '₹1L - ₹1.5L',
-    '₹1.5L - ₹2L',
-    'Above ₹2L'
+  const preferences = [
+    'Experiences',
+    'Possessions'
   ];
 
   const handleContinue = () => {
-    if (selectedIncome) {
-      onNext({ income: selectedIncome });
+    if (selectedPreference) {
+      onNext({ spendingPreference: selectedPreference });
     }
   };
 
@@ -38,7 +34,7 @@ function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
           </button>
           <div className="text-center">
             <p className="text-xs font-semibold tracking-wider text-[#6C757D] uppercase">
-              Work & independence
+              What you lean towards
             </p>
           </div>
         </div>
@@ -47,7 +43,7 @@ function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
-            style={{ width: '60%' }}
+            style={{ width: '73%' }}
           />
         </div>
       </div>
@@ -55,25 +51,25 @@ function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          What is your monthly income range?
+          Spending preference
         </h1>
 
         {/* Options */}
         <div className="space-y-3">
-          {incomeRanges.map((income) => (
+          {preferences.map((preference) => (
             <button
-              key={income}
-              onClick={() => setSelectedIncome(income)}
+              key={preference}
+              onClick={() => setSelectedPreference(preference)}
               className={`
                 w-full h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
-                  selectedIncome === income
+                  selectedPreference === preference
                     ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
                     : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
                 }
               `}
             >
-              {income}
+              {preference}
             </button>
           ))}
         </div>
@@ -84,11 +80,11 @@ function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!selectedIncome}
+            disabled={!selectedPreference}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                selectedIncome
+                selectedPreference
                   ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
                   : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
               }
@@ -103,4 +99,4 @@ function RegistrationScreen11({ onNext, onBack }: RegistrationScreen11Props) {
   );
 }
 
-export default RegistrationScreen11;
+export default RegistrationScreen15;

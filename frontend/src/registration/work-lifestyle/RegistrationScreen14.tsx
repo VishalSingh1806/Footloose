@@ -1,22 +1,39 @@
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface RegistrationScreen15Props {
-  onNext: (data: { spendingPreference: string }) => void;
+interface RegistrationScreen14Props {
+  onNext: (data: { weekendActivities: string[] }) => void;
   onBack: () => void;
 }
 
-function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
-  const [selectedPreference, setSelectedPreference] = useState<string>('');
+function RegistrationScreen14({ onNext, onBack }: RegistrationScreen14Props) {
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
 
-  const preferences = [
-    'Experiences',
-    'Possessions'
+  const weekendOptions = [
+    'Going out',
+    'Short trips',
+    'Exercise',
+    'Family time',
+    'Social gatherings',
+    'Staying in',
+    'Hobbies'
   ];
 
+  const MAX_SELECTIONS = 5;
+
+  const toggleActivity = (activity: string) => {
+    if (selectedActivities.includes(activity)) {
+      setSelectedActivities(selectedActivities.filter(a => a !== activity));
+    } else {
+      if (selectedActivities.length < MAX_SELECTIONS) {
+        setSelectedActivities([...selectedActivities, activity]);
+      }
+    }
+  };
+
   const handleContinue = () => {
-    if (selectedPreference) {
-      onNext({ spendingPreference: selectedPreference });
+    if (selectedActivities.length > 0) {
+      onNext({ weekendActivities: selectedActivities });
     }
   };
 
@@ -34,7 +51,7 @@ function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
           </button>
           <div className="text-center">
             <p className="text-xs font-semibold tracking-wider text-[#6C757D] uppercase">
-              What you lean towards
+              Your weekends
             </p>
           </div>
         </div>
@@ -43,33 +60,41 @@ function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
-            style={{ width: '73%' }}
+            style={{ width: '70%' }}
           />
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
-        <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          Would you rather spend on experiences or possessions?
+        <h1 className="text-2xl font-semibold text-[#1D3557] mb-3">
+          Weekends
         </h1>
 
-        {/* Options */}
-        <div className="space-y-3">
-          {preferences.map((preference) => (
+        {/* Selection Counter */}
+        <p className="text-sm text-[#6C757D] mb-6">
+          {selectedActivities.length} / {MAX_SELECTIONS} selected
+        </p>
+
+        {/* Options - 2 Column Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          {weekendOptions.map((activity) => (
             <button
-              key={preference}
-              onClick={() => setSelectedPreference(preference)}
+              key={activity}
+              onClick={() => toggleActivity(activity)}
+              disabled={!selectedActivities.includes(activity) && selectedActivities.length >= MAX_SELECTIONS}
               className={`
-                w-full h-[56px] rounded-xl font-semibold text-base transition-all
+                h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
-                  selectedPreference === preference
+                  selectedActivities.includes(activity)
                     ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
+                    : selectedActivities.length >= MAX_SELECTIONS
+                    ? 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] opacity-50 cursor-not-allowed'
                     : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
                 }
               `}
             >
-              {preference}
+              {activity}
             </button>
           ))}
         </div>
@@ -80,11 +105,11 @@ function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!selectedPreference}
+            disabled={selectedActivities.length === 0}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                selectedPreference
+                selectedActivities.length > 0
                   ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
                   : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
               }
@@ -99,4 +124,4 @@ function RegistrationScreen15({ onNext, onBack }: RegistrationScreen15Props) {
   );
 }
 
-export default RegistrationScreen15;
+export default RegistrationScreen14;

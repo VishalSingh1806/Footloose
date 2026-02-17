@@ -56,7 +56,7 @@ function RegistrationScreen9({ onNext, onBack }: RegistrationScreen9Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-3">
-          Your roots
+          Religion & community
         </h1>
 
         {/* Religion Section */}

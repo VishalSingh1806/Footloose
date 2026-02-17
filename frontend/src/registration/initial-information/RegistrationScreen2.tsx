@@ -247,7 +247,7 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
           ) : isSuccess ? (
             <>
               <CheckCircle className="w-5 h-5 mr-2" />
-              Verified!
+              Verified
             </>
           ) : (
             'Verify'

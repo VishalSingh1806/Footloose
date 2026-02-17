@@ -1,44 +1,54 @@
 import { useState, useEffect } from 'react';
 import { useBackButton } from './hooks/useBackButton';
 import LandingPage from './LandingPage';
-import RegistrationScreen1 from './RegistrationScreen1';
-import RegistrationScreen2 from './RegistrationScreen2';
-import RegistrationScreen3A from './RegistrationScreen3A';
-import RegistrationScreen3B from './RegistrationScreen3B';
-import PlaceholderA from './PlaceholderA';
-import RegistrationScreen4 from './RegistrationScreen4';
-import RegistrationScreen5 from './RegistrationScreen5';
-import RegistrationScreen6 from './RegistrationScreen6';
-import RegistrationScreen7 from './RegistrationScreen7';
-import RegistrationScreen8 from './RegistrationScreen8';
-import RegistrationScreen9 from './RegistrationScreen9';
-import PlaceholderB from './PlaceholderB';
-import RegistrationScreen10A from './RegistrationScreen10A';
-import RegistrationScreen10B from './RegistrationScreen10B';
-import RegistrationScreen11 from './RegistrationScreen11';
-import RegistrationScreen12 from './RegistrationScreen12';
-import RegistrationScreen13 from './RegistrationScreen13';
-import RegistrationScreen14 from './RegistrationScreen14';
-import RegistrationScreen15 from './RegistrationScreen15';
-import PlaceholderC from './PlaceholderC';
-import RegistrationScreen16 from './RegistrationScreen16';
-import RegistrationScreen17 from './RegistrationScreen17';
-import RegistrationScreen18 from './RegistrationScreen18';
-import PlaceholderD from './PlaceholderD';
-import RegistrationScreen19 from './RegistrationScreen19';
-import RegistrationScreen20 from './RegistrationScreen20';
-import RegistrationScreen21 from './RegistrationScreen21';
-import RegistrationScreen22 from './RegistrationScreen22';
-import RegistrationScreen23 from './RegistrationScreen23';
+import ApprovalPendingScreen from './ApprovalPendingScreen';
 import AppShellDemo from './components/layout/AppShellDemo';
 
-type Screen = 'landing' | 'registration-1' | 'registration-2' | 'registration-3a' | 'registration-3b' | 'placeholder-a' | 'registration-4' | 'registration-5' | 'registration-6' | 'registration-7' | 'registration-8' | 'registration-9' | 'placeholder-b' | 'registration-10a' | 'registration-10b' | 'registration-11' | 'registration-12' | 'registration-13' | 'registration-14' | 'registration-15' | 'placeholder-c' | 'registration-16' | 'registration-17' | 'registration-18' | 'placeholder-d' | 'registration-19' | 'registration-20' | 'registration-21' | 'registration-22' | 'registration-23' | 'app-shell';
+// Initial Information (Screens 1-9 + Placeholder A)
+import RegistrationScreen1 from './registration/initial-information/RegistrationScreen1';
+import RegistrationScreen2 from './registration/initial-information/RegistrationScreen2';
+import RegistrationScreen3A from './registration/initial-information/RegistrationScreen3A';
+import RegistrationScreen3B from './registration/initial-information/RegistrationScreen3B';
+import PlaceholderA from './registration/initial-information/PlaceholderA';
+import RegistrationScreen4 from './registration/initial-information/RegistrationScreen4';
+import RegistrationScreen5 from './registration/initial-information/RegistrationScreen5';
+import RegistrationScreen6 from './registration/initial-information/RegistrationScreen6';
+import RegistrationScreen7 from './registration/initial-information/RegistrationScreen7';
+import RegistrationScreen8 from './registration/initial-information/RegistrationScreen8';
+import RegistrationScreen9 from './registration/initial-information/RegistrationScreen9';
+
+// Work & Lifestyle (Screens 10-15 + Placeholder B)
+import PlaceholderB from './registration/work-lifestyle/PlaceholderB';
+import RegistrationScreen10A from './registration/work-lifestyle/RegistrationScreen10A';
+import RegistrationScreen10B from './registration/work-lifestyle/RegistrationScreen10B';
+import RegistrationScreen11 from './registration/work-lifestyle/RegistrationScreen11';
+import RegistrationScreen12 from './registration/work-lifestyle/RegistrationScreen12';
+import RegistrationScreen13 from './registration/work-lifestyle/RegistrationScreen13';
+import RegistrationScreen14 from './registration/work-lifestyle/RegistrationScreen14';
+import RegistrationScreen15 from './registration/work-lifestyle/RegistrationScreen15';
+
+// Relationship Preferences (Screens 16-18 + Placeholder C)
+import PlaceholderC from './registration/relationship-preferences/PlaceholderC';
+import RegistrationScreen16 from './registration/relationship-preferences/RegistrationScreen16';
+import RegistrationScreen17 from './registration/relationship-preferences/RegistrationScreen17';
+import RegistrationScreen18 from './registration/relationship-preferences/RegistrationScreen18';
+
+// Photos & Verification (Screens 19-24 + Placeholder D)
+import PlaceholderD from './registration/photos-verification/PlaceholderD';
+import RegistrationScreen19 from './registration/photos-verification/RegistrationScreen19';
+import RegistrationScreen20 from './registration/photos-verification/RegistrationScreen20';
+import RegistrationScreen21 from './registration/photos-verification/RegistrationScreen21';
+import RegistrationScreen22 from './registration/photos-verification/RegistrationScreen22';
+import RegistrationScreen23 from './registration/photos-verification/RegistrationScreen23';
+import RegistrationScreen24 from './registration/photos-verification/RegistrationScreen24';
+
+type Screen = 'landing' | 'registration-1' | 'registration-2' | 'registration-3a' | 'registration-3b' | 'placeholder-a' | 'registration-4' | 'registration-5' | 'registration-6' | 'registration-7' | 'registration-8' | 'registration-9' | 'placeholder-b' | 'registration-10a' | 'registration-10b' | 'registration-11' | 'registration-12' | 'registration-13' | 'registration-14' | 'registration-15' | 'placeholder-c' | 'registration-16' | 'registration-17' | 'registration-18' | 'placeholder-d' | 'registration-19' | 'registration-20' | 'registration-21' | 'registration-22' | 'registration-23' | 'registration-24' | 'approval-pending' | 'app-shell';
 
 interface RegistrationData {
-  authType: 'phone' | 'email';
-  phoneNumber?: string;
-  email?: string;
-  password?: string;
+  authType: 'phone';
+  fullName: string;
+  phoneNumber: string;
+  email: string;
   gender: string;
   maritalStatus: string;
   heightFeet: number;
@@ -89,9 +99,9 @@ function App() {
     }
     return {
       authType: 'phone',
+      fullName: '',
       phoneNumber: '',
       email: '',
-      password: '',
       gender: '',
       maritalStatus: '',
       heightFeet: 0,
@@ -151,14 +161,15 @@ function App() {
     setCurrentScreen('landing');
   };
 
-  const handleAuthSubmit = (data: { type: 'phone'; phoneNumber: string } | { type: 'email'; email: string; password: string }) => {
-    if (data.type === 'phone') {
-      setRegistrationData({ ...registrationData, authType: 'phone', phoneNumber: data.phoneNumber });
-      setCurrentScreen('registration-2');
-    } else {
-      setRegistrationData({ ...registrationData, authType: 'email', email: data.email, password: data.password });
-      setCurrentScreen('registration-3a');
-    }
+  const handleAuthSubmit = (data: { fullName: string; phoneNumber: string; email: string }) => {
+    setRegistrationData({
+      ...registrationData,
+      authType: 'phone',
+      fullName: data.fullName,
+      phoneNumber: data.phoneNumber,
+      email: data.email
+    });
+    setCurrentScreen('registration-2');
   };
 
   const handleBackToPhone = () => {
@@ -170,11 +181,7 @@ function App() {
   };
 
   const handleBackToOtp = () => {
-    if (registrationData.authType === 'phone') {
-      setCurrentScreen('registration-2');
-    } else {
-      setCurrentScreen('registration-1');
-    }
+    setCurrentScreen('registration-2');
   };
 
   const handleIdentitySubmit = (data: { gender: string; maritalStatus: string }) => {
@@ -382,18 +389,26 @@ function App() {
     setCurrentScreen('registration-21');
   };
 
-  const handleProfileReviewSubmit = () => {
+  const handleVideoVerificationSubmit = () => {
     setCurrentScreen('registration-23');
   };
 
-  const handleBackToProfileReview = () => {
+  const handleBackToVideoVerification = () => {
     setCurrentScreen('registration-22');
+  };
+
+  const handleProfileReviewSubmit = () => {
+    setCurrentScreen('registration-24');
+  };
+
+  const handleBackToProfileReview = () => {
+    setCurrentScreen('registration-23');
   };
 
   const handleExploreMatches = () => {
     console.log('Registration complete! Data:', registrationData);
-    // Navigate to app shell
-    setCurrentScreen('app-shell');
+    // Navigate to approval pending screen
+    setCurrentScreen('approval-pending');
   };
 
   const handleViewProfile = () => {
@@ -649,8 +664,17 @@ function App() {
   if (currentScreen === 'registration-22') {
     return (
       <RegistrationScreen22
-        onNext={handleProfileReviewSubmit}
+        onNext={handleVideoVerificationSubmit}
         onBack={handleBackToIdVerification}
+      />
+    );
+  }
+
+  if (currentScreen === 'registration-23') {
+    return (
+      <RegistrationScreen23
+        onNext={handleProfileReviewSubmit}
+        onBack={handleBackToVideoVerification}
         profileData={{
           name: 'User',
           age: 28,
@@ -675,13 +699,17 @@ function App() {
     );
   }
 
-  if (currentScreen === 'registration-23') {
+  if (currentScreen === 'registration-24') {
     return (
-      <RegistrationScreen23
+      <RegistrationScreen24
         onExploreMatches={handleExploreMatches}
         onViewProfile={handleViewProfile}
       />
     );
+  }
+
+  if (currentScreen === 'approval-pending') {
+    return <ApprovalPendingScreen />;
   }
 
   if (currentScreen === 'app-shell') {

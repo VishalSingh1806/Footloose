@@ -1,40 +1,23 @@
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface RegistrationScreen16Props {
-  onNext: (data: { partnerPriorities: string[] }) => void;
+interface RegistrationScreen12Props {
+  onNext: (data: { lifePace: string }) => void;
   onBack: () => void;
 }
 
-function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
-  const [selectedPriorities, setSelectedPriorities] = useState<string[]>([]);
+function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
+  const [selectedPace, setSelectedPace] = useState<string>('');
 
-  const priorityOptions = [
-    'Physical attraction',
-    'Similar lifestyle',
-    'Family background',
-    'Financial stability',
-    'Ambition & drive',
-    'Emotional maturity',
-    'Sense of humour',
-    'Independence'
+  const paceOptions = [
+    'Pretty relaxed',
+    'Busy, manageable',
+    'Very busy'
   ];
 
-  const REQUIRED_SELECTIONS = 3;
-
-  const togglePriority = (priority: string) => {
-    if (selectedPriorities.includes(priority)) {
-      setSelectedPriorities(selectedPriorities.filter(p => p !== priority));
-    } else {
-      if (selectedPriorities.length < REQUIRED_SELECTIONS) {
-        setSelectedPriorities([...selectedPriorities, priority]);
-      }
-    }
-  };
-
   const handleContinue = () => {
-    if (selectedPriorities.length === REQUIRED_SELECTIONS) {
-      onNext({ partnerPriorities: selectedPriorities });
+    if (selectedPace) {
+      onNext({ lifePace: selectedPace });
     }
   };
 
@@ -52,7 +35,7 @@ function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
           </button>
           <div className="text-center">
             <p className="text-xs font-semibold tracking-wider text-[#6C757D] uppercase">
-              What really matters
+              Life Pace
             </p>
           </div>
         </div>
@@ -61,41 +44,33 @@ function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
-            style={{ width: '76%' }}
+            style={{ width: '63%' }}
           />
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
-        <h1 className="text-2xl font-semibold text-[#1D3557] mb-3">
-          Choose your top 3 priorities in a partner
+        <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
+          Life pace
         </h1>
 
-        {/* Selection Counter */}
-        <p className="text-sm text-[#6C757D] mb-6">
-          {selectedPriorities.length} / {REQUIRED_SELECTIONS} selected
-        </p>
-
-        {/* Options - 2 Column Grid */}
-        <div className="grid grid-cols-2 gap-3">
-          {priorityOptions.map((priority) => (
+        {/* Options */}
+        <div className="space-y-3">
+          {paceOptions.map((pace) => (
             <button
-              key={priority}
-              onClick={() => togglePriority(priority)}
-              disabled={!selectedPriorities.includes(priority) && selectedPriorities.length >= REQUIRED_SELECTIONS}
+              key={pace}
+              onClick={() => setSelectedPace(pace)}
               className={`
-                h-[56px] rounded-xl font-semibold text-base transition-all
+                w-full h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
-                  selectedPriorities.includes(priority)
+                  selectedPace === pace
                     ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
-                    : selectedPriorities.length >= REQUIRED_SELECTIONS
-                    ? 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] opacity-50 cursor-not-allowed'
                     : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
                 }
               `}
             >
-              {priority}
+              {pace}
             </button>
           ))}
         </div>
@@ -106,11 +81,11 @@ function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={selectedPriorities.length !== REQUIRED_SELECTIONS}
+            disabled={!selectedPace}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                selectedPriorities.length === REQUIRED_SELECTIONS
+                selectedPace
                   ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
                   : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
               }
@@ -125,4 +100,4 @@ function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
   );
 }
 
-export default RegistrationScreen16;
+export default RegistrationScreen12;

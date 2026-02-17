@@ -1,23 +1,25 @@
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface RegistrationScreen12Props {
-  onNext: (data: { lifePace: string }) => void;
+interface RegistrationScreen18Props {
+  onNext: (data: { childrenPreference: string }) => void;
   onBack: () => void;
 }
 
-function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
-  const [selectedPace, setSelectedPace] = useState<string>('');
+function RegistrationScreen18({ onNext, onBack }: RegistrationScreen18Props) {
+  const [selectedPreference, setSelectedPreference] = useState<string>('');
 
-  const paceOptions = [
-    'Pretty relaxed',
-    'Busy, manageable',
-    'Very busy'
+  const childrenOptions = [
+    "Don't want",
+    'Want later',
+    'Want soon',
+    'Open to adoption',
+    'Already have'
   ];
 
   const handleContinue = () => {
-    if (selectedPace) {
-      onNext({ lifePace: selectedPace });
+    if (selectedPreference) {
+      onNext({ childrenPreference: selectedPreference });
     }
   };
 
@@ -35,7 +37,7 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
           </button>
           <div className="text-center">
             <p className="text-xs font-semibold tracking-wider text-[#6C757D] uppercase">
-              How your days feel
+              Children
             </p>
           </div>
         </div>
@@ -44,7 +46,7 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
-            style={{ width: '63%' }}
+            style={{ width: '85%' }}
           />
         </div>
       </div>
@@ -52,25 +54,25 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          How your days feel
+          Children
         </h1>
 
         {/* Options */}
         <div className="space-y-3">
-          {paceOptions.map((pace) => (
+          {childrenOptions.map((option) => (
             <button
-              key={pace}
-              onClick={() => setSelectedPace(pace)}
+              key={option}
+              onClick={() => setSelectedPreference(option)}
               className={`
                 w-full h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
-                  selectedPace === pace
+                  selectedPreference === option
                     ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
                     : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
                 }
               `}
             >
-              {pace}
+              {option}
             </button>
           ))}
         </div>
@@ -81,11 +83,11 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!selectedPace}
+            disabled={!selectedPreference}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                selectedPace
+                selectedPreference
                   ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
                   : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
               }
@@ -100,4 +102,4 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
   );
 }
 
-export default RegistrationScreen12;
+export default RegistrationScreen18;
