@@ -20,9 +20,9 @@ function MatchCard({ profile, onPass, onMaybe, onSpeedDate, onViewProfile }) {
     >
       {/* Image Section */}
       <div className="relative h-[400px] bg-[#E5E7EB]">
-        {!imageError && profile.photo ? (
+        {!imageError && profile.photos?.[0] ? (
           <img
-            src={profile.photo}
+            src={profile.photos[0]}
             alt={`Profile photo of ${profile.name}`}
             className="w-full h-full object-cover"
             onError={() => setImageError(true)}
@@ -42,10 +42,10 @@ function MatchCard({ profile, onPass, onMaybe, onSpeedDate, onViewProfile }) {
         )}
 
         {/* Photo Count - Top Right */}
-        {profile.photoCount && (
+        {profile.photos?.length > 1 && (
           <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
             <ImageIcon className="w-3 h-3 text-white" />
-            <span className="text-white text-xs font-medium">{profile.photoCount}</span>
+            <span className="text-white text-xs font-medium">{profile.photos.length}</span>
           </div>
         )}
 
