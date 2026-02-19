@@ -407,8 +407,8 @@ function App() {
 
   const handleExploreMatches = () => {
     console.log('Registration complete! Data:', registrationData);
-    // Navigate to approval pending screen
     setCurrentScreen('approval-pending');
+    setTimeout(() => setCurrentScreen('app-shell'), 3000);
   };
 
   const handleViewProfile = () => {
