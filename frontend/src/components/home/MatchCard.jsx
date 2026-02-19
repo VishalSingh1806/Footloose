@@ -1,13 +1,11 @@
 import { Check, Image as ImageIcon, X, Video, Bookmark } from 'lucide-react';
 import { useState } from 'react';
 
-function MatchCard({ profile, onPass, onMaybe, onSpeedDate }) {
+function MatchCard({ profile, onPass, onMaybe, onSpeedDate, onViewProfile }) {
   const [imageError, setImageError] = useState(false);
 
   const handleCardClick = () => {
-    // Open full profile detail page
-    // This will be handled by routing/navigation
-    console.log('Open profile:', profile.id);
+    if (onViewProfile) onViewProfile(profile.id);
   };
 
   const handleActionClick = (e, action) => {

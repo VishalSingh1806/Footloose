@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronDown } from 'lucide-react';
-import { countriesData } from './countriesData';
+import { countriesData } from '../../countriesData';
 
 interface RegistrationScreen10AProps {
   onNext: (data: { country: string; currentCity: string }) => void;

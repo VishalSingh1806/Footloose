@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bell, Menu } from 'lucide-react';
 import MatchCard from './MatchCard';
 import EmptyState from './EmptyState';
 import DailyBatchStatus from './DailyBatchStatus';
 import MatchCardSkeleton from './MatchCardSkeleton';
+import { fetchMatches, passMatch, maybeMatch } from '../../services/matchService';
 
 function MatchFeed() {
+  const navigate = useNavigate();
   const [dailyBatch, setDailyBatch] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [batchDate, setBatchDate] = useState(null);
@@ -47,23 +50,15 @@ function MatchFeed() {
         return;
       }
 
-      // Fetch new batch from server
-      const response = await fetch('/api/matches/daily-batch', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+      // Fetch new batch (uses Supabase if configured, otherwise mock data)
+      const { matches } = await fetchMatches();
 
-      if (!response.ok) throw new Error('Failed to fetch daily batch');
-
-      const data = await response.json();
-
-      setDailyBatch(data.profiles || []);
+      setDailyBatch(matches);
       setBatchDate(new Date());
 
       // Cache batch for offline access
       cacheBatch({
-        profiles: data.profiles,
+        profiles: matches,
         date: new Date()
       });
 
@@ -93,23 +88,7 @@ function MatchFeed() {
     // Track action
     setActions(prev => ({ ...prev, [matchId]: 'passed' }));
 
-    // Send to backend
-    try {
-      await fetch('/api/matches/pass', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify({ matchId, date: new Date() })
-      });
-    } catch (err) {
-      console.error('Error logging pass:', err);
-      // Queue for sync if offline
-      if (!navigator.onLine) {
-        queueAction({ type: 'pass', matchId, date: new Date() });
-      }
-    }
+    await passMatch(matchId);
 
     // Analytics
     trackEvent('match_passed', { matchId, position: currentIndex });
@@ -119,26 +98,8 @@ function MatchFeed() {
     // Track action
     setActions(prev => ({ ...prev, [matchId]: 'maybe' }));
 
-    // Send to backend
-    try {
-      await fetch('/api/matches/maybe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify({ matchId, date: new Date() })
-      });
-
-      // Show toast
-      showToast('Added to Maybe list');
-    } catch (err) {
-      console.error('Error adding to maybe:', err);
-      // Queue for sync if offline
-      if (!navigator.onLine) {
-        queueAction({ type: 'maybe', matchId, date: new Date() });
-      }
-    }
+    await maybeMatch(matchId);
+    showToast('Added to Maybe list');
 
     // Analytics
     trackEvent('match_maybe', { matchId, position: currentIndex });
@@ -268,6 +229,7 @@ function MatchFeed() {
                 onPass={() => handlePass(profile.id)}
                 onMaybe={() => handleMaybe(profile.id)}
                 onSpeedDate={() => handleSpeedDate(profile.id)}
+                onViewProfile={(id) => navigate(`/match/${id}`)}
               />
             ))}
           </div>

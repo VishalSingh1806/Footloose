@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Lock, LockOpen } from 'lucide-react';
+import { Calendar, Clock, MapPin, Lock, Unlock } from 'lucide-react';
 
 export type SpeedDateStatus =
   | 'pending_sent'
@@ -127,7 +127,7 @@ function SpeedDateCard({
           {speedDate.status === 'confirmed' && (
             locked
               ? <Lock size={11} />
-              : <LockOpen size={11} />
+              : <Unlock size={11} />
           )}
           {statusConfig.label}
         </div>

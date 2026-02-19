@@ -4,8 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/Footloose/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/Footloose/' : '/',
   plugins: [
     mkcert(),
     react(),
@@ -60,8 +60,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
       },
       devOptions: {
-        enabled: true,
-        type: 'module',
+        enabled: false,
       },
     }),
   ],
@@ -72,4 +71,4 @@ export default defineConfig({
     host: true, // Listen on all network interfaces (0.0.0.0)
     port: 5173, // Default Vite port
   },
-});
+}));

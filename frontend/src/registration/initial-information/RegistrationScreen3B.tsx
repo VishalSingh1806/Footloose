@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronDown } from 'lucide-react';
-import { STATES, STATES_AND_CITIES } from './citiesData';
+import { STATES, STATES_AND_CITIES } from '../../citiesData';
 
 interface RegistrationScreen3BProps {
   onNext: (data: { heightFeet: number; heightInches: number; weight: number; city: string; state: string }) => void;

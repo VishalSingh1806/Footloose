@@ -10,6 +10,13 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
     return null;
   }
 
+  // Only run the service worker in production — in dev it intercepts Vite's
+  // HMR requests and causes "Failed to fetch" errors
+  if (import.meta.env.DEV) {
+    console.log('Service worker skipped in development mode');
+    return null;
+  }
+
   try {
     // Register custom service worker
     const registration = await navigator.serviceWorker.register('/sw-custom.js', {
