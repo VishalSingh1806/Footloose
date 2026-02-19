@@ -155,7 +155,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
               </div>
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Get Smart Matches</h3>
               <p className="text-[14px] text-[#6C757D] leading-relaxed">
-                Our algorithm finds profiles with 80%+ compatibility based on values, lifestyle, and preferences.
+                We show you profiles that match your preferences for age, location, values, lifestyle, and family background.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-[#F3F4F6] hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1">
@@ -199,7 +199,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
               <Target className="w-8 h-8 text-[#2A9D8F] mb-3" />
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Smart Matching</h3>
               <p className="text-[14px] text-[#6C757D]">
-                Only see 80%+ compatible matches based on values, not just looks or location.
+                See profiles based on your actual preferences — age, location, values, and lifestyle — not algorithmic scores.
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">

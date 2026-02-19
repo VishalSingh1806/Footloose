@@ -107,8 +107,8 @@ Permissions: ${JSON.stringify(systemInfo.permissions, null, 2)}
             />
             <FeatureItem
               icon="❤️"
-              title="Smart Compatibility Matching"
-              description="80%+ compatibility-based matching algorithm"
+              title="Preference-Based Matching"
+              description="Profiles curated to your age, location, values, and lifestyle preferences"
             />
             <FeatureItem
               icon="✓"

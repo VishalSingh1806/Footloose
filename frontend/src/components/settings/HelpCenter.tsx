@@ -41,7 +41,7 @@ const MOCK_FAQS: FAQ[] = [
   {
     id: 'faq_5',
     question: 'How does matching work?',
-    answer: 'Our AI-powered algorithm considers your preferences, interests, values, and compatibility scores to suggest the best matches. You can filter by location, age, education, and more.',
+    answer: 'We show you profiles based on your preferences for age, location, education, values, lifestyle, and family background. You can filter by location, age, education, and more to refine who you see.',
     category: 'Matching',
     helpful: 78,
   },

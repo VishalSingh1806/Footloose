@@ -7,7 +7,6 @@ interface AcceptRejectModalProps {
   matchAge: number;
   matchPhoto: string;
   matchLocation: string;
-  compatibility: number;
   suggestedSlots: string[];
   hoursLeft: number;
   onClose: () => void;
@@ -20,7 +19,6 @@ function AcceptRejectModal({
   matchAge,
   matchPhoto,
   matchLocation,
-  compatibility,
   suggestedSlots,
   hoursLeft,
   onClose,
@@ -134,9 +132,6 @@ function AcceptRejectModal({
               <div className="flex-1">
                 <h3 className="font-bold text-lg text-[#1D3557]">{matchName}, {matchAge}</h3>
                 <p className="text-sm text-[#6C757D]">{matchLocation}</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-sm font-semibold text-green-600">❤️ {compatibility}% Match</span>
-                </div>
               </div>
             </div>
           </div>

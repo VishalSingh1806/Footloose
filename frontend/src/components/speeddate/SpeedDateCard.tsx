@@ -1,6 +1,24 @@
-import { Calendar, Clock, MapPin } from 'lucide-react';
+import { Calendar, Clock, MapPin, Lock, LockOpen } from 'lucide-react';
 
-export type SpeedDateStatus = 'pending_sent' | 'pending_received' | 'confirmed' | 'completed' | 'declined';
+export type SpeedDateStatus =
+  | 'pending_sent'
+  | 'pending_received'
+  | 'confirmed'
+  | 'completed'
+  | 'declined'
+  | 'cancelled'
+  | 'noshow';
+
+export type SpeedDateEventState =
+  | 'SCHEDULED'
+  | 'LOCKED'
+  | 'LIVE'
+  | 'COMPLETED'
+  | 'COMPLETED_NOSHOW_A'
+  | 'COMPLETED_NOSHOW_B'
+  | 'CANCELLED_MUTUAL_NOSHOW'
+  | 'CANCELLED_SYSTEM_FAILURE'
+  | 'CANCELLED_USER';
 
 export interface SpeedDate {
   id: string;
@@ -9,8 +27,10 @@ export interface SpeedDate {
   matchAge: number;
   matchPhoto: string;
   matchLocation: string;
-  compatibility: number;
   status: SpeedDateStatus;
+  eventState?: SpeedDateEventState;
+  eventTime?: string;  // ISO timestamp — actual event start time
+  lockTime?: string;   // ISO timestamp — T-24h before event (set server-side)
   requestedAt?: string;
   confirmedDate?: string;
   confirmedTime?: string;
@@ -19,6 +39,7 @@ export interface SpeedDate {
   startsIn?: string;
   feedbackGiven?: boolean;
   mutualInterest?: boolean;
+  noShowCount?: number;   // Caller's running no-show total
 }
 
 interface SpeedDateCardProps {
@@ -32,6 +53,11 @@ interface SpeedDateCardProps {
   onSendMessage?: () => void;
 }
 
+function isEventLocked(lockTime?: string): boolean {
+  if (!lockTime) return false;
+  return new Date() >= new Date(lockTime);
+}
+
 function SpeedDateCard({
   speedDate,
   onAccept,
@@ -42,50 +68,28 @@ function SpeedDateCard({
   onGiveFeedback,
   onSendMessage,
 }: SpeedDateCardProps) {
+  const locked = isEventLocked(speedDate.lockTime);
+
   const getStatusConfig = () => {
     switch (speedDate.status) {
       case 'pending_sent':
-        return {
-          color: '#F77F00',
-          bgColor: '#FFF4E6',
-          label: 'Pending',
-          textColor: '#F77F00',
-        };
+        return { color: '#F77F00', bgColor: '#FFF4E6', label: 'Pending', textColor: '#F77F00' };
       case 'pending_received':
-        return {
-          color: '#2563EB',
-          bgColor: '#EFF6FF',
-          label: 'Action Needed',
-          textColor: '#2563EB',
-        };
+        return { color: '#2563EB', bgColor: '#EFF6FF', label: 'Action Needed', textColor: '#2563EB' };
       case 'confirmed':
-        return {
-          color: '#06D6A0',
-          bgColor: '#D1FAE5',
-          label: 'Confirmed',
-          textColor: '#06D6A0',
-        };
+        return locked
+          ? { color: '#DC2626', bgColor: '#FEE2E2', label: 'Locked', textColor: '#DC2626' }
+          : { color: '#06D6A0', bgColor: '#D1FAE5', label: 'Confirmed', textColor: '#06D6A0' };
       case 'completed':
-        return {
-          color: '#6C757D',
-          bgColor: '#F3F4F6',
-          label: 'Completed',
-          textColor: '#6C757D',
-        };
+        return { color: '#6C757D', bgColor: '#F3F4F6', label: 'Completed', textColor: '#6C757D' };
       case 'declined':
-        return {
-          color: '#DC2626',
-          bgColor: '#FEE2E2',
-          label: 'Declined',
-          textColor: '#DC2626',
-        };
+        return { color: '#DC2626', bgColor: '#FEE2E2', label: 'Declined', textColor: '#DC2626' };
+      case 'cancelled':
+        return { color: '#6C757D', bgColor: '#F3F4F6', label: 'Cancelled', textColor: '#6C757D' };
+      case 'noshow':
+        return { color: '#DC2626', bgColor: '#FEE2E2', label: 'No-Show', textColor: '#DC2626' };
       default:
-        return {
-          color: '#6C757D',
-          bgColor: '#F3F4F6',
-          label: 'Unknown',
-          textColor: '#6C757D',
-        };
+        return { color: '#6C757D', bgColor: '#F3F4F6', label: 'Unknown', textColor: '#6C757D' };
     }
   };
 
@@ -111,39 +115,48 @@ function SpeedDateCard({
             <div className="flex items-center gap-1 text-xs text-[#6C757D]">
               <MapPin size={12} />
               <span>{speedDate.matchLocation}</span>
-              {speedDate.compatibility && (
-                <>
-                  <span>•</span>
-                  <span className="text-green-600">{speedDate.compatibility}% Match</span>
-                </>
-              )}
             </div>
           </div>
         </div>
 
         {/* Status Badge */}
         <div
-          className="px-3 py-1 rounded-full text-xs font-semibold"
-          style={{
-            backgroundColor: statusConfig.bgColor,
-            color: statusConfig.textColor,
-          }}
+          className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold"
+          style={{ backgroundColor: statusConfig.bgColor, color: statusConfig.textColor }}
         >
+          {speedDate.status === 'confirmed' && (
+            locked
+              ? <Lock size={11} />
+              : <LockOpen size={11} />
+          )}
           {statusConfig.label}
         </div>
       </div>
 
       {/* Date/Time (if confirmed) */}
       {speedDate.status === 'confirmed' && speedDate.confirmedDate && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
-          <div className="flex items-center gap-2 text-sm font-semibold text-green-700">
+        <div className={`border rounded-lg p-3 mb-3 ${
+          locked
+            ? 'bg-red-50 border-red-200'
+            : 'bg-green-50 border-green-200'
+        }`}>
+          <div className={`flex items-center gap-2 text-sm font-semibold ${
+            locked ? 'text-red-700' : 'text-green-700'
+          }`}>
             <Calendar size={16} />
             <span>{speedDate.confirmedDate}</span>
             <Clock size={16} className="ml-2" />
             <span>{speedDate.confirmedTime}</span>
           </div>
           {speedDate.startsIn && (
-            <p className="text-xs text-green-600 mt-1">Starts in {speedDate.startsIn}</p>
+            <p className={`text-xs mt-1 ${locked ? 'text-red-600' : 'text-green-600'}`}>
+              {locked ? 'Locked — ' : ''}Starts in {speedDate.startsIn}
+            </p>
+          )}
+          {locked && (
+            <p className="text-xs text-red-600 font-medium mt-1">
+              No cancellations — join on time to avoid no-show charge
+            </p>
           )}
         </div>
       )}
@@ -151,7 +164,7 @@ function SpeedDateCard({
       {/* Status-specific Info */}
       {speedDate.status === 'pending_sent' && (
         <div className="text-sm text-[#6C757D] mb-3">
-          <p>Waiting for response • {speedDate.hoursLeft}h left</p>
+          <p>Waiting for response · {speedDate.hoursLeft}h left</p>
         </div>
       )}
 
@@ -168,16 +181,12 @@ function SpeedDateCard({
         <div className="flex items-center gap-2 mb-3">
           {speedDate.feedbackGiven ? (
             <div className="flex items-center gap-1 text-sm text-green-600">
-              <span className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center text-xs">
-                ✓
-              </span>
+              <span className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center text-xs">✓</span>
               <span>Feedback given</span>
             </div>
           ) : (
             <div className="flex items-center gap-1 text-sm text-orange-600">
-              <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-xs">
-                !
-              </span>
+              <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-xs">!</span>
               <span>Feedback pending</span>
             </div>
           )}
@@ -216,7 +225,7 @@ function SpeedDateCard({
             onClick={onCancel}
             className="text-sm text-red-600 hover:text-red-700 font-medium"
           >
-            Cancel Request (50% refund)
+            Cancel Request
           </button>
         )}
 
@@ -230,14 +239,30 @@ function SpeedDateCard({
               >
                 Join Call Now
               </button>
+            ) : locked ? (
+              <div className="flex-1 flex items-center gap-2 text-sm text-red-600 font-medium py-2">
+                <Lock size={14} />
+                <span>Event locked — no cancellations</span>
+              </div>
             ) : (
-              <button
-                onClick={onViewProfile}
-                className="flex-1 border-2 border-gray-300 text-gray-700 py-2.5 px-4 rounded-lg font-semibold
-                           hover:bg-gray-50 active:scale-95 transition-all"
-              >
-                View Profile
-              </button>
+              <div className="flex gap-2 flex-1">
+                <button
+                  onClick={onViewProfile}
+                  className="flex-1 border-2 border-gray-300 text-gray-700 py-2.5 px-4 rounded-lg font-semibold
+                             hover:bg-gray-50 active:scale-95 transition-all"
+                >
+                  View Profile
+                </button>
+                {onCancel && (
+                  <button
+                    onClick={onCancel}
+                    className="px-4 py-2.5 border-2 border-red-300 text-red-600 rounded-lg font-semibold
+                               hover:bg-red-50 active:scale-95 transition-all text-sm"
+                  >
+                    Cancel
+                  </button>
+                )}
+              </div>
             )}
           </>
         )}

@@ -28,7 +28,6 @@ function MatchProfileDetail() {
   const [isShortlisted, setIsShortlisted] = useState(false);
   const [interestSent, setInterestSent] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
-  const [showCompatibilityModal, setShowCompatibilityModal] = useState(false);
 
   // Mock contact unlocked status - in production this would be from API
   const contactUnlocked = false;
@@ -64,10 +63,6 @@ function MatchProfileDetail() {
   const handleBlock = () => {
     console.log('User blocked:', match.name);
     navigate(-1);
-  };
-
-  const handleViewCompatibility = () => {
-    setShowCompatibilityModal(true);
   };
 
   // Generate bio from match data
@@ -115,7 +110,6 @@ I come from a ${match.familyStatus.toLowerCase()} ${match.familyType.toLowerCase
         match={match}
         isShortlisted={isShortlisted}
         onToggleShortlist={handleToggleShortlist}
-        onViewCompatibility={handleViewCompatibility}
       />
 
       {/* About Me */}

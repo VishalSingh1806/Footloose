@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Star, Check, Crown, Heart, Info } from 'lucide-react';
+import { MapPin, Star, Check, Crown } from 'lucide-react';
 import { Match } from '../../services/matchService';
 import PhotoCarousel from './PhotoCarousel';
 
@@ -7,14 +7,12 @@ interface ProfileHeaderProps {
   match: Match;
   isShortlisted: boolean;
   onToggleShortlist: () => void;
-  onViewCompatibility: () => void;
 }
 
 function ProfileHeader({
   match,
   isShortlisted,
   onToggleShortlist,
-  onViewCompatibility,
 }: ProfileHeaderProps) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [showPhotoCarousel, setShowPhotoCarousel] = useState(false);
@@ -142,34 +140,6 @@ function ProfileHeader({
             ))}
           </div>
         )}
-      </div>
-
-      {/* Compatibility Banner */}
-      <div className="mx-4 -mt-8 relative z-20">
-        <button
-          onClick={onViewCompatibility}
-          className="w-full bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200
-                     rounded-xl p-4 shadow-lg hover:shadow-xl transition-shadow"
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                <Heart size={24} className="text-white" fill="white" />
-              </div>
-              <div className="text-left">
-                <p className="text-2xl font-bold text-green-700">{match.compatibility}%</p>
-                <p className="text-sm text-green-600 font-medium">Compatible Match</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-green-600">
-              <span className="text-sm">View Details</span>
-              <Info size={18} />
-            </div>
-          </div>
-          <p className="text-xs text-green-600 mt-2 text-center">
-            Based on 12 shared preferences
-          </p>
-        </button>
       </div>
 
       {/* Quick Stats Row */}

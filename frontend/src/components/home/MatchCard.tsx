@@ -4,7 +4,6 @@ import {
   MapPin,
   Briefcase,
   GraduationCap,
-  Heart,
   ChevronDown,
   ChevronUp,
   Check,
@@ -13,7 +12,6 @@ import {
 } from 'lucide-react';
 import { Match } from '../../services/matchService';
 import PhotoGallery from './PhotoGallery';
-import CompatibilityBadge from './CompatibilityBadge';
 
 interface MatchCardProps {
   match: Match;
@@ -97,11 +95,6 @@ function MatchCard({
 
           {/* Top-right badges */}
           <div className="absolute top-3 right-3 flex flex-col items-end gap-2">
-            {match.compatibility >= 85 && (
-              <div className="bg-white/95 backdrop-blur-sm border-2 border-[#E63946] text-[#E63946] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
-                👍 MOST COMPATIBLE
-              </div>
-            )}
             {match.verified && (
               <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                 <Check size={18} className="text-white" strokeWidth={3} />
@@ -196,11 +189,6 @@ function MatchCard({
               <MapPin size={16} className="text-[#6C757D]" />
               <span>{match.country}</span>
             </div>
-          </div>
-
-          {/* Compatibility Score */}
-          <div className="pt-2">
-            <CompatibilityBadge score={match.compatibility} />
           </div>
 
           {/* Profile managed by */}

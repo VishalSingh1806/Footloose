@@ -10,7 +10,6 @@ import {
   Download,
   Shield,
   Eye,
-  EyeOff,
   Clock,
   CheckCircle,
   AlertCircle,
@@ -233,13 +232,6 @@ export default function DataAndPrivacy() {
           <ToggleRow
             label="Profile Visibility"
             description="Show my profile in search results"
-            checked={true}
-            onChange={() => {}}
-            icon={<Eye size={18} className="text-gray-500" />}
-          />
-          <ToggleRow
-            label="Online Status"
-            description="Show when I'm online"
             checked={true}
             onChange={() => {}}
             icon={<Eye size={18} className="text-gray-500" />}

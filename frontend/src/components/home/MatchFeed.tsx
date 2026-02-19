@@ -16,7 +16,6 @@ export interface MatchFilters {
   maxAge?: number;
   maxDistance?: number;
   interests?: string[];
-  minCompatibility?: number;
 }
 
 function MatchFeed() {
@@ -84,9 +83,6 @@ function MatchFeed() {
       }
       if (activeFilters.includes('premium')) {
         filtered = filtered.filter((m) => m.premium);
-      }
-      if (activeFilters.includes('highMatch')) {
-        filtered = filtered.filter((m) => m.compatibility >= 80);
       }
     }
 

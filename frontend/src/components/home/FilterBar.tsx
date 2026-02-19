@@ -5,8 +5,7 @@ export type FilterType =
   | 'verified'
   | 'justJoined'
   | 'nearby'
-  | 'premium'
-  | 'highMatch';
+  | 'premium';
 
 interface Filter {
   id: FilterType;
@@ -33,7 +32,6 @@ function FilterBar({
     { id: 'justJoined', label: 'Just Joined', count: filterCounts.justJoined },
     { id: 'nearby', label: 'Nearby', count: filterCounts.nearby },
     { id: 'premium', label: 'Premium', count: filterCounts.premium },
-    { id: 'highMatch', label: '80%+ Match', count: filterCounts.highMatch },
   ];
 
   const isActive = (filterId: FilterType) => activeFilters.includes(filterId);
