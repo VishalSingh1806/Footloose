@@ -1,4 +1,4 @@
-import { Clock, Check, CheckCheck, AlertCircle } from 'lucide-react';
+import { Clock, Check, AlertCircle } from 'lucide-react';
 import { MessageStatus as Status } from '../../types/chat';
 
 interface MessageStatusProps {
@@ -16,16 +16,6 @@ function MessageStatus({ status, onRetry }: MessageStatusProps) {
     case 'sent':
       return (
         <Check size={14} className="text-gray-400" />
-      );
-
-    case 'delivered':
-      return (
-        <CheckCheck size={14} className="text-gray-400" />
-      );
-
-    case 'read':
-      return (
-        <CheckCheck size={14} className="text-[#2A9D8F]" />
       );
 
     case 'failed':

@@ -26,24 +26,6 @@ export function formatMessageTime(timestamp: string): string {
   }
 }
 
-export function formatLastSeen(timestamp: string): string {
-  const date = new Date(timestamp);
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const minutes = Math.floor(diff / (1000 * 60));
-
-  if (minutes < 5) {
-    return 'Active now';
-  } else if (minutes < 60) {
-    return `Active ${minutes}m ago`;
-  } else if (minutes < 1440) {
-    const hours = Math.floor(minutes / 60);
-    return `Active ${hours}h ago`;
-  } else {
-    const days = Math.floor(minutes / 1440);
-    return `Active ${days}d ago`;
-  }
-}
 
 export function formatConversationTime(timestamp: string): string {
   const date = new Date(timestamp);

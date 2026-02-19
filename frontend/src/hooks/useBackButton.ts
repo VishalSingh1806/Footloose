@@ -11,8 +11,11 @@ export function useBackButton(onBack: () => void) {
   }, [onBack]);
 
   useEffect(() => {
-    // Add a dummy history entry to intercept back navigation
-    window.history.pushState({ preventBack: true }, '');
+    // Delay the initial pushState to avoid interfering with navigation
+    const timer = setTimeout(() => {
+      // Add a dummy history entry to intercept back navigation
+      window.history.pushState({ preventBack: true }, '');
+    }, 100);
 
     const handlePopState = () => {
       // When user goes back, call our handler and push state again
@@ -24,6 +27,7 @@ export function useBackButton(onBack: () => void) {
     window.addEventListener('popstate', handlePopState);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('popstate', handlePopState);
       // Clean up the dummy state if component unmounts
       if (window.history.state?.preventBack) {

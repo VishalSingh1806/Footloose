@@ -1,4 +1,4 @@
-import { Conversation, Message, MessageStatus } from '../types/chat';
+import { Conversation, Message } from '../types/chat';
 import { indexedDBService } from './indexedDBService';
 
 // Mock data generator - replace with real API calls
@@ -12,14 +12,14 @@ export function generateMockConversations(): Conversation[] {
       matchPhoto: 'https://randomuser.me/api/portraits/women/1.jpg',
       matchSource: 'speed_date',
       isVerified: true,
-      isOnline: true,
+      unlockState: 'CHAT_UNLOCKED',
       lastMessage: {
         id: 'msg_1',
         conversationId: 'conv_1',
         senderId: 'match_1',
         text: 'That sounds great! When are you free this weekend?',
         timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-        status: 'read',
+        status: 'sent',
         type: 'text',
       },
       unreadCount: 2,
@@ -36,17 +36,16 @@ export function generateMockConversations(): Conversation[] {
       matchName: 'Ananya',
       matchAge: 26,
       matchPhoto: 'https://randomuser.me/api/portraits/women/2.jpg',
-      matchSource: 'mutual_interest',
+      matchSource: 'speed_date',
       isVerified: true,
-      isOnline: false,
-      lastSeen: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+      unlockState: 'CHAT_UNLOCKED',
       lastMessage: {
         id: 'msg_2',
         conversationId: 'conv_2',
         senderId: 'current_user',
         text: "I'd love to! What kind of cuisine do you prefer?",
         timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
-        status: 'delivered',
+        status: 'sent',
         type: 'text',
       },
       unreadCount: 0,
@@ -65,8 +64,7 @@ export function generateMockConversations(): Conversation[] {
       matchPhoto: 'https://randomuser.me/api/portraits/women/3.jpg',
       matchSource: 'premium_unlock',
       isVerified: false,
-      isOnline: false,
-      lastSeen: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+      unlockState: 'CHAT_UNLOCKED',
       unreadCount: 0,
       isTyping: false,
       isArchived: false,
@@ -91,7 +89,7 @@ export function generateMockMessages(conversationId: string, count: number = 20)
       senderId: isFromCurrentUser ? currentUserId : otherUserId,
       text: `This is message number ${i + 1}. ${isFromCurrentUser ? 'I sent this' : 'They sent this'}.`,
       timestamp: new Date(Date.now() - (count - i) * 60 * 60 * 1000).toISOString(),
-      status: isFromCurrentUser ? (['sent', 'delivered', 'read'][i % 3] as MessageStatus) : 'read',
+      status: 'sent',
       type: 'text',
     });
   }
@@ -148,22 +146,15 @@ class ChatService {
   }
 
   private handleMessage(data: any) {
-    // Handle different message types
     switch (data.type) {
       case 'new_message':
         // Dispatch to state management
-        break;
-      case 'message_read':
-        // Update message status
         break;
       case 'typing_start':
       case 'typing_stop':
         // Update typing indicator
         break;
-      case 'user_online':
-      case 'user_offline':
-        // Update online status
-        break;
+      // NOTE: message_read, user_online, user_offline intentionally not handled
     }
   }
 
@@ -233,18 +224,6 @@ class ChatService {
     }
   }
 
-  // Mark messages as read
-  markAsRead(conversationId: string, messageIds: string[]) {
-    // Send read receipt to server
-    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify({
-        type: 'mark_read',
-        conversationId,
-        messageIds,
-      }));
-    }
-  }
-
   // Send typing indicator
   sendTypingIndicator(conversationId: string, isTyping: boolean) {
     if (this.ws && this.ws.readyState === WebSocket.OPEN) {
@@ -267,7 +246,6 @@ class ChatService {
     // Otherwise fetch from server
     // In production: await api.loadMessages(conversationId, beforeMessageId);
 
-    // Mock implementation
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(generateMockMessages(conversationId, 20));
@@ -281,12 +259,8 @@ class ChatService {
 
     for (const queuedMsg of queuedMessages) {
       try {
-        // Send the message
         const message = await this.sendMessage(queuedMsg.conversationId, queuedMsg.text);
-
-        // Remove from queue on success
         await indexedDBService.removeFromQueue(queuedMsg.id);
-
         console.log('Synced queued message:', message.id);
       } catch (error) {
         console.error('Failed to sync message:', error);
@@ -299,7 +273,6 @@ class ChatService {
   async initOfflineSupport() {
     await indexedDBService.init();
 
-    // Listen for online/offline events
     window.addEventListener('online', () => {
       console.log('Back online - syncing messages...');
       this.syncQueuedMessages();

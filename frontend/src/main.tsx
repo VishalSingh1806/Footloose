@@ -5,6 +5,7 @@ import './index.css';
 import { registerServiceWorker } from './services/serviceWorkerRegistration';
 import { chatService } from './services/chatService';
 import { pushNotificationService } from './services/pushNotificationService';
+import { SubscriptionProvider } from './contexts/SubscriptionContext';
 
 // Initialize app services
 async function initializeApp() {
@@ -27,6 +28,8 @@ window.addEventListener('load', () => {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <SubscriptionProvider>
+      <App />
+    </SubscriptionProvider>
   </StrictMode>
 );

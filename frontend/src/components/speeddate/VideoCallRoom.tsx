@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ParticipantVideo from './ParticipantVideo';
 import VideoControls from './VideoControls';
 import CallTimer from './CallTimer';
@@ -15,6 +15,7 @@ interface VideoCallRoomProps {
   remoteStream: MediaStream | null;
   onEndCall: (reason?: string) => void;
   onReport: () => void;
+  onJoined?: (joinedAt: string) => void; // Server logs join timestamp for no-show detection
 }
 
 function VideoCallRoom({
@@ -24,6 +25,7 @@ function VideoCallRoom({
   remoteStream,
   onEndCall,
   onReport,
+  onJoined,
 }: VideoCallRoomProps) {
   const [isMuted, setIsMuted] = useState(false);
   const [isCameraOff, setIsCameraOff] = useState(false);
@@ -38,8 +40,28 @@ function VideoCallRoom({
   const [showTimeWarning, setShowTimeWarning] = useState(false);
   const [warningMessage, setWarningMessage] = useState('');
 
+  // Track join timestamp and call duration for no-show detection and emergency exit logging
+  const joinedAtRef = useRef<string>(new Date().toISOString());
+  const callDurationRef = useRef<number>(0);
+
   // Handle Android back gesture during active call - show emergency exit
   useBackButton(() => setShowEmergencyExit(true));
+
+  // Log join timestamp to server on mount (for no-show detection)
+  useEffect(() => {
+    const joinedAt = new Date().toISOString();
+    joinedAtRef.current = joinedAt;
+    onJoined?.(joinedAt);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Track call duration in seconds
+  useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      callDurationRef.current = Math.floor((Date.now() - startTime) / 1000);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Handle mute toggle
   const handleToggleMute = () => {
@@ -224,10 +246,10 @@ function VideoCallRoom({
       {showEmergencyExit && (
         <EmergencyExit
           matchName={matchName}
-          callDuration={180} // Example: 3 minutes
-          onConfirmEnd={(reason) => {
+          callDuration={callDurationRef.current}
+          onConfirmEnd={(reason, details) => {
             setShowEmergencyExit(false);
-            onEndCall(reason);
+            onEndCall(`${reason}${details ? ': ' + details : ''}`);
           }}
           onContinue={() => setShowEmergencyExit(false)}
         />

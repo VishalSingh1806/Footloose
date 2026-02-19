@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Video, Heart, Star, Check } from 'lucide-react';
+import { Video, Star, Check } from 'lucide-react';
 import ChatEmpty from './ChatEmpty';
 import { generateMockConversations } from '../../services/chatService';
 import { Conversation, ConversationFilter, MatchSource } from '../../types/chat';
@@ -24,8 +24,6 @@ function ChatList() {
     switch (source) {
       case 'speed_date':
         return <Video size={16} className="text-gray-400" />;
-      case 'mutual_interest':
-        return <Heart size={16} className="text-gray-400" />;
       case 'premium_unlock':
         return <Star size={16} className="text-gray-400" />;
     }
@@ -109,16 +107,13 @@ function ChatList() {
               className="w-full bg-white hover:bg-gray-50 px-4 py-4 flex items-center gap-3
                          transition-colors border-b border-gray-100"
             >
-              {/* Profile Photo with Online Indicator */}
-              <div className="relative flex-shrink-0">
+              {/* Profile Photo */}
+              <div className="flex-shrink-0">
                 <img
                   src={conversation.matchPhoto}
                   alt={conversation.matchName}
                   className="w-15 h-15 rounded-full object-cover"
                 />
-                {conversation.isOnline && (
-                  <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full" />
-                )}
               </div>
 
               {/* Content */}

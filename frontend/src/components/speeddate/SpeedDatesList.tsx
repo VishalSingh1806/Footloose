@@ -13,7 +13,6 @@ function SpeedDatesList() {
       matchAge: 28,
       matchPhoto: 'https://picsum.photos/seed/1/200',
       matchLocation: 'Mumbai',
-      compatibility: 88,
       status: 'pending_sent',
       requestedAt: '2 hours ago',
       hoursLeft: 46,
@@ -29,7 +28,6 @@ function SpeedDatesList() {
       matchAge: 26,
       matchPhoto: 'https://picsum.photos/seed/2/200',
       matchLocation: 'Delhi',
-      compatibility: 85,
       status: 'pending_received',
       requestedAt: '5 hours ago',
       hoursLeft: 43,
@@ -45,9 +43,11 @@ function SpeedDatesList() {
       matchAge: 27,
       matchPhoto: 'https://picsum.photos/seed/3/200',
       matchLocation: 'Bangalore',
-      compatibility: 92,
       status: 'confirmed',
-      confirmedDate: 'Wed, Feb 12',
+      eventState: 'SCHEDULED',
+      eventTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 5 * 60 * 60 * 1000).toISOString(),
+      lockTime: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000 + 5 * 60 * 60 * 1000).toISOString(),
+      confirmedDate: 'Wed, Feb 20',
       confirmedTime: '6:00 PM',
       startsIn: '2 days, 5 hours',
     },
@@ -61,7 +61,6 @@ function SpeedDatesList() {
       matchAge: 29,
       matchPhoto: 'https://picsum.photos/seed/4/200',
       matchLocation: 'Pune',
-      compatibility: 80,
       status: 'completed',
       feedbackGiven: false,
       mutualInterest: false,
@@ -141,6 +140,7 @@ function SpeedDatesList() {
                   key={date.id}
                   speedDate={date}
                   onJoin={() => console.log('Join call', date.id)}
+                  onCancel={() => console.log('Cancel', date.id)}
                   onViewProfile={() => console.log('View profile', date.matchId)}
                 />
               ))

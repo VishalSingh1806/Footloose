@@ -28,8 +28,6 @@ function ChatConversation() {
     name: 'Priya',
     age: 28,
     photo: 'https://randomuser.me/api/portraits/women/1.jpg',
-    isOnline: true,
-    lastSeen: new Date().toISOString(),
   };
 
   const currentUserId = 'current_user';
@@ -142,8 +140,6 @@ function ChatConversation() {
         name={matchData.name}
         age={matchData.age}
         photo={matchData.photo}
-        isOnline={matchData.isOnline}
-        lastSeen={matchData.lastSeen}
         onBack={() => navigate('/messages')}
         onOpenProfile={() => navigate(`/match/${conversationId}`)}
         onOpenMenu={() => {}}

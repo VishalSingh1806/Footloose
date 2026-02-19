@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Video, Wallet, Check, AlertCircle } from 'lucide-react';
+import { X, Video, Wallet, Check, AlertCircle, Calendar, Clock, Lock } from 'lucide-react';
 import SchedulePicker, { TimeSlot } from './SchedulePicker';
 
 interface RequestModalProps {
@@ -7,7 +7,6 @@ interface RequestModalProps {
   matchAge: number;
   matchPhoto: string;
   matchLocation: string;
-  compatibility: number;
   userCredits: number;
   requestCost: number;
   onClose: () => void;
@@ -19,7 +18,6 @@ function RequestModal({
   matchAge,
   matchPhoto,
   matchLocation,
-  compatibility,
   userCredits,
   requestCost,
   onClose,
@@ -27,9 +25,10 @@ function RequestModal({
 }: RequestModalProps) {
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([]);
   const [sending, setSending] = useState(false);
+  const [policyAgreed, setPolicyAgreed] = useState(false);
 
   const hasEnoughCredits = userCredits >= requestCost;
-  const canSend = hasEnoughCredits && selectedSlots.length > 0;
+  const canSend = hasEnoughCredits && selectedSlots.length > 0 && policyAgreed;
 
   const handleSend = async () => {
     if (!canSend) return;
@@ -74,9 +73,6 @@ function RequestModal({
               <div className="flex-1">
                 <h3 className="font-bold text-[#1D3557]">{matchName}, {matchAge}</h3>
                 <p className="text-sm text-[#6C757D]">{matchLocation}</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-xs font-semibold text-green-600">❤️ {compatibility}% Match</span>
-                </div>
               </div>
             </div>
           </div>
@@ -123,9 +119,68 @@ function RequestModal({
           {/* Schedule Picker */}
           <div className="mb-6">
             <h3 className="text-base font-semibold text-[#1D3557] mb-1">Suggest Your Available Times</h3>
-            <p className="text-sm text-[#6C757D] mb-4">{matchName} will pick one that works for her</p>
+            <p className="text-sm text-[#6C757D] mb-4">{matchName} will pick one that works</p>
             <SchedulePicker onSlotsChange={setSelectedSlots} />
           </div>
+
+          {/* Cancellation Policy */}
+          <div className="mb-6 bg-blue-50 rounded-xl p-4" style={{ borderLeft: '4px solid #3B82F6' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Clock size={20} className="text-blue-600 flex-shrink-0" />
+              <h3 className="text-[15px] font-semibold text-[#1D3557]">Cancellation Policy</h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <Calendar size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-[#1D3557]">Before booking: Free to change your mind</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Clock size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-[#1D3557]">Up to 24 hours before: Cancel for full refund</p>
+                  <p className="text-xs text-blue-700">200 credits refunded immediately</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Lock size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-red-700">Within 24 hours: Event locked</p>
+                  <p className="text-xs text-red-600">No cancellations or refunds after this point</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Video size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-[#1D3557]">Event time: Join on time</p>
+                  <p className="text-xs text-blue-700">No-shows are charged; the other person is refunded</p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-blue-700 mt-3 italic">
+              This policy ensures both people show up and prevents last-minute cancellations.
+            </p>
+          </div>
+
+          {/* Policy Agreement Checkbox */}
+          <label className="flex items-start gap-3 cursor-pointer mb-6 p-3 rounded-xl border-2
+                            border-gray-200 hover:border-[#E63946] transition-colors">
+            <input
+              type="checkbox"
+              checked={policyAgreed}
+              onChange={(e) => setPolicyAgreed(e.target.checked)}
+              className="mt-0.5 w-4 h-4 text-[#E63946] rounded focus:ring-[#E63946]"
+            />
+            <span className="text-sm text-[#1D3557] font-medium">
+              I understand the 24-hour lock policy and will attend if confirmed
+            </span>
+          </label>
 
           {/* Actions */}
           <div className="space-y-3">
