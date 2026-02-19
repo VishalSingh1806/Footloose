@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, Video, Check, Bell, Share2, Download, Lock, LockOpen } from 'lucide-react';
+import { Calendar, Clock, Video, Check, Bell, Share2, Download, Lock, Unlock } from 'lucide-react';
 
 interface SpeedDateConfirmedProps {
   matchName: string;
@@ -145,7 +145,7 @@ function SpeedDateConfirmed({
         ) : (
           <div className="bg-white border-2 border-green-200 rounded-xl p-4 mb-4 text-left">
             <div className="flex items-center gap-2 mb-1">
-              <LockOpen size={20} className="text-green-600" />
+              <Unlock size={20} className="text-green-600" />
               <p className="font-semibold text-green-700">
                 You can cancel until{' '}
                 {new Date(lockMs).toLocaleDateString('en-IN', {
