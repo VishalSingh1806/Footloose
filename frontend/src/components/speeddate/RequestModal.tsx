@@ -51,8 +51,8 @@ function RequestModal({
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-[#E63946]/10 rounded-full flex items-center justify-center">
-              <Video size={24} className="text-[#E63946]" />
+            <div className="w-12 h-12 bg-[#9B59B6]/10 rounded-full flex items-center justify-center">
+              <Video size={24} className="text-[#9B59B6]" />
             </div>
             <div>
               <h2 className="text-xl font-bold text-[#1D3557]">Request a Speed Date</h2>
@@ -94,7 +94,7 @@ function RequestModal({
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-[#1D3557]">Speed Date Request:</span>
-                <span className="text-lg font-bold text-[#E63946]">{requestCost} credits</span>
+                <span className="text-lg font-bold text-[#9B59B6]">{requestCost} credits</span>
               </div>
               {!hasEnoughCredits && (
                 <button className="mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium">
@@ -170,12 +170,12 @@ function RequestModal({
 
           {/* Policy Agreement Checkbox */}
           <label className="flex items-start gap-3 cursor-pointer mb-6 p-3 rounded-xl border-2
-                            border-gray-200 hover:border-[#E63946] transition-colors">
+                            border-gray-200 hover:border-[#9B59B6] transition-colors">
             <input
               type="checkbox"
               checked={policyAgreed}
               onChange={(e) => setPolicyAgreed(e.target.checked)}
-              className="mt-0.5 w-4 h-4 text-[#E63946] rounded focus:ring-[#E63946]"
+              className="mt-0.5 w-4 h-4 text-[#9B59B6] rounded focus:ring-[#9B59B6]"
             />
             <span className="text-sm text-[#1D3557] font-medium">
               I understand the 24-hour lock policy and will attend if confirmed
@@ -187,7 +187,7 @@ function RequestModal({
             <button
               onClick={handleSend}
               disabled={!canSend || sending}
-              className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold text-base
+              className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold text-base
                          hover:bg-[#D62839] active:scale-95 transition-all
                          disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >

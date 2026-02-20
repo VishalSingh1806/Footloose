@@ -15,13 +15,13 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
       icon: Crown,
       title: '1000 Credits Monthly',
       description: 'Never run out of credits. Get 1000 credits automatically every month.',
-      color: '#F4A261',
+      color: '#8E44AD',
     },
     {
       icon: Star,
       title: '50% Off Extra Credits',
       description: 'Get huge discounts when purchasing additional credit packages.',
-      color: '#E63946',
+      color: '#9B59B6',
     },
     {
       icon: Eye,
@@ -33,13 +33,13 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
       icon: MessageCircle,
       title: 'Unlimited Likes',
       description: 'Send unlimited likes and interests without any restrictions.',
-      color: '#E63946',
+      color: '#9B59B6',
     },
     {
       icon: Users,
       title: 'Advanced Filters',
       description: 'Use advanced search filters to find your perfect match faster.',
-      color: '#F4A261',
+      color: '#8E44AD',
     },
     {
       icon: Zap,
@@ -51,13 +51,13 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
       icon: Shield,
       title: 'Priority Support',
       description: 'Get priority customer support whenever you need help.',
-      color: '#E63946',
+      color: '#9B59B6',
     },
     {
       icon: Check,
       title: 'Ad-Free Experience',
       description: 'Enjoy a completely ad-free experience throughout the app.',
-      color: '#F4A261',
+      color: '#8E44AD',
     },
   ];
 
@@ -66,7 +66,7 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#FFF9E5] via-[#FEF3C7] to-[#FDE68A] pt-12 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="w-20 h-20 bg-[#F4A261] rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+          <div className="w-20 h-20 bg-[#8E44AD] rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
             <Crown size={40} className="text-white" fill="currentColor" />
           </div>
           <h1 className="text-4xl font-bold text-[#1D3557] mb-4">Go Premium</h1>
@@ -107,7 +107,7 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
           </h3>
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-3xl font-bold text-[#E63946] mb-1">3x</div>
+              <div className="text-3xl font-bold text-[#9B59B6] mb-1">3x</div>
               <p className="text-sm text-gray-600">More Profile Views</p>
             </div>
             <div>
@@ -115,7 +115,7 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
               <p className="text-sm text-gray-600">More Connections</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#F4A261] mb-1">60%</div>
+              <div className="text-3xl font-bold text-[#8E44AD] mb-1">60%</div>
               <p className="text-sm text-gray-600">Higher Success Rate</p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export function PremiumFeatures({ asModal = false, onClose }: PremiumFeaturesPro
           <div className="max-w-7xl mx-auto">
             <button
               onClick={() => navigate('/subscription')}
-              className="w-full bg-gradient-to-r from-[#E63946] to-[#F4A261] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+              className="w-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
             >
               Upgrade to Premium
             </button>

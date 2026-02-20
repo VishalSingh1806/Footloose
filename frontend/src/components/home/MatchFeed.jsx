@@ -213,7 +213,7 @@ function MatchFeed() {
             <p className="text-sm text-[#6C757D] mb-6">Check your connection and try again</p>
             <button
               onClick={fetchDailyBatch}
-              className="px-6 h-12 bg-[#E63946] text-white font-semibold rounded-xl hover:bg-[#D62828] transition-colors"
+              className="px-6 h-12 bg-[#9B59B6] text-white font-semibold rounded-xl hover:bg-[#8E44AD] transition-colors"
             >
               Retry
             </button>

@@ -85,13 +85,13 @@ function SpeedDatesList() {
               className={`flex-1 py-4 px-4 text-sm font-semibold relative transition-colors
                 ${
                   activeTab === tab.id
-                    ? 'text-[#E63946]'
+                    ? 'text-[#9B59B6]'
                     : 'text-[#6C757D] hover:text-[#1D3557]'
                 }`}
             >
               {tab.label} ({tab.count})
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E63946]" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#9B59B6]" />
               )}
             </button>
           ))}

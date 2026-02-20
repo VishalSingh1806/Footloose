@@ -91,7 +91,7 @@ function FilterPrompt({ isOpen, onClose }) {
             </p>
             <button
               onClick={handleUpdatePreferences}
-              className="text-sm text-[#E63946] font-medium underline hover:no-underline"
+              className="text-sm text-[#9B59B6] font-medium underline hover:no-underline"
             >
               Update Partner Preferences
             </button>

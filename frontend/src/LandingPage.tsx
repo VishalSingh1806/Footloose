@@ -49,12 +49,12 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Heart className="w-7 h-7 text-[#E63946]" fill="#E63946" />
-            <span className="text-xl font-semibold text-[#E63946]">Footloose No More</span>
+            <Heart className="w-7 h-7 text-[#9B59B6]" fill="#9B59B6" />
+            <span className="text-xl font-semibold text-[#9B59B6]">Footloose No More</span>
           </div>
           <button
             onClick={() => setShowLoginModal(true)}
-            className="text-[#E63946] font-semibold text-base hover:underline"
+            className="text-[#9B59B6] font-semibold text-base hover:underline"
           >
             Login
           </button>
@@ -62,7 +62,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-5 bg-gradient-to-b from-[#FFE5E5] to-[#FAFAFA]">
+      <section className="pt-32 pb-12 px-5 bg-gradient-to-b from-[#F5E6FF] to-[#FAFAFA]">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-[28px] md:text-[36px] font-bold text-[#1D3557] mb-4 leading-tight">
             Find Your Perfect Match Through Real Conversations
@@ -73,23 +73,23 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
           <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
             <button
               onClick={onGetStarted}
-              className="w-full md:w-auto h-[52px] md:h-[48px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl px-8 shadow-[0_2px_8px_rgba(230,57,70,0.2)] transition-all active:scale-[0.98]"
+              className="w-full md:w-auto h-[52px] md:h-[48px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl px-8 shadow-[0_2px_8px_rgba(155,89,182,0.2)] transition-all active:scale-[0.98]"
             >
               Get Started Free
             </button>
             <button
               onClick={scrollToHowItWorks}
-              className="w-full md:w-auto h-[52px] md:h-[48px] bg-transparent border-2 border-[#E63946] text-[#E63946] hover:bg-[#FFE5E5] font-semibold text-base rounded-xl px-8 transition-all"
+              className="w-full md:w-auto h-[52px] md:h-[48px] bg-transparent border-2 border-[#9B59B6] text-[#9B59B6] hover:bg-[#F5E6FF] font-semibold text-base rounded-xl px-8 transition-all"
             >
               How It Works
             </button>
           </div>
           <div className="flex justify-center">
             <div className="relative w-64 h-64">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#E63946] to-[#F4A261] rounded-full opacity-20 blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#9B59B6] to-[#8E44AD] rounded-full opacity-20 blur-3xl"></div>
               <div className="relative flex items-center justify-center h-full">
-                <Heart className="w-32 h-32 text-[#E63946]" fill="#E63946" />
-                <Sparkles className="absolute top-8 right-8 w-8 h-8 text-[#F4A261]" />
+                <Heart className="w-32 h-32 text-[#9B59B6]" fill="#9B59B6" />
+                <Sparkles className="absolute top-8 right-8 w-8 h-8 text-[#8E44AD]" />
                 <Sparkles className="absolute bottom-12 left-8 w-6 h-6 text-[#2A9D8F]" />
               </div>
             </div>
@@ -136,7 +136,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-[#F3F4F6] hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-[#E63946] text-white flex items-center justify-center text-xl font-bold">
+                <div className="w-12 h-12 rounded-full bg-[#9B59B6] text-white flex items-center justify-center text-xl font-bold">
                   1
                 </div>
                 <CheckCircle className="w-10 h-10 text-[#2A9D8F]" />
@@ -148,10 +148,10 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-[#F3F4F6] hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-[#E63946] text-white flex items-center justify-center text-xl font-bold">
+                <div className="w-12 h-12 rounded-full bg-[#9B59B6] text-white flex items-center justify-center text-xl font-bold">
                   2
                 </div>
-                <Sparkles className="w-10 h-10 text-[#F4A261]" />
+                <Sparkles className="w-10 h-10 text-[#8E44AD]" />
               </div>
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Get Smart Matches</h3>
               <p className="text-[14px] text-[#6C757D] leading-relaxed">
@@ -160,10 +160,10 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-[#F3F4F6] hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-[#E63946] text-white flex items-center justify-center text-xl font-bold">
+                <div className="w-12 h-12 rounded-full bg-[#9B59B6] text-white flex items-center justify-center text-xl font-bold">
                   3
                 </div>
-                <Video className="w-10 h-10 text-[#E63946]" />
+                <Video className="w-10 h-10 text-[#9B59B6]" />
               </div>
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Meet Face-to-Face</h3>
               <p className="text-[14px] text-[#6C757D] leading-relaxed">
@@ -189,7 +189,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-              <Video className="w-8 h-8 text-[#E63946] mb-3" />
+              <Video className="w-8 h-8 text-[#9B59B6] mb-3" />
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Speed Dating Built-In</h3>
               <p className="text-[14px] text-[#6C757D]">
                 10-minute video dates prevent catfishing and time-wasting. See real chemistry fast.
@@ -203,7 +203,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-              <Lock className="w-8 h-8 text-[#E63946] mb-3" />
+              <Lock className="w-8 h-8 text-[#9B59B6] mb-3" />
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Privacy First</h3>
               <p className="text-[14px] text-[#6C757D]">
                 Control who sees your profile. In-app chat before sharing contact details.
@@ -217,7 +217,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-              <Heart className="w-8 h-8 text-[#E63946] mb-3" />
+              <Heart className="w-8 h-8 text-[#9B59B6] mb-3" />
               <h3 className="text-[18px] font-semibold text-[#1D3557] mb-2">Serious Seekers Only</h3>
               <p className="text-[14px] text-[#6C757D]">
                 Designed for people ready for committed relationships, not casual dating.
@@ -234,9 +234,9 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
             <h2 className="text-[28px] font-semibold text-[#1D3557] mb-3">Success Stories</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#FFE5E5] rounded-xl p-6 border-l-4 border-[#E63946]">
+            <div className="bg-[#F5E6FF] rounded-xl p-6 border-l-4 border-[#9B59B6]">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-[60px] h-[60px] rounded-full bg-gradient-to-br from-[#E63946] to-[#F4A261] flex items-center justify-center">
+                <div className="w-[60px] h-[60px] rounded-full bg-gradient-to-br from-[#9B59B6] to-[#8E44AD] flex items-center justify-center">
                   <Heart className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <div>
@@ -248,7 +248,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
                 "I had my first speed date within 2 days of joining. We're now planning our wedding!"
               </p>
             </div>
-            <div className="bg-[#FFE5E5] rounded-xl p-6 border-l-4 border-[#E63946]">
+            <div className="bg-[#F5E6FF] rounded-xl p-6 border-l-4 border-[#9B59B6]">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-[60px] h-[60px] rounded-full bg-gradient-to-br from-[#2A9D8F] to-[#06D6A0] flex items-center justify-center">
                   <User className="w-8 h-8 text-white" />
@@ -267,7 +267,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-gradient-to-r from-[#E63946] to-[#D62828] py-16 px-5 text-white">
+      <section className="bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] py-16 px-5 text-white">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-[28px] md:text-[32px] font-bold mb-3">Ready to Find Your Match?</h2>
           <p className="text-[17px] mb-8 opacity-95">
@@ -275,7 +275,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
           </p>
           <button
             onClick={onGetStarted}
-            className="h-[52px] md:h-[48px] bg-white text-[#E63946] hover:bg-[#FFE5E5] font-semibold text-base rounded-xl px-10 shadow-lg transition-all active:scale-[0.98] inline-flex items-center gap-2"
+            className="h-[52px] md:h-[48px] bg-white text-[#9B59B6] hover:bg-[#F5E6FF] font-semibold text-base rounded-xl px-10 shadow-lg transition-all active:scale-[0.98] inline-flex items-center gap-2"
           >
             Create Free Account
             <ChevronRight className="w-5 h-5" />
@@ -357,7 +357,7 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
                 <input
                   type="text"
                   placeholder="Enter your email or phone"
-                  className="w-full h-[52px] border border-[#E5E7EB] rounded-xl px-4 text-base focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20 transition-all"
+                  className="w-full h-[52px] border border-[#E5E7EB] rounded-xl px-4 text-base focus:outline-none focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20 transition-all"
                 />
               </div>
               <div>
@@ -365,16 +365,16 @@ function LandingPage({ onGetStarted }: LandingPageProps) {
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="w-full h-[52px] border border-[#E5E7EB] rounded-xl px-4 text-base focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20 transition-all"
+                  className="w-full h-[52px] border border-[#E5E7EB] rounded-xl px-4 text-base focus:outline-none focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20 transition-all"
                 />
               </div>
             </div>
-            <button className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all">
+            <button className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all">
               Login
             </button>
             <p className="text-center text-sm text-[#6C757D] mt-4">
               Don't have an account?{' '}
-              <button className="text-[#E63946] font-semibold hover:underline">
+              <button className="text-[#9B59B6] font-semibold hover:underline">
                 Sign up free
               </button>
             </p>

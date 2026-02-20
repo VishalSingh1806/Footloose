@@ -59,7 +59,7 @@ export default function LanguageSettings() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -153,9 +153,9 @@ export default function LanguageSettings() {
 
         {/* Restart Notice */}
         {isSaving && (
-          <div className="bg-white rounded-2xl p-4 shadow-sm border-2 border-[#E63946]">
+          <div className="bg-white rounded-2xl p-4 shadow-sm border-2 border-[#9B59B6]">
             <div className="flex items-center gap-3">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#E63946]"></div>
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#9B59B6]"></div>
               <div>
                 <h3 className="font-semibold text-gray-900">Applying Changes...</h3>
                 <p className="text-sm text-gray-600">
@@ -197,7 +197,7 @@ const LanguageOption: React.FC<LanguageOptionProps> = ({
         <div
           className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
             isSelected
-              ? 'border-[#E63946] bg-[#E63946]'
+              ? 'border-[#9B59B6] bg-[#9B59B6]'
               : 'border-gray-300 bg-white'
           }`}
         >
@@ -209,8 +209,8 @@ const LanguageOption: React.FC<LanguageOptionProps> = ({
         </div>
       </div>
       {isSelected && (
-        <div className="px-3 py-1 bg-[#E63946] bg-opacity-10 rounded-full">
-          <span className="text-xs font-semibold text-[#E63946]">Active</span>
+        <div className="px-3 py-1 bg-[#9B59B6] bg-opacity-10 rounded-full">
+          <span className="text-xs font-semibold text-[#9B59B6]">Active</span>
         </div>
       )}
     </button>

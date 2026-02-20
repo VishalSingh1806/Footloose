@@ -118,7 +118,7 @@ export default function SafetyCenter() {
       {/* Content */}
       <div className="p-4 space-y-4">
         {/* Safety Pledge */}
-        <div className="bg-gradient-to-r from-[#E63946] to-[#d62839] rounded-2xl p-6 text-white">
+        <div className="bg-gradient-to-r from-[#9B59B6] to-[#d62839] rounded-2xl p-6 text-white">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
               <Shield size={24} className="text-white" />
@@ -209,19 +209,19 @@ export default function SafetyCenter() {
               <h3 className="font-semibold text-gray-900 mb-2">What Happens Next?</h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#E63946] font-bold">•</span>
+                  <span className="text-[#9B59B6] font-bold">•</span>
                   <span>Our team reviews all reports within 24 hours</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#E63946] font-bold">•</span>
+                  <span className="text-[#9B59B6] font-bold">•</span>
                   <span>Reported user may be warned, suspended, or banned</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#E63946] font-bold">•</span>
+                  <span className="text-[#9B59B6] font-bold">•</span>
                   <span>Your report is confidential and anonymous</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#E63946] font-bold">•</span>
+                  <span className="text-[#9B59B6] font-bold">•</span>
                   <span>You'll receive a notification about the outcome</span>
                 </li>
               </ul>
@@ -229,7 +229,7 @@ export default function SafetyCenter() {
 
             <button
               onClick={() => navigate('/settings/contact-support')}
-              className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors flex items-center justify-center gap-2"
             >
               <Flag size={20} />
               Contact Support Team
@@ -269,7 +269,7 @@ export default function SafetyCenter() {
         {/* Emergency Contacts */}
         <div className="bg-white rounded-2xl p-4 shadow-sm">
           <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Phone size={20} className="text-[#E63946]" />
+            <Phone size={20} className="text-[#9B59B6]" />
             Emergency Contacts
           </h2>
           <div className="space-y-3">
@@ -284,7 +284,7 @@ export default function SafetyCenter() {
                 </div>
                 <a
                   href={`tel:${contact.number}`}
-                  className="px-4 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+                  className="px-4 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
                 >
                   {contact.number}
                 </a>

@@ -191,16 +191,16 @@ function NoShowResolution({
           {content.body}
 
           {/* Balance */}
-          <div className="bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-xl p-3 text-center mt-4">
+          <div className="bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-xl p-3 text-center mt-4">
             <p className="text-xs text-gray-500 mb-1">Current balance</p>
-            <p className="text-xl font-bold text-[#F4A261]">{creditBalance} credits</p>
+            <p className="text-xl font-bold text-[#8E44AD]">{creditBalance} credits</p>
           </div>
         </div>
 
         <div className="p-6 border-t border-gray-200">
           <button
             onClick={onClose}
-            className="w-full bg-[#E63946] text-white py-3 px-6 rounded-xl font-semibold
+            className="w-full bg-[#9B59B6] text-white py-3 px-6 rounded-xl font-semibold
                        hover:bg-[#D62839] active:scale-95 transition-all"
           >
             Done

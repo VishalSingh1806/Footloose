@@ -93,7 +93,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
                   setFilters({ ...filters, minAge: parseInt(e.target.value) || undefined })
                 }
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg
-                         focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20"
+                         focus:outline-none focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20"
               />
               <span className="text-gray-500">to</span>
               <input
@@ -106,7 +106,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
                   setFilters({ ...filters, maxAge: parseInt(e.target.value) || undefined })
                 }
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg
-                         focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20"
+                         focus:outline-none focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20"
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
                 setFilters({ ...filters, maxDistance: parseInt(e.target.value) })
               }
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer
-                       accent-[#E63946]"
+                       accent-[#9B59B6]"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-2">
               <span>5 km</span>
@@ -149,7 +149,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
                 setFilters({ ...filters, minCompatibility: parseInt(e.target.value) })
               }
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer
-                       accent-[#E63946]"
+                       accent-[#9B59B6]"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-2">
               <span>50%</span>
@@ -172,7 +172,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all
                       ${
                         isSelected
-                          ? 'bg-[#E63946] text-white'
+                          ? 'bg-[#9B59B6] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                   >
@@ -197,7 +197,7 @@ function FilterModal({ currentFilters, onApply, onClose }: FilterModalProps) {
           <button
             onClick={handleApply}
             className="flex-1 py-3 px-6 rounded-lg font-semibold
-                     bg-[#E63946] text-white
+                     bg-[#9B59B6] text-white
                      hover:bg-[#D62839] active:scale-95 transition-all"
           >
             Apply Filters

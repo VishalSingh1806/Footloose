@@ -122,7 +122,7 @@ export function PaymentSuccess() {
         <div className="space-y-3">
           <button
             onClick={() => navigate('/credits')}
-            className="w-full bg-[#E63946] text-white py-4 rounded-xl font-bold shadow-lg hover:bg-[#D62839] transition-colors"
+            className="w-full bg-[#9B59B6] text-white py-4 rounded-xl font-bold shadow-lg hover:bg-[#D62839] transition-colors"
           >
             Go to Wallet
           </button>

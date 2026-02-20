@@ -49,7 +49,7 @@ export function CreditUsageBreakdown() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
       </div>
     );
   }
@@ -78,7 +78,7 @@ export function CreditUsageBreakdown() {
           <select
             value={period}
             onChange={e => setPeriod(Number(e.target.value))}
-            className="w-full md:w-auto px-4 py-2 bg-white border border-gray-200 rounded-lg font-semibold text-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#E63946]"
+            className="w-full md:w-auto px-4 py-2 bg-white border border-gray-200 rounded-lg font-semibold text-[#1D3557] focus:outline-none focus:ring-2 focus:ring-[#9B59B6]"
           >
             <option value={7}>Last 7 days</option>
             <option value={30}>Last 30 days</option>
@@ -98,7 +98,7 @@ export function CreditUsageBreakdown() {
             </p>
             <button
               onClick={() => navigate('/matches')}
-              className="bg-[#E63946] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
+              className="bg-[#9B59B6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
             >
               Find Matches
             </button>
@@ -111,7 +111,7 @@ export function CreditUsageBreakdown() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Credits Used</p>
-                  <p className="text-3xl font-bold text-[#E63946]">
+                  <p className="text-3xl font-bold text-[#9B59B6]">
                     {usageData.totalCredits.toLocaleString()}
                   </p>
                 </div>
@@ -137,13 +137,13 @@ export function CreditUsageBreakdown() {
                         <span className="text-sm font-semibold text-[#1D3557]">
                           {formatType(type)}
                         </span>
-                        <span className="text-sm font-bold text-[#E63946]">
+                        <span className="text-sm font-bold text-[#9B59B6]">
                           {data.credits} credits ({percentage}%)
                         </span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-4">
                         <div
-                          className="bg-[#E63946] h-4 rounded-full transition-all flex items-center justify-end pr-2"
+                          className="bg-[#9B59B6] h-4 rounded-full transition-all flex items-center justify-end pr-2"
                           style={{ width: `${percentage}%` }}
                         >
                           {parseFloat(percentage) > 15 && (
@@ -181,7 +181,7 @@ export function CreditUsageBreakdown() {
                       <p className="text-xs text-gray-500">{formatDate(usage.timestamp)}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-[#E63946]">-{usage.credits}</p>
+                      <p className="font-bold text-[#9B59B6]">-{usage.credits}</p>
                       <p className="text-xs text-gray-500">credits</p>
                     </div>
                   </div>

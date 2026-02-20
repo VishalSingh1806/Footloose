@@ -77,7 +77,7 @@ function RequestSent({
         <div className="space-y-3">
           <button
             onClick={onViewPending}
-            className="w-full bg-[#E63946] text-white py-3.5 px-6 rounded-xl font-semibold
+            className="w-full bg-[#9B59B6] text-white py-3.5 px-6 rounded-xl font-semibold
                        hover:bg-[#D62839] active:scale-95 transition-all"
           >
             View Pending Requests

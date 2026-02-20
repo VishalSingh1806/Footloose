@@ -67,7 +67,7 @@ Permissions: ${JSON.stringify(systemInfo.permissions, null, 2)}
       <div className="p-4 space-y-6">
         {/* App Logo & Info */}
         <div className="bg-white rounded-2xl p-8 shadow-sm text-center">
-          <div className="w-24 h-24 bg-gradient-to-br from-[#E63946] to-[#d62839] rounded-3xl mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold">
+          <div className="w-24 h-24 bg-gradient-to-br from-[#9B59B6] to-[#d62839] rounded-3xl mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold">
             FN
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -178,7 +178,7 @@ Permissions: ${JSON.stringify(systemInfo.permissions, null, 2)}
         <div className="bg-white rounded-2xl p-6 shadow-sm space-y-3">
           <button
             onClick={() => navigate('/settings/feedback')}
-            className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+            className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
           >
             Send Feedback
           </button>
@@ -187,7 +187,7 @@ Permissions: ${JSON.stringify(systemInfo.permissions, null, 2)}
               // Open app store review page
               alert('Opening app store...');
             }}
-            className="w-full py-3 px-4 border-2 border-[#E63946] text-[#E63946] rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            className="w-full py-3 px-4 border-2 border-[#9B59B6] text-[#9B59B6] rounded-lg font-semibold hover:bg-red-50 transition-colors"
           >
             Rate Us ⭐
           </button>
@@ -300,13 +300,13 @@ const SocialButton: React.FC<{
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-[#E63946] transition-all group"
+      className="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-[#9B59B6] transition-all group"
     >
       <div className="flex items-center gap-2">
-        <div className="font-semibold text-gray-900 group-hover:text-[#E63946]">
+        <div className="font-semibold text-gray-900 group-hover:text-[#9B59B6]">
           {platform}
         </div>
-        <ExternalLink size={14} className="text-gray-400 group-hover:text-[#E63946]" />
+        <ExternalLink size={14} className="text-gray-400 group-hover:text-[#9B59B6]" />
       </div>
       <div className="text-xs text-gray-600 mt-1">{handle}</div>
     </a>

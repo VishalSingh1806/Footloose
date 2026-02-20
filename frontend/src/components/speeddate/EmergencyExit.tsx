@@ -83,7 +83,7 @@ function EmergencyExit({ matchName, callDuration, onConfirmEnd, onContinue }: Em
                   key={reason.value}
                   className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all
                     ${selectedReason === reason.value
-                      ? 'border-[#E63946] bg-red-50'
+                      ? 'border-[#9B59B6] bg-red-50'
                       : 'border-gray-200 hover:border-gray-300'
                     }`}
                 >
@@ -93,7 +93,7 @@ function EmergencyExit({ matchName, callDuration, onConfirmEnd, onContinue }: Em
                     value={reason.value}
                     checked={selectedReason === reason.value}
                     onChange={(e) => handleReasonChange(e.target.value)}
-                    className="w-4 h-4 text-[#E63946] focus:ring-[#E63946]"
+                    className="w-4 h-4 text-[#9B59B6] focus:ring-[#9B59B6]"
                   />
                   <span className="text-[#1D3557] font-medium text-sm">{reason.label}</span>
                 </label>
@@ -111,7 +111,7 @@ function EmergencyExit({ matchName, callDuration, onConfirmEnd, onContinue }: Em
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Briefly describe why you're ending the call early..."
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#E63946]
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#9B59B6]
                          focus:outline-none resize-none"
               rows={3}
               maxLength={500}

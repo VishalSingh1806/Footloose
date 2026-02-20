@@ -192,14 +192,14 @@ export function VerificationCenter({
             <h3 className="text-base sm:text-lg font-bold text-[#1D3557]">
               Verification Progress
             </h3>
-            <span className="text-sm font-semibold text-[#E63946]">
+            <span className="text-sm font-semibold text-[#9B59B6]">
               {completedVerifications}/{verificationItems.length}
             </span>
           </div>
 
           <div className="relative w-full h-3 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="absolute top-0 left-0 h-full bg-[#E63946] transition-all duration-500"
+              className="absolute top-0 left-0 h-full bg-[#9B59B6] transition-all duration-500"
               style={{
                 width: `${(completedVerifications / verificationItems.length) * 100}%`,
               }}
@@ -259,7 +259,7 @@ export function VerificationCenter({
                         {item.title}
                       </h4>
                       {item.required && (
-                        <span className="px-2 py-0.5 bg-[#E63946] text-white text-xs font-bold rounded-full">
+                        <span className="px-2 py-0.5 bg-[#9B59B6] text-white text-xs font-bold rounded-full">
                           Required
                         </span>
                       )}
@@ -283,7 +283,7 @@ export function VerificationCenter({
 
                   {!isVerified && (
                     <div className="flex-shrink-0">
-                      <div className="px-3 sm:px-4 py-2 bg-[#E63946] text-white rounded-lg text-xs sm:text-sm font-semibold">
+                      <div className="px-3 sm:px-4 py-2 bg-[#9B59B6] text-white rounded-lg text-xs sm:text-sm font-semibold">
                         Verify
                       </div>
                     </div>
@@ -347,7 +347,7 @@ export function VerificationCenter({
 
               {/* Actions */}
               <div className="space-y-3">
-                <button className="w-full bg-[#E63946] text-white py-3 sm:py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-[#9B59B6] text-white py-3 sm:py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors flex items-center justify-center gap-2">
                   <Camera size={20} />
                   <span>Start Verification</span>
                 </button>

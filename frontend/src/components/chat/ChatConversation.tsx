@@ -197,7 +197,7 @@ function ChatConversation() {
         >
           <ArrowDown size={20} className="text-gray-600" />
           {newMessageCount > 0 && (
-            <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#E63946] rounded-full
+            <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#9B59B6] rounded-full
                            flex items-center justify-center">
               <span className="text-white text-xs font-bold">{newMessageCount}</span>
             </div>

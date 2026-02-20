@@ -63,7 +63,7 @@ export default function AccountSettings() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -75,7 +75,7 @@ export default function AccountSettings() {
           <p className="text-gray-600">Failed to load account information</p>
           <button
             onClick={loadAccountInfo}
-            className="mt-4 text-[#E63946] font-semibold"
+            className="mt-4 text-[#9B59B6] font-semibold"
           >
             Try Again
           </button>
@@ -296,7 +296,7 @@ const ActionButton: React.FC<{
     <div className="px-4 pb-4">
       <button
         onClick={onClick}
-        className="text-[#E63946] font-semibold hover:text-[#d62839] transition-colors"
+        className="text-[#9B59B6] font-semibold hover:text-[#d62839] transition-colors"
       >
         {children}
       </button>
@@ -350,7 +350,7 @@ const ChangeEmailModal: React.FC<{
             value={newEmail}
             onChange={(e) => setNewEmail(e.target.value)}
             placeholder="Enter new email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent mb-4"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent mb-4"
           />
           <div className="flex gap-3">
             <button
@@ -362,7 +362,7 @@ const ChangeEmailModal: React.FC<{
             <button
               onClick={handleSendOTP}
               disabled={!newEmail || isLoading}
-              className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isLoading ? 'Sending...' : 'Send OTP'}
             </button>
@@ -379,7 +379,7 @@ const ChangeEmailModal: React.FC<{
             onChange={(e) => setOtp(e.target.value)}
             placeholder="Enter 6-digit OTP"
             maxLength={6}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent mb-4 text-center text-2xl tracking-widest"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent mb-4 text-center text-2xl tracking-widest"
           />
           <div className="flex gap-3">
             <button
@@ -391,7 +391,7 @@ const ChangeEmailModal: React.FC<{
             <button
               onClick={handleVerify}
               disabled={otp.length !== 6 || isLoading}
-              className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isLoading ? 'Verifying...' : 'Verify'}
             </button>
@@ -451,7 +451,7 @@ const ChangePhoneModal: React.FC<{
             value={newPhone}
             onChange={(e) => setNewPhone(e.target.value)}
             placeholder="+91 98765 43210"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent mb-4"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent mb-4"
           />
           <div className="flex gap-3">
             <button
@@ -463,7 +463,7 @@ const ChangePhoneModal: React.FC<{
             <button
               onClick={handleSendOTP}
               disabled={!newPhone || isLoading}
-              className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isLoading ? 'Sending...' : 'Send OTP'}
             </button>
@@ -480,7 +480,7 @@ const ChangePhoneModal: React.FC<{
             onChange={(e) => setOtp(e.target.value)}
             placeholder="Enter 6-digit OTP"
             maxLength={6}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent mb-4 text-center text-2xl tracking-widest"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent mb-4 text-center text-2xl tracking-widest"
           />
           <div className="flex gap-3">
             <button
@@ -492,7 +492,7 @@ const ChangePhoneModal: React.FC<{
             <button
               onClick={handleVerify}
               disabled={otp.length !== 6 || isLoading}
-              className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isLoading ? 'Verifying...' : 'Verify'}
             </button>
@@ -550,7 +550,7 @@ const ChangePasswordModal: React.FC<{
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
             placeholder="Current password"
-            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
           />
           <button
             type="button"
@@ -567,7 +567,7 @@ const ChangePasswordModal: React.FC<{
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
             placeholder="New password"
-            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
           />
           <button
             type="button"
@@ -584,7 +584,7 @@ const ChangePasswordModal: React.FC<{
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm new password"
-            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+            className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
           />
           <button
             type="button"
@@ -627,7 +627,7 @@ const ChangePasswordModal: React.FC<{
         <button
           onClick={handleSave}
           disabled={!isValid || isLoading}
-          className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+          className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
         >
           {isLoading ? 'Saving...' : 'Save'}
         </button>

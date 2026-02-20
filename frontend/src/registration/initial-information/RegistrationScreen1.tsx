@@ -139,7 +139,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
                   className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
                     errors.fullName
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
-                      : 'border-[#E5E7EB] focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20'
+                      : 'border-[#E5E7EB] focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20'
                   }`}
                   aria-describedby={errors.fullName ? 'fullName-error' : undefined}
                 />
@@ -174,7 +174,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
                       className={`w-full h-[52px] border rounded-[10px] px-4 text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
                         errors.phone
                           ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
-                          : 'border-[#E5E7EB] focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20'
+                          : 'border-[#E5E7EB] focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20'
                       }`}
                       aria-label="Mobile number"
                       aria-invalid={!!errors.phone}
@@ -204,7 +204,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
                   className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
                     errors.email
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
-                      : 'border-[#E5E7EB] focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/20'
+                      : 'border-[#E5E7EB] focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20'
                   }`}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                 />
@@ -226,8 +226,8 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
           disabled={!isValid || isLoading}
           className={`w-full h-[52px] rounded-xl font-semibold text-base transition-all flex items-center justify-center ${
             isValid && !isLoading
-              ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
-              : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+              ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]'
+              : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
           }`}
           aria-label="Continue to next step"
         >

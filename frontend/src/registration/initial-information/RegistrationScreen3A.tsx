@@ -53,7 +53,7 @@ function RegistrationScreen3A({ onNext, onBack }: RegistrationScreen3AProps) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '10%' }}
           />
         </div>
@@ -79,8 +79,8 @@ function RegistrationScreen3A({ onNext, onBack }: RegistrationScreen3AProps) {
                   h-12 px-6 rounded-3xl font-semibold text-[15px] transition-all duration-200
                   ${
                     gender === option
-                      ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)] scale-[1.02]'
-                      : 'bg-white text-[#6C757D] border-2 border-[#E5E7EB] hover:border-[#E63946] hover:text-[#E63946]'
+                      ? 'bg-[#9B59B6] text-white shadow-[0_2px_8px_rgba(155,89,182,0.2)] scale-[1.02]'
+                      : 'bg-white text-[#6C757D] border-2 border-[#E5E7EB] hover:border-[#9B59B6] hover:text-[#9B59B6]'
                   }
                 `}
                 role="radio"
@@ -107,8 +107,8 @@ function RegistrationScreen3A({ onNext, onBack }: RegistrationScreen3AProps) {
                   h-12 px-6 rounded-3xl font-semibold text-[15px] transition-all duration-200
                   ${
                     maritalStatus === option
-                      ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)] scale-[1.02]'
-                      : 'bg-white text-[#6C757D] border-2 border-[#E5E7EB] hover:border-[#E63946] hover:text-[#E63946]'
+                      ? 'bg-[#9B59B6] text-white shadow-[0_2px_8px_rgba(155,89,182,0.2)] scale-[1.02]'
+                      : 'bg-white text-[#6C757D] border-2 border-[#E5E7EB] hover:border-[#9B59B6] hover:text-[#9B59B6]'
                   }
                 `}
                 role="radio"
@@ -132,8 +132,8 @@ function RegistrationScreen3A({ onNext, onBack }: RegistrationScreen3AProps) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 isComplete
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"

@@ -145,7 +145,7 @@ export function ProfileVisibilityToggle({
                       onClick={() => setReason(opt)}
                       className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 transition-all text-sm sm:text-base ${
                         reason === opt
-                          ? 'border-[#E63946] bg-[#FFF5F5]'
+                          ? 'border-[#9B59B6] bg-[#FFF5F5]'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -161,7 +161,7 @@ export function ProfileVisibilityToggle({
               <button
                 onClick={pauseProfile}
                 disabled={toggling}
-                className="w-full bg-[#E63946] text-white py-3 sm:py-4 rounded-xl text-sm sm:text-base font-bold hover:bg-[#D62839] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#9B59B6] text-white py-3 sm:py-4 rounded-xl text-sm sm:text-base font-bold hover:bg-[#D62839] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {toggling ? 'Pausing...' : 'Pause Profile'}
               </button>

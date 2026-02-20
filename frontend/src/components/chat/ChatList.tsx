@@ -41,7 +41,7 @@ function ChatList() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-8 h-8 border-4 border-[#E63946] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#9B59B6] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -59,7 +59,7 @@ function ChatList() {
             onClick={() => setFilter('all')}
             className={`flex-1 py-3 px-4 font-medium text-sm relative ${
               filter === 'all'
-                ? 'text-[#E63946] border-b-2 border-[#E63946]'
+                ? 'text-[#9B59B6] border-b-2 border-[#9B59B6]'
                 : 'text-gray-600'
             }`}
           >
@@ -69,13 +69,13 @@ function ChatList() {
             onClick={() => setFilter('unread')}
             className={`flex-1 py-3 px-4 font-medium text-sm relative ${
               filter === 'unread'
-                ? 'text-[#E63946] border-b-2 border-[#E63946]'
+                ? 'text-[#9B59B6] border-b-2 border-[#9B59B6]'
                 : 'text-gray-600'
             }`}
           >
             Unread
             {unreadCount > 0 && (
-              <span className="ml-1 px-2 py-0.5 bg-[#E63946] text-white text-xs rounded-full">
+              <span className="ml-1 px-2 py-0.5 bg-[#9B59B6] text-white text-xs rounded-full">
                 {unreadCount}
               </span>
             )}
@@ -84,7 +84,7 @@ function ChatList() {
             onClick={() => setFilter('archived')}
             className={`flex-1 py-3 px-4 font-medium text-sm relative ${
               filter === 'archived'
-                ? 'text-[#E63946] border-b-2 border-[#E63946]'
+                ? 'text-[#9B59B6] border-b-2 border-[#9B59B6]'
                 : 'text-gray-600'
             }`}
           >
@@ -169,7 +169,7 @@ function ChatList() {
 
                     {/* Unread Badge */}
                     {conversation.unreadCount > 0 && (
-                      <div className="w-6 h-6 bg-[#E63946] rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-[#9B59B6] rounded-full flex items-center justify-center">
                         <span className="text-white text-xs font-bold">
                           {conversation.unreadCount}
                         </span>

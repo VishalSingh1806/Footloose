@@ -137,7 +137,7 @@ export default function ContactSupport() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -159,7 +159,7 @@ export default function ContactSupport() {
           {!showForm && (
             <button
               onClick={() => setShowForm(true)}
-              className="px-4 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+              className="px-4 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
             >
               New Ticket
             </button>
@@ -191,7 +191,7 @@ export default function ContactSupport() {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value as SupportCategory)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 >
                   {CATEGORY_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -212,7 +212,7 @@ export default function ContactSupport() {
                   onChange={(e) => setSubject(e.target.value)}
                   placeholder="Brief description of your issue"
                   maxLength={100}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
                 <div className="text-xs text-gray-500 mt-1 text-right">
                   {subject.length}/100
@@ -230,7 +230,7 @@ export default function ContactSupport() {
                   placeholder="Please provide detailed information about your issue..."
                   rows={6}
                   maxLength={1000}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent resize-none"
                 />
                 <div className="text-xs text-gray-500 mt-1 text-right">
                   {description.length}/1000
@@ -249,7 +249,7 @@ export default function ContactSupport() {
                       onClick={() => setPriority(option.value as 'low' | 'normal' | 'high')}
                       className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
                         priority === option.value
-                          ? 'bg-[#E63946] text-white'
+                          ? 'bg-[#9B59B6] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -263,7 +263,7 @@ export default function ContactSupport() {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting || !subject.trim() || !description.trim()}
-                className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -336,7 +336,7 @@ export default function ContactSupport() {
               </p>
               <button
                 onClick={() => setShowForm(true)}
-                className="px-6 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+                className="px-6 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
               >
                 Create Ticket
               </button>

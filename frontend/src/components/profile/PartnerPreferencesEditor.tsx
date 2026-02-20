@@ -118,7 +118,7 @@ export function PartnerPreferencesEditor({
           <button
             onClick={handleSave}
             disabled={!hasChanges || saving}
-            className="px-4 py-2 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-[#E63946]"
+            className="px-4 py-2 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-[#9B59B6]"
           >
             {saving ? 'Saving...' : 'Save'}
           </button>
@@ -154,7 +154,7 @@ export function PartnerPreferencesEditor({
             {/* Dual Range Slider */}
             <div className="relative h-2 bg-gray-200 rounded-full">
               <div
-                className="absolute h-full bg-[#E63946] rounded-full"
+                className="absolute h-full bg-[#9B59B6] rounded-full"
                 style={{
                   left: `${((preferences.ageRange.min - 18) / (60 - 18)) * 100}%`,
                   right: `${100 - ((preferences.ageRange.max - 18) / (60 - 18)) * 100}%`,
@@ -166,7 +166,7 @@ export function PartnerPreferencesEditor({
                 max="60"
                 value={preferences.ageRange.min}
                 onChange={(e) => handleRangeChange('ageRange', 'min', parseInt(e.target.value))}
-                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#E63946] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#E63946] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B59B6] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#9B59B6] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
               />
               <input
                 type="range"
@@ -174,7 +174,7 @@ export function PartnerPreferencesEditor({
                 max="60"
                 value={preferences.ageRange.max}
                 onChange={(e) => handleRangeChange('ageRange', 'max', parseInt(e.target.value))}
-                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#E63946] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#E63946] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B59B6] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#9B59B6] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
               />
             </div>
           </div>
@@ -192,7 +192,7 @@ export function PartnerPreferencesEditor({
             {/* Dual Range Slider */}
             <div className="relative h-2 bg-gray-200 rounded-full">
               <div
-                className="absolute h-full bg-[#E63946] rounded-full"
+                className="absolute h-full bg-[#9B59B6] rounded-full"
                 style={{
                   left: `${((preferences.heightRange.min - 140) / (210 - 140)) * 100}%`,
                   right: `${100 - ((preferences.heightRange.max - 140) / (210 - 140)) * 100}%`,
@@ -204,7 +204,7 @@ export function PartnerPreferencesEditor({
                 max="210"
                 value={preferences.heightRange.min}
                 onChange={(e) => handleRangeChange('heightRange', 'min', parseInt(e.target.value))}
-                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#E63946] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#E63946] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B59B6] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#9B59B6] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
               />
               <input
                 type="range"
@@ -212,7 +212,7 @@ export function PartnerPreferencesEditor({
                 max="210"
                 value={preferences.heightRange.max}
                 onChange={(e) => handleRangeChange('heightRange', 'max', parseInt(e.target.value))}
-                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#E63946] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#E63946] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+                className="absolute w-full h-2 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B59B6] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#9B59B6] [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
               />
             </div>
           </div>
@@ -229,7 +229,7 @@ export function PartnerPreferencesEditor({
                 onClick={() => handleMultiSelect('religion', option)}
                 className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                   preferences.religion.includes(option)
-                    ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                     : 'border-gray-200 text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -250,7 +250,7 @@ export function PartnerPreferencesEditor({
                 onClick={() => handleMultiSelect('maritalStatus', option)}
                 className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                   preferences.maritalStatus.includes(option)
-                    ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                     : 'border-gray-200 text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -271,7 +271,7 @@ export function PartnerPreferencesEditor({
                 onClick={() => handleMultiSelect('education', option)}
                 className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                   preferences.education.includes(option)
-                    ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                     : 'border-gray-200 text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -292,7 +292,7 @@ export function PartnerPreferencesEditor({
                 onClick={() => handleMultiSelect('profession', option)}
                 className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                   preferences.profession.includes(option)
-                    ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                     : 'border-gray-200 text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -318,7 +318,7 @@ export function PartnerPreferencesEditor({
                   onClick={() => handleMultiSelect('diet', option)}
                   className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                     preferences.diet.includes(option)
-                      ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                      ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                       : 'border-gray-200 text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -340,7 +340,7 @@ export function PartnerPreferencesEditor({
                   onClick={() => handleMultiSelect('smoking', option)}
                   className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                     preferences.smoking.includes(option)
-                      ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                      ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                       : 'border-gray-200 text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -362,7 +362,7 @@ export function PartnerPreferencesEditor({
                   onClick={() => handleMultiSelect('drinking', option)}
                   className={`px-3 py-2.5 rounded-lg border-2 text-sm font-semibold transition-all ${
                     preferences.drinking.includes(option)
-                      ? 'border-[#E63946] bg-[#FFF5F5] text-[#E63946]'
+                      ? 'border-[#9B59B6] bg-[#FFF5F5] text-[#9B59B6]'
                       : 'border-gray-200 text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -378,7 +378,7 @@ export function PartnerPreferencesEditor({
           <button
             onClick={handleSave}
             disabled={!hasChanges || saving}
-            className="w-full bg-[#E63946] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[#9B59B6] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <Save size={20} />
             <span>{saving ? 'Saving...' : 'Save Preferences'}</span>

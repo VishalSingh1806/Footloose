@@ -80,7 +80,7 @@ export function TransactionHistory() {
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition-colors ${
                 filter === 'all'
-                  ? 'bg-[#E63946] text-white'
+                  ? 'bg-[#9B59B6] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -90,7 +90,7 @@ export function TransactionHistory() {
               onClick={() => setFilter('credits_in')}
               className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition-colors ${
                 filter === 'credits_in'
-                  ? 'bg-[#E63946] text-white'
+                  ? 'bg-[#9B59B6] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -100,7 +100,7 @@ export function TransactionHistory() {
               onClick={() => setFilter('credits_out')}
               className={`px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition-colors ${
                 filter === 'credits_out'
-                  ? 'bg-[#E63946] text-white'
+                  ? 'bg-[#9B59B6] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -114,7 +114,7 @@ export function TransactionHistory() {
       <div className="max-w-7xl mx-auto px-4 py-6">
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
           </div>
         ) : isEmpty ? (
           /* Empty State */
@@ -128,7 +128,7 @@ export function TransactionHistory() {
             </p>
             <button
               onClick={() => navigate('/credits/purchase')}
-              className="bg-[#E63946] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
+              className="bg-[#9B59B6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
             >
               Buy Credits
             </button>

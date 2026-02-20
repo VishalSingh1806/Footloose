@@ -16,13 +16,13 @@ export function PackageCard({ package: pkg, onSelect, selected }: PackageCardPro
     <div
       onClick={() => onSelect(pkg.id)}
       className={`relative bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer ${
-        selected ? 'border-3 border-[#E63946] bg-[#FFF5F5]' : 'border-2 border-[#E5E7EB]'
-      } ${pkg.popular ? 'ring-2 ring-[#E63946] ring-offset-2' : ''}`}
+        selected ? 'border-3 border-[#9B59B6] bg-[#FFF5F5]' : 'border-2 border-[#E5E7EB]'
+      } ${pkg.popular ? 'ring-2 ring-[#9B59B6] ring-offset-2' : ''}`}
     >
       {/* Badge */}
       {pkg.badge && (
         <div className={`absolute -top-2 sm:-top-3 right-3 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-bold ${
-          pkg.popular ? 'bg-[#E63946] text-white' : 'bg-[#F4A261] text-white'
+          pkg.popular ? 'bg-[#9B59B6] text-white' : 'bg-[#8E44AD] text-white'
         }`}>
           {pkg.badge}
         </div>
@@ -30,7 +30,7 @@ export function PackageCard({ package: pkg, onSelect, selected }: PackageCardPro
 
       {/* Selected checkmark */}
       {selected && (
-        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-5 h-5 sm:w-6 sm:h-6 bg-[#E63946] rounded-full flex items-center justify-center">
+        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-5 h-5 sm:w-6 sm:h-6 bg-[#9B59B6] rounded-full flex items-center justify-center">
           <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
@@ -57,7 +57,7 @@ export function PackageCard({ package: pkg, onSelect, selected }: PackageCardPro
 
       {/* Price */}
       <div className="mb-2">
-        <span className="text-2xl sm:text-3xl font-bold text-[#E63946]">₹{pkg.price}</span>
+        <span className="text-2xl sm:text-3xl font-bold text-[#9B59B6]">₹{pkg.price}</span>
         <span className="text-xs sm:text-sm text-gray-500 ml-2">+ ₹{gst} GST</span>
       </div>
 
@@ -78,7 +78,7 @@ export function PackageCard({ package: pkg, onSelect, selected }: PackageCardPro
       <button
         className={`w-full mt-3 sm:mt-4 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-colors ${
           selected
-            ? 'bg-[#E63946] text-white'
+            ? 'bg-[#9B59B6] text-white'
             : 'bg-gray-100 text-[#1D3557] hover:bg-gray-200'
         }`}
       >

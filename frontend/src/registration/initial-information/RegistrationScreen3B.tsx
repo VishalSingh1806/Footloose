@@ -135,7 +135,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '15%' }}
           />
         </div>
@@ -143,9 +143,13 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
 
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
-        <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
+        <h1 className="text-2xl font-semibold text-[#1D3557] mb-2">
           Basic details
         </h1>
+
+        <p className="text-[14px] text-[#6C757D] mb-6">
+          This helps us understand your background
+        </p>
 
         <div className="space-y-5">
           {/* Height */}
@@ -163,7 +167,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                       setErrors(prev => ({ ...prev, height: undefined }));
                     }
                   }}
-                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#E63946] transition-colors"
+                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
                   aria-label="Height in feet"
                 >
                   <option value="">Feet</option>
@@ -183,7 +187,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                       setErrors(prev => ({ ...prev, height: undefined }));
                     }
                   }}
-                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#E63946] transition-colors"
+                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
                   aria-label="Height in inches"
                 >
                   <option value="">Inches</option>
@@ -218,7 +222,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                 value={weight}
                 onChange={(e) => handleWeightChange(e.target.value)}
                 placeholder="Enter weight"
-                className="w-full h-[52px] px-4 pr-12 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#E63946] transition-colors"
+                className="w-full h-[52px] px-4 pr-12 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#9B59B6] transition-colors"
                 aria-describedby={errors.weight ? 'weight-error' : undefined}
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#6C757D] text-sm font-medium">
@@ -235,14 +239,14 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
           {/* State */}
           <div>
             <label htmlFor="state" className="block text-sm font-semibold text-[#1D3557] mb-2">
-              State
+              Home State
             </label>
             <div className="relative">
               <select
                 id="state"
                 value={state}
                 onChange={(e) => handleStateChange(e.target.value)}
-                className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#E63946] transition-colors"
+                className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
                 aria-describedby={errors.state ? 'state-error' : undefined}
               >
                 <option value="">Select state</option>
@@ -264,7 +268,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
           {/* City */}
           <div>
             <label htmlFor="city" className="block text-sm font-semibold text-[#1D3557] mb-2">
-              City
+              Home City
             </label>
             <div className="relative">
               <select
@@ -273,7 +277,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                 onChange={(e) => handleCityChange(e.target.value)}
                 disabled={!state}
                 className={`w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none transition-colors ${
-                  state ? 'focus:border-[#E63946]' : 'opacity-50 cursor-not-allowed'
+                  state ? 'focus:border-[#9B59B6]' : 'opacity-50 cursor-not-allowed'
                 }`}
                 aria-describedby={errors.city ? 'city-error' : undefined}
               >
@@ -305,8 +309,8 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 isFormValid()
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"

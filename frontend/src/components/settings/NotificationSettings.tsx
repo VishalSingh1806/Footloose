@@ -134,7 +134,7 @@ export default function NotificationSettings() {
   if (isLoading || !preferences) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -157,7 +157,7 @@ export default function NotificationSettings() {
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="px-4 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="px-4 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isSaving ? 'Saving...' : 'Save'}
             </button>
@@ -259,7 +259,7 @@ export default function NotificationSettings() {
                     type="time"
                     value={preferences.quietHours.startTime}
                     onChange={(e) => updateQuietHours({ startTime: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6]"
                   />
                 </div>
                 <div>
@@ -270,7 +270,7 @@ export default function NotificationSettings() {
                     type="time"
                     value={preferences.quietHours.endTime}
                     onChange={(e) => updateQuietHours({ endTime: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6]"
                   />
                 </div>
               </div>
@@ -286,7 +286,7 @@ export default function NotificationSettings() {
                       onClick={() => toggleQuietHoursDay(day)}
                       className={`px-3 py-2 rounded-lg font-medium text-sm transition-colors ${
                         preferences.quietHours.days.includes(day)
-                          ? 'bg-[#E63946] text-white'
+                          ? 'bg-[#9B59B6] text-white'
                           : 'bg-white text-gray-700 border border-gray-300'
                       }`}
                     >
@@ -307,7 +307,7 @@ export default function NotificationSettings() {
                       name="quietMode"
                       checked={preferences.quietHours.mode === 'mute_all'}
                       onChange={() => updateQuietHours({ mode: 'mute_all' })}
-                      className="text-[#E63946] focus:ring-[#E63946]"
+                      className="text-[#9B59B6] focus:ring-[#9B59B6]"
                     />
                     <span className="text-sm text-gray-700">Mute all notifications</span>
                   </label>
@@ -317,7 +317,7 @@ export default function NotificationSettings() {
                       name="quietMode"
                       checked={preferences.quietHours.mode === 'mute_promotional'}
                       onChange={() => updateQuietHours({ mode: 'mute_promotional' })}
-                      className="text-[#E63946] focus:ring-[#E63946]"
+                      className="text-[#9B59B6] focus:ring-[#9B59B6]"
                     />
                     <span className="text-sm text-gray-700">Mute only promotional</span>
                   </label>
@@ -327,7 +327,7 @@ export default function NotificationSettings() {
                       name="quietMode"
                       checked={preferences.quietHours.mode === 'important_only'}
                       onChange={() => updateQuietHours({ mode: 'important_only' })}
-                      className="text-[#E63946] focus:ring-[#E63946]"
+                      className="text-[#9B59B6] focus:ring-[#9B59B6]"
                     />
                     <span className="text-sm text-gray-700">
                       Allow important only (matches, dates)
@@ -368,7 +368,7 @@ export default function NotificationSettings() {
                       e.target.value as 'realtime' | 'batched'
                     )
                   }
-                  className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#E63946]"
+                  className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#9B59B6]"
                 >
                   <option value="realtime">Real-time</option>
                   <option value="batched">Batched</option>
@@ -440,7 +440,7 @@ export default function NotificationSettings() {
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
           >
             {isSaving ? (
               <>
@@ -521,8 +521,8 @@ const Toggle: React.FC<ToggleProps> = ({ checked, onChange, disabled }) => {
     <button
       onClick={() => !disabled && onChange(!checked)}
       disabled={disabled}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 ${
-        checked ? 'bg-[#E63946]' : 'bg-gray-300'
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:ring-offset-2 ${
+        checked ? 'bg-[#9B59B6]' : 'bg-gray-300'
       } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
     >
       <span

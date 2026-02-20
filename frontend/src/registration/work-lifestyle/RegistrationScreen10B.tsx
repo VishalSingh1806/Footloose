@@ -59,7 +59,7 @@ function RegistrationScreen10B({ onNext, onBack }: RegistrationScreen10BProps) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '55%' }}
           />
         </div>
@@ -79,7 +79,7 @@ function RegistrationScreen10B({ onNext, onBack }: RegistrationScreen10BProps) {
           <div className="relative">
             <button
               onClick={() => setShowIndustryDropdown(!showIndustryDropdown)}
-              className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base text-left flex items-center justify-between focus:outline-none focus:border-[#E63946] transition-colors"
+              className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base text-left flex items-center justify-between focus:outline-none focus:border-[#9B59B6] transition-colors"
             >
               <span className={industry ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
                 {industry || 'Select industry'}
@@ -97,7 +97,7 @@ function RegistrationScreen10B({ onNext, onBack }: RegistrationScreen10BProps) {
                       setShowIndustryDropdown(false);
                     }}
                     className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
-                      industry === ind ? 'bg-[#FEF2F2] text-[#E63946] font-semibold' : 'text-[#1D3557]'
+                      industry === ind ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold' : 'text-[#1D3557]'
                     }`}
                   >
                     {ind}
@@ -119,10 +119,10 @@ function RegistrationScreen10B({ onNext, onBack }: RegistrationScreen10BProps) {
             value={role}
             onChange={(e) => setRole(e.target.value)}
             placeholder="e.g., Software Engineer, Marketing Manager"
-            className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base placeholder:text-[#ADB5BD] focus:outline-none focus:border-[#E63946] transition-colors"
+            className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base placeholder:text-[#ADB5BD] focus:outline-none focus:border-[#9B59B6] transition-colors"
           />
           {role.length > 0 && role.trim().length < 2 && (
-            <p className="mt-2 text-sm text-[#E63946]">
+            <p className="mt-2 text-sm text-[#9B59B6]">
               Please enter at least 2 characters
             </p>
           )}
@@ -139,8 +139,8 @@ function RegistrationScreen10B({ onNext, onBack }: RegistrationScreen10BProps) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 isFormValid
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"

@@ -73,7 +73,7 @@ export default function AccessibilitySettingsComponent() {
   if (isLoading || !settings) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -96,7 +96,7 @@ export default function AccessibilitySettingsComponent() {
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="px-4 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+              className="px-4 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
             >
               {isSaving ? 'Saving...' : 'Save'}
             </button>
@@ -134,11 +134,11 @@ export default function AccessibilitySettingsComponent() {
               step="1"
               value={settings.textSize}
               onChange={(e) => updateSetting({ textSize: parseInt(e.target.value) })}
-              className="w-full accent-[#E63946]"
+              className="w-full accent-[#9B59B6]"
             />
             <div className="flex items-center justify-between mt-2 text-sm text-gray-600">
               <span>Small (12px)</span>
-              <span className="font-semibold text-[#E63946]">
+              <span className="font-semibold text-[#9B59B6]">
                 Current: {settings.textSize}px
               </span>
               <span>Large (24px)</span>
@@ -186,14 +186,14 @@ export default function AccessibilitySettingsComponent() {
                   name="colorBlindMode"
                   checked={settings.colorBlindMode === option.value}
                   onChange={() => updateSetting({ colorBlindMode: option.value as any })}
-                  className="w-5 h-5 text-[#E63946] focus:ring-[#E63946]"
+                  className="w-5 h-5 text-[#9B59B6] focus:ring-[#9B59B6]"
                 />
                 <div className="flex-1">
                   <div className="font-medium text-gray-900">{option.label}</div>
                   <div className="text-sm text-gray-600">{option.description}</div>
                 </div>
                 {settings.colorBlindMode === option.value && (
-                  <Check size={20} className="text-[#E63946]" />
+                  <Check size={20} className="text-[#9B59B6]" />
                 )}
               </label>
             ))}
@@ -214,11 +214,11 @@ export default function AccessibilitySettingsComponent() {
                 step="0.1"
                 value={settings.tapTimeout}
                 onChange={(e) => updateSetting({ tapTimeout: parseFloat(e.target.value) })}
-                className="w-full accent-[#E63946]"
+                className="w-full accent-[#9B59B6]"
               />
               <div className="flex items-center justify-between mt-2 text-sm text-gray-600">
                 <span>0.1s</span>
-                <span className="font-semibold text-[#E63946]">
+                <span className="font-semibold text-[#9B59B6]">
                   {settings.tapTimeout.toFixed(1)}s
                 </span>
                 <span>2.0s</span>
@@ -240,14 +240,14 @@ export default function AccessibilitySettingsComponent() {
                   name="tapTargetSize"
                   checked={settings.tapTargetSize === option.value}
                   onChange={() => updateSetting({ tapTargetSize: option.value as any })}
-                  className="w-5 h-5 text-[#E63946] focus:ring-[#E63946]"
+                  className="w-5 h-5 text-[#9B59B6] focus:ring-[#9B59B6]"
                 />
                 <div className="flex-1">
                   <div className="font-medium text-gray-900">{option.label}</div>
                   <div className="text-sm text-gray-600">{option.description}</div>
                 </div>
                 {settings.tapTargetSize === option.value && (
-                  <Check size={20} className="text-[#E63946]" />
+                  <Check size={20} className="text-[#9B59B6]" />
                 )}
               </label>
             ))}
@@ -316,7 +316,7 @@ export default function AccessibilitySettingsComponent() {
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
           >
             {isSaving ? (
               <>
@@ -389,8 +389,8 @@ const Toggle: React.FC<ToggleProps> = ({ checked, onChange, disabled }) => {
     <button
       onClick={() => !disabled && onChange(!checked)}
       disabled={disabled}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 ${
-        checked ? 'bg-[#E63946]' : 'bg-gray-300'
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:ring-offset-2 ${
+        checked ? 'bg-[#9B59B6]' : 'bg-gray-300'
       } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
     >
       <span

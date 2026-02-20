@@ -105,7 +105,7 @@ function RegistrationScreen23({ onNext, onBack, profileData }: RegistrationScree
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '97%' }}
           />
         </div>
@@ -313,7 +313,7 @@ function RegistrationScreen23({ onNext, onBack, profileData }: RegistrationScree
         <div className="max-w-[600px] mx-auto space-y-3">
           <button
             onClick={handleSubmit}
-            className="w-full h-[52px] rounded-xl font-semibold text-base bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] transition-all"
+            className="w-full h-[52px] rounded-xl font-semibold text-base bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] transition-all"
           >
             Submit for Review
           </button>
@@ -339,7 +339,7 @@ function RegistrationScreen23({ onNext, onBack, profileData }: RegistrationScree
             <div className="space-y-3">
               <button
                 onClick={confirmSubmit}
-                className="w-full h-[48px] rounded-xl font-semibold text-base bg-[#E63946] hover:bg-[#D62828] text-white transition-all"
+                className="w-full h-[48px] rounded-xl font-semibold text-base bg-[#9B59B6] hover:bg-[#8E44AD] text-white transition-all"
               >
                 Yes, Submit
               </button>

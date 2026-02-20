@@ -26,8 +26,8 @@ function CallGuidelines({
     <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6 overflow-y-auto">
       <div className="bg-white rounded-2xl max-w-md w-full p-6 my-auto">
         {/* Icon */}
-        <div className="w-16 h-16 bg-[#E63946]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Video size={32} className="text-[#E63946]" />
+        <div className="w-16 h-16 bg-[#9B59B6]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Video size={32} className="text-[#9B59B6]" />
         </div>
 
         {/* Heading */}
@@ -47,7 +47,7 @@ function CallGuidelines({
               'Report any inappropriate behavior',
             ].map((rule, index) => (
               <li key={index} className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-[#E63946] text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <span className="flex-shrink-0 w-6 h-6 bg-[#9B59B6] text-white rounded-full flex items-center justify-center text-sm font-bold">
                   {index + 1}
                 </span>
                 <span className="text-[#1D3557] pt-0.5">{rule}</span>
@@ -78,7 +78,7 @@ function CallGuidelines({
             <img
               src={matchPhoto}
               alt={matchName}
-              className="w-16 h-16 rounded-full object-cover border-2 border-[#E63946]"
+              className="w-16 h-16 rounded-full object-cover border-2 border-[#9B59B6]"
             />
             <div className="flex-1">
               <h3 className="font-bold text-lg text-[#1D3557]">{matchName}, {matchAge}</h3>
@@ -95,7 +95,7 @@ function CallGuidelines({
             type="checkbox"
             checked={agreedToGuidelines}
             onChange={(e) => setAgreedToGuidelines(e.target.checked)}
-            className="mt-1 w-5 h-5 rounded border-gray-300 text-[#E63946] focus:ring-[#E63946]"
+            className="mt-1 w-5 h-5 rounded border-gray-300 text-[#9B59B6] focus:ring-[#9B59B6]"
           />
           <span className="text-sm text-[#1D3557]">
             I agree to follow the guidelines and code of conduct

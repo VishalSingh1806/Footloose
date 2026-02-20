@@ -166,7 +166,7 @@ function PostCallFeedback({
                   className={`py-3 px-4 rounded-xl font-semibold transition-all
                     ${
                       wouldRecommend === option.value
-                        ? 'bg-[#E63946] text-white'
+                        ? 'bg-[#9B59B6] text-white'
                         : 'bg-gray-100 text-[#1D3557] hover:bg-gray-200'
                     }`}
                 >
@@ -294,7 +294,7 @@ function PostCallFeedback({
               value={additionalComments}
               onChange={(e) => setAdditionalComments(e.target.value)}
               placeholder="Share your thoughts..."
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#E63946]
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#9B59B6]
                          focus:outline-none resize-none"
               rows={4}
               maxLength={500}
@@ -309,9 +309,9 @@ function PostCallFeedback({
             <button
               onClick={handleSubmit}
               disabled={!canSubmit || isSubmitting}
-              className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold text-base
+              className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold text-base
                          hover:bg-[#D62839] active:scale-95 transition-all
-                         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#E63946]
+                         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#9B59B6]
                          flex items-center justify-center gap-2"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Feedback'}

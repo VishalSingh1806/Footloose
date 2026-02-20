@@ -81,7 +81,7 @@ function MatchCard({
           {/* Top-left badges */}
           <div className="absolute top-0 left-0 flex flex-col gap-2">
             {match.isNewlyJoined && (
-              <div className="bg-[#E63946] text-white text-xs font-bold px-3 py-1.5 rounded-br-xl">
+              <div className="bg-[#9B59B6] text-white text-xs font-bold px-3 py-1.5 rounded-br-xl">
                 NEWLY JOINED
               </div>
             )}

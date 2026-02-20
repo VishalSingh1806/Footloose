@@ -62,14 +62,14 @@ function ProfileActions({
       <div className="flex items-center justify-center gap-8 mb-4 text-sm">
         <button
           onClick={onShortlist}
-          className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#E63946] transition-colors"
+          className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#9B59B6] transition-colors"
         >
-          <Star size={16} fill={isShortlisted ? '#F4A261' : 'none'} />
+          <Star size={16} fill={isShortlisted ? '#8E44AD' : 'none'} />
           <span>{isShortlisted ? 'Shortlisted' : 'Shortlist'}</span>
         </button>
         <button
           onClick={onMore}
-          className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#E63946] transition-colors"
+          className="flex items-center gap-1.5 text-[#6C757D] hover:text-[#9B59B6] transition-colors"
         >
           <MoreVertical size={16} />
           <span>More</span>
@@ -91,7 +91,7 @@ function ProfileActions({
           <button
             onClick={handleSendInterest}
             disabled={interestState !== 'idle'}
-            className="flex-1 h-14 bg-[#E63946] text-white rounded-xl font-semibold text-base
+            className="flex-1 h-14 bg-[#9B59B6] text-white rounded-xl font-semibold text-base
                        flex items-center justify-center gap-2 px-4
                        hover:bg-[#D62839] active:scale-95 transition-all
                        disabled:opacity-70 disabled:cursor-not-allowed"

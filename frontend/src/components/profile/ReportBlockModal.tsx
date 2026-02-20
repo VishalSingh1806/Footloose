@@ -89,7 +89,7 @@ function ReportBlockModal({ matchName, onClose, onReport, onBlock }: ReportBlock
               <button
                 onClick={() => setAction('report')}
                 className="w-full p-4 rounded-lg border-2 border-gray-200
-                           flex items-center gap-4 hover:border-[#E63946] hover:bg-red-50 transition-all"
+                           flex items-center gap-4 hover:border-[#9B59B6] hover:bg-red-50 transition-all"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                   <AlertTriangle size={24} className="text-red-600" />
@@ -128,7 +128,7 @@ function ReportBlockModal({ matchName, onClose, onReport, onBlock }: ReportBlock
                     className={`w-full p-3 rounded-lg border-2 text-left transition-all
                       ${
                         selectedReason === reason
-                          ? 'border-[#E63946] bg-red-50 text-[#E63946]'
+                          ? 'border-[#9B59B6] bg-red-50 text-[#9B59B6]'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                   >
@@ -143,7 +143,7 @@ function ReportBlockModal({ matchName, onClose, onReport, onBlock }: ReportBlock
                   onChange={(e) => setOtherDetails(e.target.value)}
                   placeholder="Please provide details..."
                   className="w-full p-3 border-2 border-gray-200 rounded-lg resize-none
-                           focus:outline-none focus:border-[#E63946] mb-4"
+                           focus:outline-none focus:border-[#9B59B6] mb-4"
                   rows={4}
                 />
               )}
@@ -161,7 +161,7 @@ function ReportBlockModal({ matchName, onClose, onReport, onBlock }: ReportBlock
                   onClick={handleReportSubmit}
                   disabled={!selectedReason || (selectedReason === 'Other' && !otherDetails)}
                   className="flex-1 py-3 px-6 rounded-lg font-semibold
-                           bg-[#E63946] text-white
+                           bg-[#9B59B6] text-white
                            hover:bg-[#D62839] active:scale-95 transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
                 >

@@ -142,7 +142,7 @@ export function CancelSubscription() {
                   onClick={() => setReason(r)}
                   className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all ${
                     reason === r
-                      ? 'border-[#E63946] bg-[#FFF5F5]'
+                      ? 'border-[#9B59B6] bg-[#FFF5F5]'
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
@@ -155,7 +155,7 @@ export function CancelSubscription() {
               value={feedback}
               onChange={e => setFeedback(e.target.value)}
               placeholder="Additional feedback (optional)"
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#E63946] mb-6"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#9B59B6] mb-6"
               rows={3}
             />
 
@@ -205,12 +205,12 @@ export function CancelSubscription() {
                   Before you go, how about this special offer?
                 </p>
 
-                <div className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] rounded-xl p-6 mb-6 border-2 border-[#F4A261]">
+                <div className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] rounded-xl p-6 mb-6 border-2 border-[#8E44AD]">
                   <h3 className="text-xl font-bold text-[#1D3557] mb-2">
                     {retentionOffer.title}
                   </h3>
                   <p className="text-gray-700 mb-4">{retentionOffer.description}</p>
-                  <button className="w-full bg-[#E63946] text-white py-3 rounded-lg font-bold hover:bg-[#D62839] transition-colors">
+                  <button className="w-full bg-[#9B59B6] text-white py-3 rounded-lg font-bold hover:bg-[#D62839] transition-colors">
                     {retentionOffer.action}
                   </button>
                 </div>
@@ -252,7 +252,7 @@ export function CancelSubscription() {
             <div className="space-y-3">
               <button
                 onClick={() => navigate(-1)}
-                className="w-full bg-[#E63946] text-white py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
+                className="w-full bg-[#9B59B6] text-white py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
               >
                 Keep Premium
               </button>
@@ -302,7 +302,7 @@ export function CancelSubscription() {
             <div className="space-y-3">
               <button
                 onClick={() => navigate('/profile')}
-                className="w-full bg-[#E63946] text-white py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
+                className="w-full bg-[#9B59B6] text-white py-4 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
               >
                 Back to Profile
               </button>

@@ -5,7 +5,7 @@ interface PlaceholderBProps {
 
 function PlaceholderB({ onContinue }: PlaceholderBProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F4A261] to-[#E76F51] flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#8E44AD] to-[#E76F51] flex flex-col relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl" />

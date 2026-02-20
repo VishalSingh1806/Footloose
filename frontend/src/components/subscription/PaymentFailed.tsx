@@ -116,7 +116,7 @@ export function PaymentFailed() {
                 navigate('/credits/purchase');
               }
             }}
-            className="w-full bg-[#E63946] text-white py-4 rounded-xl font-bold shadow-lg hover:bg-[#D62839] transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-[#9B59B6] text-white py-4 rounded-xl font-bold shadow-lg hover:bg-[#D62839] transition-colors flex items-center justify-center gap-2"
           >
             <RefreshCw size={20} />
             <span>Try Again</span>

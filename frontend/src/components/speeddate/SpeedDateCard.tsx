@@ -234,7 +234,7 @@ function SpeedDateCard({
             {speedDate.startsIn && speedDate.startsIn.includes('minute') ? (
               <button
                 onClick={onJoin}
-                className="flex-1 bg-[#E63946] text-white py-2.5 px-4 rounded-lg font-semibold
+                className="flex-1 bg-[#9B59B6] text-white py-2.5 px-4 rounded-lg font-semibold
                            hover:bg-[#D62839] active:scale-95 transition-all animate-pulse"
               >
                 Join Call Now
@@ -272,7 +272,7 @@ function SpeedDateCard({
             {!speedDate.feedbackGiven && onGiveFeedback && (
               <button
                 onClick={onGiveFeedback}
-                className="flex-1 bg-[#E63946] text-white py-2.5 px-4 rounded-lg font-semibold
+                className="flex-1 bg-[#9B59B6] text-white py-2.5 px-4 rounded-lg font-semibold
                            hover:bg-[#D62839] active:scale-95 transition-all"
               >
                 Give Feedback

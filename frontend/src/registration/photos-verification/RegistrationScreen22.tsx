@@ -146,7 +146,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -168,7 +168,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
 
             <button
               onClick={requestCameraPermission}
-              className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]"
+              className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
             >
               Enable Camera
             </button>
@@ -192,7 +192,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -200,7 +200,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
 
         <div className="flex-1 flex items-center justify-center px-5 py-8">
           <div className="text-center">
-            <Loader2 className="w-12 h-12 text-[#E63946] animate-spin mx-auto mb-4" />
+            <Loader2 className="w-12 h-12 text-[#9B59B6] animate-spin mx-auto mb-4" />
             <p className="text-lg font-medium text-[#1D3557]">Verifying...</p>
           </div>
         </div>
@@ -222,7 +222,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -254,7 +254,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -276,7 +276,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
 
             <button
               onClick={onNext}
-              className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]"
+              className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
             >
               Continue
             </button>
@@ -300,7 +300,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -319,7 +319,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
             <div className="space-y-3">
               <button
                 onClick={handleRetake}
-                className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]"
+                className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
               >
                 Retake
               </button>
@@ -351,7 +351,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           </div>
           <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
               style={{ width: '94%' }}
             />
           </div>
@@ -369,7 +369,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
           <div className="space-y-3">
             <button
               onClick={handleUseThis}
-              className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]"
+              className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
             >
               Use This
             </button>
@@ -409,7 +409,7 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '94%' }}
           />
         </div>
@@ -509,8 +509,8 @@ function RegistrationScreen22({ onNext, onBack }: RegistrationScreen22Props) {
             disabled={!faceDetected}
             className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${
               faceDetected
-                ? 'bg-[#E63946] hover:bg-[#D62828] active:scale-95 shadow-[0_4px_12px_rgba(230,57,70,0.3)]'
-                : 'bg-[#E63946] opacity-40 cursor-not-allowed'
+                ? 'bg-[#9B59B6] hover:bg-[#8E44AD] active:scale-95 shadow-[0_4px_12px_rgba(155,89,182,0.3)]'
+                : 'bg-[#9B59B6] opacity-40 cursor-not-allowed'
             }`}
             aria-label="Capture selfie"
           >

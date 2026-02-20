@@ -22,7 +22,7 @@ function AboutMe({ bio, lifestyleTags = [] }: AboutMeProps) {
             {lifestyleTags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-[#FFE5E5] text-[#E63946] px-4 py-2 rounded-full text-sm font-medium"
+                className="bg-[#F5E6FF] text-[#9B59B6] px-4 py-2 rounded-full text-sm font-medium"
               >
                 {tag}
               </span>

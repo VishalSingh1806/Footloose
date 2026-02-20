@@ -75,12 +75,12 @@ export function PurchaseCredits() {
 
       {/* Current Balance */}
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-xl p-4 flex items-center justify-between">
+        <div className="bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-xl p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Coins size={20} className="text-[#F4A261]" />
+            <Coins size={20} className="text-[#8E44AD]" />
             <span className="text-sm text-gray-700">Current Balance:</span>
           </div>
-          <span className="text-lg font-bold text-[#F4A261]">
+          <span className="text-lg font-bold text-[#8E44AD]">
             {creditBalance.toLocaleString()} credits
           </span>
         </div>
@@ -144,7 +144,7 @@ export function PurchaseCredits() {
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-1.5 sm:pt-2 mt-1.5 sm:mt-2">
                 <span className="text-sm sm:text-base font-bold text-[#1D3557]">Total</span>
-                <span className="text-lg sm:text-xl font-bold text-[#E63946]">₹{total}</span>
+                <span className="text-lg sm:text-xl font-bold text-[#9B59B6]">₹{total}</span>
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export function PurchaseCredits() {
             <button
               onClick={handlePurchase}
               disabled={purchasing}
-              className="w-full bg-[#E63946] text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:bg-[#D62839] transition-all disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-[#9B59B6] text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:bg-[#D62839] transition-all disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {purchasing ? (
                 <>

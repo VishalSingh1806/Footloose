@@ -40,7 +40,7 @@ export function ProfileAnalytics() {
   if (loading || !analytics) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
       </div>
     );
   }
@@ -82,7 +82,7 @@ export function ProfileAnalytics() {
               onClick={() => setTimeRange(range)}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 timeRange === range
-                  ? 'bg-[#E63946] text-white'
+                  ? 'bg-[#9B59B6] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -176,7 +176,7 @@ export function ProfileAnalytics() {
                   </div>
                   <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#E63946] rounded-full transition-all"
+                      className="h-full bg-[#9B59B6] rounded-full transition-all"
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
@@ -214,7 +214,7 @@ export function ProfileAnalytics() {
                     </div>
                     <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] rounded-full"
+                        className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] rounded-full"
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
@@ -314,7 +314,7 @@ export function ProfileAnalytics() {
 
           <button
             onClick={() => navigate('/profile/edit')}
-            className="w-full mt-4 bg-[#E63946] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
+            className="w-full mt-4 bg-[#9B59B6] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors"
           >
             Improve Profile
           </button>

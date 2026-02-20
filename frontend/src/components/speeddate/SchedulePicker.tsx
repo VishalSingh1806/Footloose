@@ -130,8 +130,8 @@ function SchedulePicker({ onSlotsChange, maxSlots = 3, minSlots = 1 }: ScheduleP
               className={`flex-shrink-0 w-20 py-3 px-2 rounded-xl text-center transition-all
                 ${
                   selectedDate === date.value
-                    ? 'bg-[#E63946] text-white shadow-lg'
-                    : 'bg-white text-[#1D3557] border-2 border-gray-200 hover:border-[#E63946]'
+                    ? 'bg-[#9B59B6] text-white shadow-lg'
+                    : 'bg-white text-[#1D3557] border-2 border-gray-200 hover:border-[#9B59B6]'
                 }`}
             >
               <div className="text-xs font-semibold">{date.label}</div>

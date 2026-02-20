@@ -123,7 +123,7 @@ function AppShell() {
               >
                 <Wallet className="w-5 h-5 text-[#1D3557]" />
                 {creditBalance < 200 && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
                 )}
               </button>
               <button
@@ -138,7 +138,7 @@ function AppShell() {
               >
                 <Bell className="w-5 h-5 text-[#1D3557]" />
                 {hasNotifications && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
                 )}
               </button>
             </>
@@ -158,7 +158,7 @@ function AppShell() {
               >
                 <Wallet className="w-5 h-5 text-[#1D3557]" />
                 {creditBalance < 200 && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
                 )}
               </button>
               <button
@@ -167,7 +167,7 @@ function AppShell() {
               >
                 <Bell className="w-5 h-5 text-[#1D3557]" />
                 {hasNotifications && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
                 )}
               </button>
             </>
@@ -186,7 +186,7 @@ function AppShell() {
             >
               <Wallet className="w-5 h-5 text-[#1D3557]" />
               {creditBalance < 200 && (
-                <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
               )}
             </button>
           ),
@@ -205,7 +205,7 @@ function AppShell() {
               >
                 <Wallet className="w-5 h-5 text-[#1D3557]" />
                 {creditBalance < 200 && (
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#E63946] rounded-full" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-[#9B59B6] rounded-full" />
                 )}
               </button>
               <button

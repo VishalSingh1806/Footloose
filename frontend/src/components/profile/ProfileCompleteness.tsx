@@ -19,8 +19,8 @@ export function ProfileCompleteness({
 
   const getColor = (percentage: number) => {
     if (percentage >= 80) return '#2A9D8F';
-    if (percentage >= 60) return '#F4A261';
-    return '#E63946';
+    if (percentage >= 60) return '#8E44AD';
+    return '#9B59B6';
   };
 
   const color = getColor(data.overall);

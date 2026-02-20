@@ -217,9 +217,9 @@ function PreDateChecklist({
         <button
           onClick={onJoinCall}
           disabled={!allChecked}
-          className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-bold text-lg
+          className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-bold text-lg
                      hover:bg-[#D62839] active:scale-95 transition-all shadow-lg
-                     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#E63946]
+                     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#9B59B6]
                      flex items-center justify-center gap-2"
         >
           <Video size={24} />

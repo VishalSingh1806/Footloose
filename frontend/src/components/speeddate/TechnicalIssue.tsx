@@ -117,7 +117,7 @@ function TechnicalIssue({ issueType, onRetry, onEndCall }: TechnicalIssueProps) 
         {issueType === 'connection_lost' && (
           <div className="mb-6">
             <div className="inline-block">
-              <RefreshCw size={24} className="text-[#E63946] animate-spin" />
+              <RefreshCw size={24} className="text-[#9B59B6] animate-spin" />
             </div>
             <p className="text-sm text-[#6C757D] mt-2">Attempting to reconnect automatically...</p>
           </div>
@@ -128,7 +128,7 @@ function TechnicalIssue({ issueType, onRetry, onEndCall }: TechnicalIssueProps) 
           {config.showRetry && (
             <button
               onClick={handleAction}
-              className="w-full bg-[#E63946] text-white py-3.5 px-6 rounded-xl font-semibold
+              className="w-full bg-[#9B59B6] text-white py-3.5 px-6 rounded-xl font-semibold
                          hover:bg-[#D62839] active:scale-95 transition-all"
             >
               {config.action}

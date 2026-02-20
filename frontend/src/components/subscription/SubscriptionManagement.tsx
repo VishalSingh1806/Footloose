@@ -17,7 +17,7 @@ export function SubscriptionManagement() {
           <p className="text-gray-600 mb-4">No active subscription</p>
           <button
             onClick={() => navigate('/subscription')}
-            className="bg-[#E63946] text-white px-6 py-3 rounded-lg font-semibold"
+            className="bg-[#9B59B6] text-white px-6 py-3 rounded-lg font-semibold"
           >
             View Plans
           </button>
@@ -77,7 +77,7 @@ export function SubscriptionManagement() {
         {/* Current Plan Card */}
         <div className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] rounded-2xl p-6 shadow-lg mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-14 h-14 bg-[#F4A261] rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-[#8E44AD] rounded-full flex items-center justify-center">
               <Crown size={28} className="text-white" fill="currentColor" />
             </div>
             <div>
@@ -180,7 +180,7 @@ export function SubscriptionManagement() {
                 <p className="text-xs text-gray-600">****@okaxis</p>
               </div>
             </div>
-            <button className="text-sm text-[#E63946] font-semibold mt-2 hover:underline">
+            <button className="text-sm text-[#9B59B6] font-semibold mt-2 hover:underline">
               Update Payment Method
             </button>
           </div>

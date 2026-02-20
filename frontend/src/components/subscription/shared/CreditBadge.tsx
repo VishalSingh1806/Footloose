@@ -28,7 +28,7 @@ export function CreditBadge({
 
   return (
     <div
-      className={`inline-flex items-center gap-1.5 bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-full font-semibold text-[#F4A261] ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center gap-1.5 bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-full font-semibold text-[#8E44AD] ${sizeClasses[size]} ${className}`}
     >
       {showIcon && <Coins size={iconSizes[size]} />}
       <span>{balance.toLocaleString()}</span>

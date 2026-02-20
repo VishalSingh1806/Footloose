@@ -20,8 +20,8 @@ export function ProfileStrengthScore({
 }: ProfileStrengthScoreProps) {
   const getColor = () => {
     if (score >= 80) return '#2A9D8F';
-    if (score >= 60) return '#F4A261';
-    return '#E63946';
+    if (score >= 60) return '#8E44AD';
+    return '#9B59B6';
   };
 
   const getPhotoQuality = () => {
@@ -151,7 +151,7 @@ export function ProfileStrengthScore({
       {score < 90 && onImprove && (
         <button
           onClick={onImprove}
-          className="w-full bg-[#E63946] text-white py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors"
+          className="w-full bg-[#9B59B6] text-white py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors"
         >
           Improve Score
         </button>

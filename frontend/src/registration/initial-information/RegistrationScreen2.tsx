@@ -168,7 +168,7 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
               </p>
               <button
                 onClick={onChangeNumber}
-                className="text-sm text-[#E63946] underline hover:no-underline"
+                className="text-sm text-[#9B59B6] underline hover:no-underline"
               >
                 Change number
               </button>
@@ -192,8 +192,8 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
                       error
                         ? 'border-[#DC2626] focus:border-[#DC2626]'
                         : digit
-                        ? 'border-[#E63946] bg-[#FFE5E5]/30'
-                        : 'border-[#E5E7EB] focus:border-[#E63946]'
+                        ? 'border-[#9B59B6] bg-[#F5E6FF]/30'
+                        : 'border-[#E5E7EB] focus:border-[#9B59B6]'
                     }`}
                     aria-label={`Digit ${index + 1}`}
                   />
@@ -213,7 +213,7 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
                   Didn't receive code?{' '}
                   <button
                     onClick={handleResend}
-                    className="text-[#E63946] underline hover:no-underline font-semibold"
+                    className="text-[#9B59B6] underline hover:no-underline font-semibold"
                   >
                     Resend
                   </button>
@@ -234,8 +234,8 @@ function RegistrationScreen2({ phoneNumber, onNext, onBack, onChangeNumber }: Re
           disabled={!isComplete || isVerifying}
           className={`w-full h-[52px] rounded-xl font-semibold text-base transition-all flex items-center justify-center ${
             isComplete && !isVerifying
-              ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
-              : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+              ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]'
+              : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
           }`}
           aria-label="Verify OTP"
         >

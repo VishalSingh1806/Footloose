@@ -54,7 +54,7 @@ export function EditProfile() {
   if (!profile) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
       </div>
     );
   }
@@ -76,7 +76,7 @@ export function EditProfile() {
           <button
             onClick={handleSave}
             disabled={!hasChanges || saving}
-            className="px-4 py-2 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-[#E63946]"
+            className="px-4 py-2 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-[#9B59B6]"
           >
             {saving ? 'Saving...' : 'Save'}
           </button>
@@ -93,7 +93,7 @@ export function EditProfile() {
               value={formData.bio || ''}
               onChange={(e) => handleChange('bio', e.target.value)}
               placeholder="Tell others about yourself..."
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
               rows={6}
               maxLength={500}
             />
@@ -117,7 +117,7 @@ export function EditProfile() {
                   value={formData.height || ''}
                   onChange={(e) => handleChange('height', e.target.value)}
                   placeholder="e.g., 5'8&quot;"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
               </div>
 
@@ -130,7 +130,7 @@ export function EditProfile() {
                   value={formData.weight || ''}
                   onChange={(e) => handleChange('weight', e.target.value)}
                   placeholder="e.g., 75 kg"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
               </div>
             </div>
@@ -151,7 +151,7 @@ export function EditProfile() {
                   value={formData.education || ''}
                   onChange={(e) => handleChange('education', e.target.value)}
                   placeholder="e.g., B.Tech"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export function EditProfile() {
                   value={formData.profession || ''}
                   onChange={(e) => handleChange('profession', e.target.value)}
                   placeholder="e.g., Software Engineer"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export function EditProfile() {
                   value={formData.employer || ''}
                   onChange={(e) => handleChange('employer', e.target.value)}
                   placeholder="e.g., Tech Corp"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
                 />
               </div>
             </div>
@@ -189,7 +189,7 @@ export function EditProfile() {
           <button
             onClick={handleSave}
             disabled={!hasChanges || saving}
-            className="w-full bg-[#E63946] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[#9B59B6] text-white py-3 rounded-xl font-bold hover:bg-[#D62839] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <Save size={20} />
             <span>{saving ? 'Saving...' : 'Save Changes'}</span>

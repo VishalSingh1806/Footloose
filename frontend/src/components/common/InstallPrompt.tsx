@@ -39,7 +39,7 @@ function InstallPrompt({ onInstall, onDismiss, variant = 'banner' }: InstallProm
 
           {/* Icon */}
           <div className="flex justify-center mb-4">
-            <div className="w-20 h-20 bg-gradient-to-br from-[#E63946] to-[#2A9D8F] rounded-2xl flex items-center justify-center">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#9B59B6] to-[#2A9D8F] rounded-2xl flex items-center justify-center">
               <Smartphone size={40} className="text-white" />
             </div>
           </div>
@@ -88,7 +88,7 @@ function InstallPrompt({ onInstall, onDismiss, variant = 'banner' }: InstallProm
             <button
               onClick={handleInstall}
               disabled={isInstalling}
-              className="w-full bg-[#E63946] hover:bg-[#D62839] text-white py-3 px-6 rounded-xl font-semibold
+              className="w-full bg-[#9B59B6] hover:bg-[#D62839] text-white py-3 px-6 rounded-xl font-semibold
                          flex items-center justify-center gap-2 active:scale-95 transition-all
                          disabled:opacity-50 disabled:cursor-not-allowed"
             >
@@ -122,7 +122,7 @@ function InstallPrompt({ onInstall, onDismiss, variant = 'banner' }: InstallProm
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 max-w-md mx-auto">
         <div className="flex items-start gap-3">
           {/* Icon */}
-          <div className="w-12 h-12 bg-gradient-to-br from-[#E63946] to-[#2A9D8F] rounded-xl flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#9B59B6] to-[#2A9D8F] rounded-xl flex items-center justify-center flex-shrink-0">
             <Download size={24} className="text-white" />
           </div>
 
@@ -140,7 +140,7 @@ function InstallPrompt({ onInstall, onDismiss, variant = 'banner' }: InstallProm
               <button
                 onClick={handleInstall}
                 disabled={isInstalling}
-                className="flex-1 bg-[#E63946] hover:bg-[#D62839] text-white py-2 px-4 rounded-lg font-semibold text-sm
+                className="flex-1 bg-[#9B59B6] hover:bg-[#D62839] text-white py-2 px-4 rounded-lg font-semibold text-sm
                            active:scale-95 transition-all disabled:opacity-50"
               >
                 {isInstalling ? 'Installing...' : 'Install'}

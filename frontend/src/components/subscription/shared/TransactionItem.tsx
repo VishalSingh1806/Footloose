@@ -110,7 +110,7 @@ export function TransactionItem({ transaction, onClick }: TransactionItemProps) 
 
         {/* Right side */}
         <div className="text-right">
-          <p className="font-bold text-[#E63946] text-lg mb-1">
+          <p className="font-bold text-[#9B59B6] text-lg mb-1">
             ₹{transaction.totalAmount}
           </p>
           {getStatusBadge()}

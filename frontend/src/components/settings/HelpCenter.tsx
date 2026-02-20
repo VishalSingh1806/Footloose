@@ -153,7 +153,7 @@ export default function HelpCenter() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -182,7 +182,7 @@ export default function HelpCenter() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for help..."
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
           />
         </div>
       </div>
@@ -196,11 +196,11 @@ export default function HelpCenter() {
               {filteredGuides.map((guide) => (
                 <button
                   key={guide.id}
-                  className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 text-left hover:border-[#E63946] transition-colors"
+                  className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 text-left hover:border-[#9B59B6] transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#E63946] bg-opacity-10 flex items-center justify-center flex-shrink-0">
-                      <BookOpen size={20} className="text-[#E63946]" />
+                    <div className="w-10 h-10 rounded-full bg-[#9B59B6] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+                      <BookOpen size={20} className="text-[#9B59B6]" />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900 mb-1">{guide.title}</h3>
@@ -263,14 +263,14 @@ export default function HelpCenter() {
         )}
 
         {/* Still Need Help */}
-        <div className="bg-gradient-to-r from-[#E63946] to-[#d62839] rounded-2xl p-6 text-white">
+        <div className="bg-gradient-to-r from-[#9B59B6] to-[#d62839] rounded-2xl p-6 text-white">
           <h3 className="text-lg font-bold mb-2">Still need help?</h3>
           <p className="text-sm mb-4 text-white text-opacity-90">
             Can't find what you're looking for? Our support team is here to help.
           </p>
           <button
             onClick={() => navigate('/settings/contact-support')}
-            className="w-full py-3 bg-white text-[#E63946] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="w-full py-3 bg-white text-[#9B59B6] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Contact Support
           </button>

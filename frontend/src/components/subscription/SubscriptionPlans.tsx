@@ -81,7 +81,7 @@ export function SubscriptionPlans() {
           </span>
           <button
             onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-            className="w-12 h-7 sm:w-14 sm:h-8 bg-[#E63946] rounded-full relative transition-colors"
+            className="w-12 h-7 sm:w-14 sm:h-8 bg-[#9B59B6] rounded-full relative transition-colors"
           >
             <div
               className={`w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full absolute top-1 transition-all ${
@@ -145,13 +145,13 @@ export function SubscriptionPlans() {
           </div>
 
           {/* Premium Plan */}
-          <div className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border-2 border-[#F4A261] relative">
-            <div className="absolute -top-2 sm:-top-3 right-4 sm:right-6 bg-[#E63946] text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 rounded-full">
+          <div className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border-2 border-[#8E44AD] relative">
+            <div className="absolute -top-2 sm:-top-3 right-4 sm:right-6 bg-[#9B59B6] text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 rounded-full">
               POPULAR
             </div>
 
             <div className="flex items-center gap-2 mb-2">
-              <Crown size={24} className="text-[#F4A261] sm:w-7 sm:h-7" fill="currentColor" />
+              <Crown size={24} className="text-[#8E44AD] sm:w-7 sm:h-7" fill="currentColor" />
               <h3 className="text-xl sm:text-2xl font-bold text-[#1D3557]">Premium</h3>
             </div>
 
@@ -202,7 +202,7 @@ export function SubscriptionPlans() {
               <button
                 onClick={handleUpgrade}
                 disabled={purchasing}
-                className="w-full bg-gradient-to-r from-[#E63946] to-[#F4A261] text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {purchasing ? (
                   <>

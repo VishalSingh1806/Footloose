@@ -116,7 +116,7 @@ export default function FeedbackForm() {
           </p>
           <button
             onClick={() => navigate(-1)}
-            className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+            className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
           >
             Back to Settings
           </button>
@@ -143,7 +143,7 @@ export default function FeedbackForm() {
       {/* Content */}
       <div className="p-4 space-y-6">
         {/* Feedback Info */}
-        <div className="bg-gradient-to-r from-[#E63946] to-[#d62839] rounded-2xl p-6 text-white">
+        <div className="bg-gradient-to-r from-[#9B59B6] to-[#d62839] rounded-2xl p-6 text-white">
           <h2 className="text-xl font-bold mb-2">We Value Your Feedback</h2>
           <p className="text-sm text-white text-opacity-90">
             Help us improve Footloose No More by sharing your thoughts, suggestions, or reporting
@@ -161,7 +161,7 @@ export default function FeedbackForm() {
             <select
               value={feedbackType}
               onChange={(e) => setFeedbackType(e.target.value as FeedbackType)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent"
             >
               {FEEDBACK_TYPES.map((type) => (
                 <option key={type.value} value={type.value}>
@@ -193,14 +193,14 @@ export default function FeedbackForm() {
                     size={40}
                     className={`${
                       star <= (hoverRating || rating)
-                        ? 'fill-[#E63946] text-[#E63946]'
+                        ? 'fill-[#9B59B6] text-[#9B59B6]'
                         : 'text-gray-300'
                     } transition-colors`}
                   />
                 </button>
               ))}
             </div>
-            <p className="text-sm font-medium text-[#E63946] mt-2">
+            <p className="text-sm font-medium text-[#9B59B6] mt-2">
               {getRatingText(hoverRating || rating)}
             </p>
           </div>
@@ -224,7 +224,7 @@ export default function FeedbackForm() {
               }...`}
               rows={8}
               maxLength={2000}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:border-transparent resize-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:border-transparent resize-none"
             />
             <div className="flex items-center justify-between mt-1">
               <p className="text-xs text-gray-500">Be as detailed as possible</p>
@@ -241,7 +241,7 @@ export default function FeedbackForm() {
                 type="checkbox"
                 checked={contactAllowed}
                 onChange={(e) => setContactAllowed(e.target.checked)}
-                className="mt-1 w-5 h-5 text-[#E63946] focus:ring-[#E63946] rounded"
+                className="mt-1 w-5 h-5 text-[#9B59B6] focus:ring-[#9B59B6] rounded"
               />
               <div>
                 <div className="font-medium text-gray-900 mb-1">
@@ -259,7 +259,7 @@ export default function FeedbackForm() {
           <button
             onClick={handleSubmit}
             disabled={isSubmitting || !description.trim()}
-            className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+            className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
           >
             {isSubmitting ? (
               <>
@@ -283,7 +283,7 @@ export default function FeedbackForm() {
             your feedback with third parties. See our{' '}
             <button
               onClick={() => navigate('/settings/terms-and-privacy')}
-              className="text-[#E63946] font-medium underline"
+              className="text-[#9B59B6] font-medium underline"
             >
               Privacy Policy
             </button>{' '}

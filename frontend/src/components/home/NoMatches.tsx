@@ -9,8 +9,8 @@ function NoMatches({ onRefresh }: NoMatchesProps) {
     <div className="flex items-center justify-center min-h-[calc(100vh-120px)] px-6 bg-[#FAFAFA]">
       <div className="text-center max-w-md">
         {/* Icon */}
-        <div className="w-24 h-24 bg-[#E63946]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Heart className="text-[#E63946]" size={48} />
+        <div className="w-24 h-24 bg-[#9B59B6]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Heart className="text-[#9B59B6]" size={48} />
         </div>
 
         {/* Title */}
@@ -28,7 +28,7 @@ function NoMatches({ onRefresh }: NoMatchesProps) {
         <div className="space-y-3">
           <button
             onClick={onRefresh}
-            className="w-full bg-[#E63946] text-white py-3 px-6 rounded-lg font-semibold
+            className="w-full bg-[#9B59B6] text-white py-3 px-6 rounded-lg font-semibold
                      flex items-center justify-center gap-2
                      hover:bg-[#D62839] active:scale-95 transition-all"
           >
@@ -39,7 +39,7 @@ function NoMatches({ onRefresh }: NoMatchesProps) {
           <button
             className="w-full bg-white text-[#1D3557] py-3 px-6 rounded-lg font-semibold
                      border-2 border-[#E5E7EB] flex items-center justify-center gap-2
-                     hover:border-[#E63946] hover:text-[#E63946] active:scale-95 transition-all"
+                     hover:border-[#9B59B6] hover:text-[#9B59B6] active:scale-95 transition-all"
           >
             <SlidersHorizontal size={18} />
             <span>Update Partner Preferences</span>

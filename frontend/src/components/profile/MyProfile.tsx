@@ -71,7 +71,7 @@ export function MyProfile() {
   if (loading || !profile || !completeness) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
       </div>
     );
   }
@@ -173,7 +173,7 @@ export function MyProfile() {
             onClick={() => navigate('/profile/analytics')}
             className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow text-center"
           >
-            <Heart size={24} className="text-[#E63946] mx-auto mb-2" />
+            <Heart size={24} className="text-[#9B59B6] mx-auto mb-2" />
             <p className="text-2xl font-bold text-[#1D3557]">24</p>
             <p className="text-xs text-gray-600">Likes</p>
           </button>
@@ -191,7 +191,7 @@ export function MyProfile() {
             onClick={() => navigate('/profile/analytics')}
             className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow text-center"
           >
-            <TrendingUp size={24} className="text-[#F4A261] mx-auto mb-2" />
+            <TrendingUp size={24} className="text-[#8E44AD] mx-auto mb-2" />
             <p className="text-2xl font-bold text-[#1D3557]">68%</p>
             <p className="text-xs text-gray-600">Match</p>
           </button>
@@ -221,7 +221,7 @@ export function MyProfile() {
             <h2 className="text-lg sm:text-xl font-bold text-[#1D3557]">About Me</h2>
             <button
               onClick={() => navigate('/profile/edit?section=bio')}
-              className="text-[#E63946] hover:text-[#D62839] transition-colors"
+              className="text-[#9B59B6] hover:text-[#D62839] transition-colors"
             >
               <Edit2 size={20} />
             </button>
@@ -235,7 +235,7 @@ export function MyProfile() {
               <p className="text-gray-500 mb-4">Add a bio to tell others about yourself</p>
               <button
                 onClick={() => navigate('/profile/edit?section=bio')}
-                className="bg-[#E63946] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
+                className="bg-[#9B59B6] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
               >
                 Add Bio
               </button>

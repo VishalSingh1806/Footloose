@@ -56,7 +56,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '50%' }}
           />
         </div>
@@ -64,9 +64,13 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
 
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
-        <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
-          Where you are based
+        <h1 className="text-2xl font-semibold text-[#1D3557] mb-2">
+          Where do you live now?
         </h1>
+
+        <p className="text-[14px] text-[#6C757D] mb-6">
+          This is used for matching and events near you
+        </p>
 
         {/* Country Dropdown */}
         <div className="mb-6">
@@ -76,7 +80,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
           <div className="relative">
             <button
               onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-              className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base text-left flex items-center justify-between focus:outline-none focus:border-[#E63946] transition-colors"
+              className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base text-left flex items-center justify-between focus:outline-none focus:border-[#9B59B6] transition-colors"
             >
               <span className={country ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
                 {country || 'Select country'}
@@ -94,7 +98,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
                       setShowCountryDropdown(false);
                     }}
                     className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
-                      country === countryData.name ? 'bg-[#FEF2F2] text-[#E63946] font-semibold' : 'text-[#1D3557]'
+                      country === countryData.name ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold' : 'text-[#1D3557]'
                     }`}
                   >
                     {countryData.name}
@@ -108,7 +112,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
         {/* City Dropdown */}
         <div className="mb-6">
           <label className="block text-[15px] text-[#6C757D] mb-3">
-            City
+            Current City
           </label>
           <div className="relative">
             <button
@@ -117,7 +121,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
               className={`w-full h-[52px] px-4 rounded-xl border-2 bg-white text-base text-left flex items-center justify-between focus:outline-none transition-colors ${
                 !country
                   ? 'border-[#E5E7EB] text-[#ADB5BD] cursor-not-allowed'
-                  : 'border-[#E5E7EB] text-[#1D3557] focus:border-[#E63946]'
+                  : 'border-[#E5E7EB] text-[#1D3557] focus:border-[#9B59B6]'
               }`}
             >
               <span className={currentCity ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
@@ -134,7 +138,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
                     value={citySearchQuery}
                     onChange={(e) => setCitySearchQuery(e.target.value)}
                     placeholder="Search city..."
-                    className="w-full px-3 py-2 rounded-lg border border-[#E5E7EB] text-[#1D3557] placeholder:text-[#ADB5BD] focus:outline-none focus:border-[#E63946]"
+                    className="w-full px-3 py-2 rounded-lg border border-[#E5E7EB] text-[#1D3557] placeholder:text-[#ADB5BD] focus:outline-none focus:border-[#9B59B6]"
                     autoFocus
                   />
                 </div>
@@ -149,7 +153,7 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
                           setCitySearchQuery('');
                         }}
                         className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
-                          currentCity === city ? 'bg-[#FEF2F2] text-[#E63946] font-semibold' : 'text-[#1D3557]'
+                          currentCity === city ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold' : 'text-[#1D3557]'
                         }`}
                       >
                         {city}
@@ -177,8 +181,8 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 country && currentCity
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"

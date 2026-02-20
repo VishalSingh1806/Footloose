@@ -201,7 +201,7 @@ function MatchFeed() {
           }}
         >
           <RefreshCw
-            className={`text-[#E63946] ${refreshing ? 'animate-spin' : ''}`}
+            className={`text-[#9B59B6] ${refreshing ? 'animate-spin' : ''}`}
             size={24}
           />
         </div>
@@ -216,14 +216,14 @@ function MatchFeed() {
 
       {/* Install prompt banner */}
       {canInstall && (
-        <div className="bg-[#E63946] text-white p-4 flex items-center justify-between">
+        <div className="bg-[#9B59B6] text-white p-4 flex items-center justify-between">
           <div className="flex-1">
             <p className="font-semibold">Install Footloose</p>
             <p className="text-sm opacity-90">Get the full app experience</p>
           </div>
           <button
             onClick={handleInstallClick}
-            className="bg-white text-[#E63946] px-4 py-2 rounded-lg font-semibold text-sm"
+            className="bg-white text-[#9B59B6] px-4 py-2 rounded-lg font-semibold text-sm"
           >
             Install
           </button>
@@ -235,7 +235,7 @@ function MatchFeed() {
         <div className="flex items-center justify-between mb-1">
           <h1 className="text-lg font-semibold text-[#1D3557]">My Matches</h1>
           <button
-            className="flex items-center gap-1 text-[#E63946] text-sm font-medium"
+            className="flex items-center gap-1 text-[#9B59B6] text-sm font-medium"
             onClick={() => setShowFilterModal(true)}
           >
             <Edit2 size={14} />
@@ -260,7 +260,7 @@ function MatchFeed() {
           </span>
         ) : (
           <span>
-            <span className="font-semibold text-[#E63946]">{displayedMatches.length}</span> new
+            <span className="font-semibold text-[#9B59B6]">{displayedMatches.length}</span> new
             matches today
           </span>
         )}

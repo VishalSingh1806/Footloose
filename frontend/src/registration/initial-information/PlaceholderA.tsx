@@ -11,8 +11,8 @@ function PlaceholderA({ onContinue }: PlaceholderAProps) {
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#E5E7EB]">
           {/* Icon */}
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E63946]/10 to-[#F4A261]/10 flex items-center justify-center">
-              <Heart className="w-8 h-8 text-[#E63946]" />
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#9B59B6]/10 to-[#8E44AD]/10 flex items-center justify-center">
+              <Heart className="w-8 h-8 text-[#9B59B6]" />
             </div>
           </div>
 
@@ -29,7 +29,7 @@ function PlaceholderA({ onContinue }: PlaceholderAProps) {
           {/* Continue Button */}
           <button
             onClick={onContinue}
-            className="w-full h-[52px] bg-[#E63946] hover:bg-[#D62828] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)]"
+            className="w-full h-[52px] bg-[#9B59B6] hover:bg-[#8E44AD] text-white font-semibold text-base rounded-xl transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
           >
             Continue
           </button>

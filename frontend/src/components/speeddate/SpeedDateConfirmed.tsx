@@ -221,7 +221,7 @@ function SpeedDateConfirmed({
         <div className="space-y-3">
           <button
             onClick={onViewProfile}
-            className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold text-base
+            className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold text-base
                        hover:bg-[#D62839] active:scale-95 transition-all shadow-lg"
           >
             View {matchName}'s Profile

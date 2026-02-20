@@ -119,7 +119,7 @@ export default function DataAndPrivacy() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -164,7 +164,7 @@ export default function DataAndPrivacy() {
             </p>
             <button
               onClick={() => setShowExportModal(true)}
-              className="w-full py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors flex items-center justify-center gap-2"
             >
               <Download size={20} />
               Request Data Export
@@ -246,7 +246,7 @@ export default function DataAndPrivacy() {
           <div className="p-4">
             <button
               onClick={() => navigate('/settings/blocked-users')}
-              className="text-[#E63946] font-semibold hover:text-[#d62839]"
+              className="text-[#9B59B6] font-semibold hover:text-[#d62839]"
             >
               Manage Blocked Users
             </button>
@@ -327,7 +327,7 @@ export default function DataAndPrivacy() {
           </p>
           <a
             href="mailto:privacy@footloosenomorw.com"
-            className="text-[#E63946] font-semibold hover:text-[#d62839]"
+            className="text-[#9B59B6] font-semibold hover:text-[#d62839]"
           >
             privacy@footloosenomorw.com
           </a>
@@ -365,7 +365,7 @@ export default function DataAndPrivacy() {
               <button
                 onClick={handleRequestExport}
                 disabled={isRequesting}
-                className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
+                className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] disabled:opacity-50"
               >
                 {isRequesting ? 'Requesting...' : 'Request Export'}
               </button>
@@ -433,8 +433,8 @@ const Toggle: React.FC<ToggleProps> = ({ checked, onChange, disabled }) => {
     <button
       onClick={() => !disabled && onChange(!checked)}
       disabled={disabled}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 ${
-        checked ? 'bg-[#E63946]' : 'bg-gray-300'
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#9B59B6] focus:ring-offset-2 ${
+        checked ? 'bg-[#9B59B6]' : 'bg-gray-300'
       } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
     >
       <span

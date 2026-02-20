@@ -35,8 +35,8 @@ function NotificationPrompt({ onClose, onEnable }: NotificationPromptProps) {
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 max-w-md mx-auto">
         <div className="flex items-start gap-3">
           {/* Icon */}
-          <div className="w-12 h-12 bg-[#E63946]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-            <Bell size={24} className="text-[#E63946]" />
+          <div className="w-12 h-12 bg-[#9B59B6]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Bell size={24} className="text-[#9B59B6]" />
           </div>
 
           {/* Content */}
@@ -53,7 +53,7 @@ function NotificationPrompt({ onClose, onEnable }: NotificationPromptProps) {
               <button
                 onClick={handleEnable}
                 disabled={isEnabling}
-                className="flex-1 bg-[#E63946] hover:bg-[#D62839] text-white py-2 px-4 rounded-lg
+                className="flex-1 bg-[#9B59B6] hover:bg-[#D62839] text-white py-2 px-4 rounded-lg
                            font-semibold text-sm active:scale-95 transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
               >

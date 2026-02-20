@@ -45,7 +45,7 @@ function RegistrationScreen24({ onExploreMatches }: RegistrationScreen24Props) {
         {/* Single Button */}
         <button
           onClick={handleDone}
-          className="w-full max-w-[400px] h-[52px] rounded-xl font-semibold text-base bg-[#E63946] hover:bg-[#D62828] text-white transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] mx-auto block"
+          className="w-full max-w-[400px] h-[52px] rounded-xl font-semibold text-base bg-[#9B59B6] hover:bg-[#8E44AD] text-white transition-all active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] mx-auto block"
         >
           Done
         </button>

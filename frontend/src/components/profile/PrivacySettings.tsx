@@ -151,7 +151,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                           {toggle.title}
                         </p>
                         {toggle.premium && (
-                          <span className="px-2 py-0.5 bg-gradient-to-r from-[#E63946] to-[#F4A261] text-white text-xs font-bold rounded-full">
+                          <span className="px-2 py-0.5 bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] text-white text-xs font-bold rounded-full">
                             Premium
                           </span>
                         )}
@@ -194,7 +194,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                 onClick={() => handleVisibilityChange('photoVisibility', option.value)}
                 className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all ${
                   settings.photoVisibility === option.value
-                    ? 'border-[#E63946] bg-[#FFF5F5]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5]'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -203,7 +203,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                     {option.label}
                   </span>
                   {settings.photoVisibility === option.value && (
-                    <div className="w-5 h-5 bg-[#E63946] rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 bg-[#9B59B6] rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                   )}
@@ -226,7 +226,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                 onClick={() => handleVisibilityChange('contactVisibility', option.value)}
                 className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all ${
                   settings.contactVisibility === option.value
-                    ? 'border-[#E63946] bg-[#FFF5F5]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5]'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -235,7 +235,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                     {option.label}
                   </span>
                   {settings.contactVisibility === option.value && (
-                    <div className="w-5 h-5 bg-[#E63946] rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 bg-[#9B59B6] rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                   )}
@@ -258,7 +258,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                 onClick={() => handleVisibilityChange('lastSeenVisibility', option.value)}
                 className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all ${
                   settings.lastSeenVisibility === option.value
-                    ? 'border-[#E63946] bg-[#FFF5F5]'
+                    ? 'border-[#9B59B6] bg-[#FFF5F5]'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -267,7 +267,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                     {option.label}
                   </span>
                   {settings.lastSeenVisibility === option.value && (
-                    <div className="w-5 h-5 bg-[#E63946] rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 bg-[#9B59B6] rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                   )}
@@ -353,7 +353,7 @@ export function PrivacySettings({ settings: initialSettings, onUpdate }: Privacy
                           <p className="text-xs text-gray-500">Blocked</p>
                         </div>
                       </div>
-                      <button className="px-3 py-1.5 bg-[#E63946] text-white rounded-lg text-xs font-semibold hover:bg-[#D62839] transition-colors">
+                      <button className="px-3 py-1.5 bg-[#9B59B6] text-white rounded-lg text-xs font-semibold hover:bg-[#D62839] transition-colors">
                         Unblock
                       </button>
                     </div>

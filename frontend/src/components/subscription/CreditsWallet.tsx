@@ -34,7 +34,7 @@ export function CreditsWallet() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#E63946] border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#9B59B6] border-t-transparent" />
       </div>
     );
   }
@@ -42,7 +42,7 @@ export function CreditsWallet() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] pb-24">
       {/* Wallet Card */}
-      <div className="bg-gradient-to-br from-[#E63946] to-[#F4A261] rounded-b-3xl p-4 sm:p-6 shadow-xl">
+      <div className="bg-gradient-to-br from-[#9B59B6] to-[#8E44AD] rounded-b-3xl p-4 sm:p-6 shadow-xl">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-4 sm:mb-6">
@@ -91,7 +91,7 @@ export function CreditsWallet() {
             onClick={() =>
               navigate(isPremium ? '/credits/purchase' : '/subscription')
             }
-            className="w-full bg-white text-[#E63946] py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+            className="w-full bg-white text-[#9B59B6] py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
           >
             {isPremium ? 'Add More Credits' : 'Get Premium'}
           </button>
@@ -109,8 +109,8 @@ export function CreditsWallet() {
               onClick={() => navigate('/credits/purchase')}
               className="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all border border-[#E5E7EB]"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E63946]/10 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                <Plus size={20} className="text-[#E63946] sm:w-6 sm:h-6" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#9B59B6]/10 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                <Plus size={20} className="text-[#9B59B6] sm:w-6 sm:h-6" />
               </div>
               <p className="text-xs sm:text-sm font-semibold text-[#1D3557] mb-1">Buy Credits</p>
               <p className="text-xs text-gray-600">Starting at ₹199</p>
@@ -120,10 +120,10 @@ export function CreditsWallet() {
             {!isPremium && (
               <button
                 onClick={() => navigate('/subscription')}
-                className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all border-2 border-[#F4A261]"
+                className="bg-gradient-to-br from-[#FFF9E5] to-[#FEF3C7] p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all border-2 border-[#8E44AD]"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F4A261]/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                  <Crown size={20} className="text-[#F4A261] sm:w-6 sm:h-6" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#8E44AD]/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <Crown size={20} className="text-[#8E44AD] sm:w-6 sm:h-6" />
                 </div>
                 <p className="text-xs sm:text-sm font-semibold text-[#1D3557] mb-1">Go Premium</p>
                 <p className="text-xs text-gray-600">1000 credits/month</p>
@@ -151,7 +151,7 @@ export function CreditsWallet() {
               <h2 className="text-xl font-bold text-[#1D3557]">Where Your Credits Go</h2>
               <button
                 onClick={() => navigate('/credits/usage')}
-                className="text-sm text-[#E63946] font-semibold hover:underline"
+                className="text-sm text-[#9B59B6] font-semibold hover:underline"
               >
                 View Details →
               </button>
@@ -173,7 +173,7 @@ export function CreditsWallet() {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-3">
                       <div
-                        className="bg-[#E63946] h-3 rounded-full transition-all"
+                        className="bg-[#9B59B6] h-3 rounded-full transition-all"
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
@@ -194,10 +194,10 @@ export function CreditsWallet() {
               <div
                 key={pkg.id}
                 onClick={() => navigate('/credits/purchase')}
-                className="flex-none w-56 sm:w-64 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all border-2 border-[#E5E7EB] hover:border-[#E63946] cursor-pointer"
+                className="flex-none w-56 sm:w-64 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all border-2 border-[#E5E7EB] hover:border-[#9B59B6] cursor-pointer"
               >
                 {pkg.popular && (
-                  <div className="inline-block bg-[#E63946] text-white text-xs font-bold px-2 py-1 rounded-full mb-2">
+                  <div className="inline-block bg-[#9B59B6] text-white text-xs font-bold px-2 py-1 rounded-full mb-2">
                     POPULAR
                   </div>
                 )}
@@ -209,11 +209,11 @@ export function CreditsWallet() {
                     <span className="text-green-600"> +{pkg.bonusCredits} bonus</span>
                   )}
                 </p>
-                <div className="text-xl sm:text-2xl font-bold text-[#E63946] mb-2">₹{pkg.price}</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#9B59B6] mb-2">₹{pkg.price}</div>
                 <p className="text-xs text-gray-500 mb-3">
                   ~{Math.floor(pkg.totalCredits / 200)} Speed Dates
                 </p>
-                <button className="w-full bg-[#E63946] text-white py-2 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors">
+                <button className="w-full bg-[#9B59B6] text-white py-2 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors">
                   Buy Now
                 </button>
               </div>
@@ -228,7 +228,7 @@ export function CreditsWallet() {
             className="bg-gradient-to-br from-[#FFF9E5] via-[#FEF3C7] to-[#FDE68A] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg cursor-pointer hover:shadow-xl transition-all mb-6 sm:mb-8"
           >
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#F4A261] rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#8E44AD] rounded-full flex items-center justify-center flex-shrink-0">
                 <Crown size={24} className="text-white sm:w-7 sm:h-7" fill="currentColor" />
               </div>
               <div className="flex-1 min-w-0">
@@ -252,7 +252,7 @@ export function CreditsWallet() {
                 </div>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                   <span className="text-xl sm:text-2xl font-bold text-[#1D3557]">₹999/month</span>
-                  <button className="bg-[#E63946] text-white px-4 sm:px-6 py-2 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors whitespace-nowrap">
+                  <button className="bg-[#9B59B6] text-white px-4 sm:px-6 py-2 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#D62839] transition-colors whitespace-nowrap">
                     Upgrade Now
                   </button>
                 </div>

@@ -65,7 +65,7 @@ function ProfileHeader({
         {/* Top-left badges */}
         <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
           {match.isNewlyJoined && (
-            <div className="bg-[#E63946] text-white text-xs font-bold px-3 py-1.5 rounded-br-xl">
+            <div className="bg-[#9B59B6] text-white text-xs font-bold px-3 py-1.5 rounded-br-xl">
               NEWLY JOINED
             </div>
           )}
@@ -99,8 +99,8 @@ function ProfileHeader({
           >
             <Star
               size={20}
-              className={isShortlisted ? 'text-[#F4A261]' : 'text-gray-400'}
-              fill={isShortlisted ? '#F4A261' : 'none'}
+              className={isShortlisted ? 'text-[#8E44AD]' : 'text-gray-400'}
+              fill={isShortlisted ? '#8E44AD' : 'none'}
             />
           </button>
         </div>

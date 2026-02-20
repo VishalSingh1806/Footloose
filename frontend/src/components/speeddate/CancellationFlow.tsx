@@ -72,13 +72,13 @@ function CancellationFlow({
             <p className="text-gray-600 text-sm mb-4">
               {matchName} has been notified of the cancellation.
             </p>
-            <div className="bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-xl p-4 mb-6">
+            <div className="bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-xl p-4 mb-6">
               <p className="text-sm text-gray-600 mb-1">New balance</p>
-              <p className="text-2xl font-bold text-[#F4A261]">{creditBalance + 200} credits</p>
+              <p className="text-2xl font-bold text-[#8E44AD]">{creditBalance + 200} credits</p>
             </div>
             <button
               onClick={onClose}
-              className="w-full bg-[#E63946] text-white py-3 px-6 rounded-xl font-semibold
+              className="w-full bg-[#9B59B6] text-white py-3 px-6 rounded-xl font-semibold
                          hover:bg-[#D62839] active:scale-95 transition-all"
             >
               Done
@@ -138,7 +138,7 @@ function CancellationFlow({
               <button
                 onClick={handleConfirm}
                 disabled={cancelling}
-                className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold
+                className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold
                            hover:bg-[#D62839] active:scale-95 transition-all
                            disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -180,7 +180,7 @@ function CancellationFlow({
                   key={reason.value}
                   className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all
                     ${selectedReason === reason.value
-                      ? 'border-[#E63946] bg-red-50'
+                      ? 'border-[#9B59B6] bg-red-50'
                       : 'border-gray-200 hover:border-gray-300'
                     }`}
                 >
@@ -190,7 +190,7 @@ function CancellationFlow({
                     value={reason.value}
                     checked={selectedReason === reason.value}
                     onChange={(e) => setSelectedReason(e.target.value)}
-                    className="w-4 h-4 text-[#E63946] focus:ring-[#E63946]"
+                    className="w-4 h-4 text-[#9B59B6] focus:ring-[#9B59B6]"
                   />
                   <span className="text-[#1D3557] font-medium text-sm">{reason.label}</span>
                 </label>
@@ -205,7 +205,7 @@ function CancellationFlow({
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Any additional context..."
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#E63946]
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#9B59B6]
                            focus:outline-none resize-none"
                 rows={3}
                 maxLength={500}
@@ -215,7 +215,7 @@ function CancellationFlow({
             <button
               onClick={() => setStep('confirm')}
               disabled={!selectedReason}
-              className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold
+              className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold
                          hover:bg-[#D62839] active:scale-95 transition-all
                          disabled:opacity-50 disabled:cursor-not-allowed"
             >
@@ -273,7 +273,7 @@ function CancellationFlow({
           <div className="space-y-3">
             <button
               onClick={() => setStep('reason')}
-              className="w-full bg-[#E63946] text-white py-4 px-6 rounded-xl font-semibold
+              className="w-full bg-[#9B59B6] text-white py-4 px-6 rounded-xl font-semibold
                          hover:bg-[#D62839] active:scale-95 transition-all"
             >
               Cancel Speed Date

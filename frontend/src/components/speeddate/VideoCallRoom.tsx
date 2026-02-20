@@ -224,7 +224,7 @@ function VideoCallRoom({
       {isPaused && (
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center z-25">
           <div className="bg-white rounded-2xl p-6 text-center">
-            <div className="w-16 h-16 border-4 border-[#E63946] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-16 h-16 border-4 border-[#9B59B6] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p className="text-[#1D3557] font-semibold">Reconnecting...</p>
           </div>
         </div>

@@ -75,7 +75,7 @@ const TabButton: React.FC<{
       onClick={onClick}
       className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 font-medium transition-colors ${
         active
-          ? 'text-[#E63946] border-b-2 border-[#E63946]'
+          ? 'text-[#9B59B6] border-b-2 border-[#9B59B6]'
           : 'text-gray-600 hover:text-gray-900'
       }`}
     >
@@ -190,7 +190,7 @@ const TermsOfService = () => {
       <Section title="11. Contact">
         <p>
           For questions about these Terms, contact us at:{' '}
-          <a href="mailto:legal@footloosenomorw.com" className="text-[#E63946] underline">
+          <a href="mailto:legal@footloosenomorw.com" className="text-[#9B59B6] underline">
             legal@footloosenomorw.com
           </a>
         </p>
@@ -306,7 +306,7 @@ const PrivacyPolicy = () => {
       <Section title="10. Contact Us">
         <p>
           For privacy questions or to exercise your rights, contact us at:{' '}
-          <a href="mailto:privacy@footloosenomorw.com" className="text-[#E63946] underline">
+          <a href="mailto:privacy@footloosenomorw.com" className="text-[#9B59B6] underline">
             privacy@footloosenomorw.com
           </a>
         </p>

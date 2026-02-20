@@ -58,8 +58,8 @@ function FilterBar({
                        transition-all whitespace-nowrap
                        ${
                          isActive(filter.id)
-                           ? 'bg-[#E63946] text-white'
-                           : 'bg-white text-gray-700 border border-gray-300 hover:border-[#E63946] hover:text-[#E63946]'
+                           ? 'bg-[#9B59B6] text-white'
+                           : 'bg-white text-gray-700 border border-gray-300 hover:border-[#9B59B6] hover:text-[#9B59B6]'
                        }`}
           >
             {getFilterLabel(filter)}
@@ -72,7 +72,7 @@ function FilterBar({
           className="flex-shrink-0 w-10 h-10 rounded-full
                      bg-white border border-gray-300
                      flex items-center justify-center
-                     hover:border-[#E63946] hover:text-[#E63946]
+                     hover:border-[#9B59B6] hover:text-[#9B59B6]
                      transition-all"
           aria-label="Open advanced filters"
         >

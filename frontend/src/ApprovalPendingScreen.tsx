@@ -68,7 +68,7 @@ function ApprovalPendingScreen({ onContactSupport }: ApprovalPendingScreenProps)
           <div className="text-center">
             <button
               onClick={onContactSupport}
-              className="text-sm text-[#E63946] hover:text-[#D62828] transition-colors"
+              className="text-sm text-[#9B59B6] hover:text-[#8E44AD] transition-colors"
             >
               Need help? Contact support
             </button>

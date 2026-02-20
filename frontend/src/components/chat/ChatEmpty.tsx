@@ -24,7 +24,7 @@ function ChatEmpty() {
       {/* CTA Button */}
       <button
         onClick={() => navigate('/matches')}
-        className="bg-[#E63946] hover:bg-[#D62839] text-white px-8 py-3 rounded-xl font-semibold
+        className="bg-[#9B59B6] hover:bg-[#D62839] text-white px-8 py-3 rounded-xl font-semibold
                    active:scale-95 transition-all"
       >
         Explore Matches

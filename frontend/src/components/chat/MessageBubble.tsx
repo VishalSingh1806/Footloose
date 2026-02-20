@@ -41,7 +41,7 @@ function MessageBubble({ message, isOwn, showAvatar = false, avatar, onRetry }: 
           <div
             className={`px-4 py-2 ${
               isOwn
-                ? 'bg-[#E63946] text-white rounded-2xl rounded-br-sm'
+                ? 'bg-[#9B59B6] text-white rounded-2xl rounded-br-sm'
                 : 'bg-white text-[#1D3557] rounded-2xl rounded-bl-sm shadow-sm'
             }`}
           >

@@ -1,11 +1,11 @@
-import { Heart, Video, MessageCircle, User } from 'lucide-react';
+import { Grid, Video, MessageCircle, User } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface NavItem {
   id: string;
   label: string;
-  icon: typeof Heart;
-  iconFilled: typeof Heart;
+  icon: typeof Grid;
+  iconFilled: typeof Grid;
   route: string;
   badge?: number;
 }
@@ -24,8 +24,8 @@ function BottomNav({ matchesBadge = 0, speedDatesBadge = 0, messagesBadge = 0 }:
     {
       id: 'matches',
       label: 'Matches',
-      icon: Heart,
-      iconFilled: Heart,
+      icon: Grid,
+      iconFilled: Grid,
       route: '/matches',
       badge: matchesBadge,
     },
@@ -89,22 +89,22 @@ function BottomNav({ matchesBadge = 0, speedDatesBadge = 0, messagesBadge = 0 }:
             >
               {/* Active Indicator Bar */}
               {active && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#E63946] rounded-b-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#9B59B6] rounded-b-full" />
               )}
 
               {/* Icon with Badge */}
               <div className="relative mb-1">
                 <Icon
                   className={`w-6 h-6 transition-colors duration-200 ${
-                    active ? 'text-[#E63946]' : 'text-[#9CA3AF]'
+                    active ? 'text-[#9B59B6]' : 'text-[#9CA3AF]'
                   }`}
-                  fill={active && item.id === 'matches' ? '#E63946' : 'none'}
+                  fill="none"
                   strokeWidth={2}
                 />
 
                 {/* Badge */}
                 {item.badge !== undefined && item.badge > 0 && (
-                  <div className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-[#E63946] rounded-full flex items-center justify-center px-1">
+                  <div className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-[#9B59B6] rounded-full flex items-center justify-center px-1">
                     <span className="text-[10px] font-semibold text-white">
                       {item.badge > 99 ? '99+' : item.badge}
                     </span>
@@ -115,7 +115,7 @@ function BottomNav({ matchesBadge = 0, speedDatesBadge = 0, messagesBadge = 0 }:
               {/* Label */}
               <span
                 className={`text-[11px] font-medium transition-colors duration-200 ${
-                  active ? 'text-[#E63946]' : 'text-[#9CA3AF]'
+                  active ? 'text-[#9B59B6]' : 'text-[#9CA3AF]'
                 }`}
               >
                 {item.label}

@@ -72,9 +72,9 @@ function UnlockChatModal({
           </div>
 
           <div className="p-6 space-y-4">
-            <div className="bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-xl p-4 text-center">
+            <div className="bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-xl p-4 text-center">
               <p className="text-sm text-gray-600 mb-1">Your balance</p>
-              <p className="text-2xl font-bold text-[#F4A261]">{creditBalance} credits</p>
+              <p className="text-2xl font-bold text-[#8E44AD]">{creditBalance} credits</p>
             </div>
 
             {canAffordUnlock ? (
@@ -94,8 +94,8 @@ function UnlockChatModal({
                 </div>
                 <button
                   onClick={onAddCredits}
-                  className="w-full border-2 border-[#E63946] text-[#E63946] py-3 px-4 rounded-xl
-                             font-semibold hover:bg-[#E63946]/5 active:scale-95 transition-all"
+                  className="w-full border-2 border-[#9B59B6] text-[#9B59B6] py-3 px-4 rounded-xl
+                             font-semibold hover:bg-[#9B59B6]/5 active:scale-95 transition-all"
                 >
                   Add Credits
                 </button>
@@ -222,8 +222,8 @@ function UnlockChatModal({
             {!canAffordBypass && (
               <button
                 onClick={onAddCredits}
-                className="w-full border-2 border-[#E63946] text-[#E63946] py-3 px-4 rounded-xl
-                           font-semibold hover:bg-[#E63946]/5 active:scale-95 transition-all"
+                className="w-full border-2 border-[#9B59B6] text-[#9B59B6] py-3 px-4 rounded-xl
+                           font-semibold hover:bg-[#9B59B6]/5 active:scale-95 transition-all"
               >
                 Add Credits
               </button>
@@ -256,7 +256,7 @@ function UnlockChatModal({
                 alt={matchName}
                 className="w-20 h-20 rounded-full object-cover"
               />
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-[#E63946] rounded-full
+              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-[#9B59B6] rounded-full
                              flex items-center justify-center border-2 border-white">
                 <Lock size={16} className="text-white" />
               </div>
@@ -272,9 +272,9 @@ function UnlockChatModal({
         {/* Content */}
         <div className="p-6 space-y-4 overflow-y-auto max-h-[50vh]">
           {/* Credit Balance */}
-          <div className="bg-[#F4A261]/10 border border-[#F4A261]/30 rounded-xl p-4 text-center">
+          <div className="bg-[#8E44AD]/10 border border-[#8E44AD]/30 rounded-xl p-4 text-center">
             <p className="text-sm text-gray-600 mb-1">Your balance</p>
-            <p className="text-2xl font-bold text-[#F4A261]">{creditBalance} credits</p>
+            <p className="text-2xl font-bold text-[#8E44AD]">{creditBalance} credits</p>
           </div>
 
           {/* How it works */}
@@ -303,7 +303,7 @@ function UnlockChatModal({
           <button
             onClick={onRequestSpeedDate}
             disabled={!canAffordSpeedDate}
-            className="w-full bg-[#E63946] hover:bg-[#D62839] text-white py-4 px-6
+            className="w-full bg-[#9B59B6] hover:bg-[#D62839] text-white py-4 px-6
                        rounded-xl font-semibold text-base active:scale-95 transition-all
                        disabled:opacity-50 disabled:cursor-not-allowed"
           >
@@ -318,8 +318,8 @@ function UnlockChatModal({
           {!canAffordSpeedDate && (
             <button
               onClick={onAddCredits}
-              className="w-full border-2 border-[#E63946] text-[#E63946] py-3 px-4 rounded-xl
-                         font-semibold hover:bg-[#E63946]/5 active:scale-95 transition-all"
+              className="w-full border-2 border-[#9B59B6] text-[#9B59B6] py-3 px-4 rounded-xl
+                         font-semibold hover:bg-[#9B59B6]/5 active:scale-95 transition-all"
             >
               Add Credits
             </button>

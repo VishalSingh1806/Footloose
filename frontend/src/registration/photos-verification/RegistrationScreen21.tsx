@@ -67,7 +67,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
           <>
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="w-full h-[56px] rounded-xl border-2 border-dashed border-[#E5E7EB] bg-white hover:border-[#E63946]/30 hover:bg-[#FAFAFA] transition-all flex items-center justify-center gap-3"
+              className="w-full h-[56px] rounded-xl border-2 border-dashed border-[#E5E7EB] bg-white hover:border-[#9B59B6]/30 hover:bg-[#FAFAFA] transition-all flex items-center justify-center gap-3"
             >
               <FileText className="w-5 h-5 text-[#6C757D]" />
               <span className="text-sm font-medium text-[#6C757D]">
@@ -99,7 +99,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
                 }
                 setError('');
               }}
-              className="text-xs text-[#6C757D] hover:text-[#E63946] ml-3 flex-shrink-0"
+              className="text-xs text-[#6C757D] hover:text-[#9B59B6] ml-3 flex-shrink-0"
             >
               Remove
             </button>
@@ -131,7 +131,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '94%' }}
           />
         </div>
@@ -194,8 +194,8 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 governmentId
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"

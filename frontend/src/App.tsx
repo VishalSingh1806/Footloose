@@ -141,13 +141,19 @@ function App() {
   }, [currentScreen]);
 
   useEffect(() => {
-    // Don't save File objects to localStorage
+    // Don't save File objects or large base64 photo strings to localStorage
     const dataToSave = {
       ...registrationData,
       governmentId: null,
       companyId: null,
+      photos: [],          // Excluded: base64 strings can exceed localStorage quota
+      lifestylePhotos: [], // Excluded: base64 strings can exceed localStorage quota
     };
-    localStorage.setItem('registrationData', JSON.stringify(dataToSave));
+    try {
+      localStorage.setItem('registrationData', JSON.stringify(dataToSave));
+    } catch {
+      // localStorage quota exceeded - continue without persistence
+    }
   }, [registrationData]);
 
   const handleGetStarted = () => {

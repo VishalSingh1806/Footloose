@@ -108,7 +108,7 @@ function MessageComposer({
             disabled={disabled}
             rows={1}
             className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-3xl resize-none
-                       focus:outline-none focus:border-[#E63946] transition-colors
+                       focus:outline-none focus:border-[#9B59B6] transition-colors
                        disabled:bg-gray-50 disabled:text-gray-400"
             style={{ maxHeight: '100px' }}
           />
@@ -138,7 +138,7 @@ function MessageComposer({
           className={`w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center
                      transition-all active:scale-95 ${
                        canSend
-                         ? 'bg-[#E63946] hover:bg-[#D62839] text-white'
+                         ? 'bg-[#9B59B6] hover:bg-[#D62839] text-white'
                          : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                      }`}
           aria-label="Send message"

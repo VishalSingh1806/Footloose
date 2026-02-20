@@ -56,7 +56,7 @@ export default function BlockedUsers() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E63946]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B59B6]"></div>
       </div>
     );
   }
@@ -126,7 +126,7 @@ export default function BlockedUsers() {
                     <button
                       onClick={() => setConfirmUnblock(user)}
                       disabled={unblockingUserId === user.userId}
-                      className="px-4 py-2 text-[#E63946] font-semibold hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
+                      className="px-4 py-2 text-[#9B59B6] font-semibold hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
                     >
                       {unblockingUserId === user.userId ? 'Unblocking...' : 'Unblock'}
                     </button>
@@ -207,7 +207,7 @@ export default function BlockedUsers() {
               </button>
               <button
                 onClick={() => handleUnblock(confirmUnblock)}
-                className="flex-1 py-3 px-4 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
+                className="flex-1 py-3 px-4 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#d62839] transition-colors"
               >
                 Unblock
               </button>

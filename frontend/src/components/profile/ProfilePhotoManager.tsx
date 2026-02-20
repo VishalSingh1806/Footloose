@@ -121,7 +121,7 @@ export function ProfilePhotoManager({ photos: initialPhotos, onUpdate }: Profile
           {reorderMode ? (
             <button
               onClick={handleSaveOrder}
-              className="px-4 py-2 bg-[#E63946] text-white rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
+              className="px-4 py-2 bg-[#9B59B6] text-white rounded-lg font-semibold hover:bg-[#D62839] transition-colors"
             >
               Save
             </button>
@@ -129,7 +129,7 @@ export function ProfilePhotoManager({ photos: initialPhotos, onUpdate }: Profile
             <button
               onClick={() => setReorderMode(true)}
               disabled={photos.length < 2}
-              className="px-4 py-2 text-[#E63946] rounded-lg font-semibold hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 text-[#9B59B6] rounded-lg font-semibold hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Reorder
             </button>
@@ -162,7 +162,7 @@ export function ProfilePhotoManager({ photos: initialPhotos, onUpdate }: Profile
             {photos.length} of {maxPhotos} photos
           </p>
           {reorderMode && (
-            <p className="text-xs sm:text-sm text-[#E63946] font-semibold">
+            <p className="text-xs sm:text-sm text-[#9B59B6] font-semibold">
               Drag to reorder
             </p>
           )}
@@ -237,11 +237,11 @@ export function ProfilePhotoManager({ photos: initialPhotos, onUpdate }: Profile
             <button
               onClick={() => fileInputRef.current?.click()}
               disabled={uploadingCount > 0}
-              className="relative aspect-square rounded-xl border-2 border-dashed border-gray-300 hover:border-[#E63946] bg-white flex flex-col items-center justify-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative aspect-square rounded-xl border-2 border-dashed border-gray-300 hover:border-[#9B59B6] bg-white flex flex-col items-center justify-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {uploadingCount > 0 ? (
                 <>
-                  <div className="animate-spin rounded-full h-8 w-8 border-4 border-[#E63946] border-t-transparent" />
+                  <div className="animate-spin rounded-full h-8 w-8 border-4 border-[#9B59B6] border-t-transparent" />
                   <p className="text-xs text-gray-500">Uploading...</p>
                 </>
               ) : (
@@ -281,7 +281,7 @@ export function ProfilePhotoManager({ photos: initialPhotos, onUpdate }: Profile
 
         {/* Tips */}
         {photos.length === 0 && (
-          <div className="bg-gradient-to-br from-[#E63946]/5 to-[#F4A261]/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#E63946]/20">
+          <div className="bg-gradient-to-br from-[#9B59B6]/5 to-[#8E44AD]/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#9B59B6]/20">
             <h3 className="text-base sm:text-lg font-bold text-[#1D3557] mb-3">
               Tips for Great Photos
             </h3>

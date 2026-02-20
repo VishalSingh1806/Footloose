@@ -124,7 +124,7 @@ export async function initiatePayment(
           contact: metadata?.userPhone || '',
         },
         theme: {
-          color: '#E63946', // Primary color
+          color: '#9B59B6', // Primary color
         },
         notes: {
           type,

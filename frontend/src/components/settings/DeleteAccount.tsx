@@ -193,7 +193,7 @@ export default function DeleteAccount() {
                   type="checkbox"
                   checked={selectedReasons.includes(reason.value)}
                   onChange={() => toggleReason(reason.value)}
-                  className="w-5 h-5 text-[#E63946] rounded border-gray-300 focus:ring-[#E63946]"
+                  className="w-5 h-5 text-[#9B59B6] rounded border-gray-300 focus:ring-[#9B59B6]"
                 />
                 <span className="text-gray-700">{reason.label}</span>
               </label>
@@ -210,7 +210,7 @@ export default function DeleteAccount() {
               placeholder="Tell us more..."
               maxLength={500}
               rows={4}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946] resize-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6] resize-none"
             />
             <p className="text-xs text-gray-500 mt-1 text-right">
               {additionalFeedback.length}/500
@@ -266,7 +266,7 @@ export default function DeleteAccount() {
                 type="checkbox"
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="mt-1 w-5 h-5 text-[#E63946] rounded border-gray-300 focus:ring-[#E63946]"
+                className="mt-1 w-5 h-5 text-[#9B59B6] rounded border-gray-300 focus:ring-[#9B59B6]"
               />
               <span className="text-sm text-gray-700">
                 I understand this action is permanent and cannot be undone after 30 days
@@ -284,7 +284,7 @@ export default function DeleteAccount() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E63946]"
+                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B59B6]"
               />
               <button
                 type="button"

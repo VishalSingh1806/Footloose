@@ -65,7 +65,7 @@ function ChatGuidelines({ onAccept, onClose }: ChatGuidelinesProps) {
           <div className="space-y-4">
             {guidelines.map((guideline, index) => (
               <div key={index} className="flex gap-3">
-                <div className="w-6 h-6 bg-[#E63946] text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-6 h-6 bg-[#9B59B6] text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-sm font-bold">{index + 1}</span>
                 </div>
                 <div>
@@ -83,7 +83,7 @@ function ChatGuidelines({ onAccept, onClose }: ChatGuidelinesProps) {
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="w-5 h-5 mt-0.5 text-[#E63946] rounded border-gray-300 focus:ring-[#E63946]"
+                className="w-5 h-5 mt-0.5 text-[#9B59B6] rounded border-gray-300 focus:ring-[#9B59B6]"
               />
               <span className="text-sm text-gray-600">
                 I understand and agree to follow these guidelines
@@ -97,9 +97,9 @@ function ChatGuidelines({ onAccept, onClose }: ChatGuidelinesProps) {
           <button
             onClick={onAccept}
             disabled={!agreed}
-            className="w-full bg-[#E63946] hover:bg-[#D62839] text-white py-3 px-6 rounded-xl
+            className="w-full bg-[#9B59B6] hover:bg-[#D62839] text-white py-3 px-6 rounded-xl
                        font-semibold active:scale-95 transition-all disabled:opacity-50
-                       disabled:cursor-not-allowed disabled:hover:bg-[#E63946]"
+                       disabled:cursor-not-allowed disabled:hover:bg-[#9B59B6]"
           >
             Start Chatting
           </button>

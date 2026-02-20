@@ -124,8 +124,8 @@ function ActionButtons({
                    disabled:opacity-50 disabled:cursor-not-allowed
                    ${
                      shortlisted
-                       ? 'border-[#F4A261] bg-[#F4A261] text-white'
-                       : 'border-[#F4A261] text-[#F4A261]'
+                       ? 'border-[#8E44AD] bg-[#8E44AD] text-white'
+                       : 'border-[#8E44AD] text-[#8E44AD]'
                    }`}
         aria-label={shortlisted ? 'Remove from shortlist' : 'Add to shortlist'}
       >
@@ -168,7 +168,7 @@ function ActionButtons({
         onClick={handleSendInterest}
         disabled={interestState === 'loading'}
         className="flex-1 h-11 rounded-lg
-                   bg-[#E63946] text-white
+                   bg-[#9B59B6] text-white
                    flex items-center justify-center gap-2
                    text-sm font-semibold
                    hover:bg-[#D62839] active:scale-95 transition-all

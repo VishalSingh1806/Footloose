@@ -44,7 +44,7 @@ function RegistrationScreen6({ onNext, onBack }: RegistrationScreen6Props) {
         {/* Progress Bar */}
         <div className="h-[6px] bg-[#E5E7EB] relative overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#E63946] to-[#F4A261] transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-[#9B59B6] to-[#8E44AD] transition-all duration-500 ease-out"
             style={{ width: '30%' }}
           />
         </div>
@@ -70,8 +70,8 @@ function RegistrationScreen6({ onNext, onBack }: RegistrationScreen6Props) {
                 w-full h-[56px] rounded-xl font-semibold text-base transition-all
                 ${
                   selectedComfort === level
-                    ? 'bg-[#E63946] text-white shadow-[0_2px_8px_rgba(230,57,70,0.2)]'
-                    : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#E63946]/30'
+                    ? 'bg-[#9B59B6] text-white shadow-[0_2px_8px_rgba(155,89,182,0.2)]'
+                    : 'bg-white text-[#1D3557] border-2 border-[#E5E7EB] hover:border-[#9B59B6]/30'
                 }
               `}
             >
@@ -91,8 +91,8 @@ function RegistrationScreen6({ onNext, onBack }: RegistrationScreen6Props) {
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
                 selectedComfort
-                  ? 'bg-[#E63946] hover:bg-[#D62828] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(230,57,70,0.2)] opacity-100'
-                  : 'bg-[#E63946] text-white opacity-50 cursor-not-allowed'
+                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
+                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
             `}
             aria-label="Continue to next step"
