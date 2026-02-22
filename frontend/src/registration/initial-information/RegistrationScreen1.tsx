@@ -3,7 +3,8 @@ import { ChevronLeft, Loader2 } from 'lucide-react';
 
 interface RegistrationScreen1Props {
   onNext: (data: {
-    fullName: string;
+    firstName: string;
+    lastName: string;
     phoneNumber: string;
     email: string;
   }) => void;
@@ -11,23 +12,33 @@ interface RegistrationScreen1Props {
 }
 
 function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
-  const [fullName, setFullName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [errors, setErrors] = useState({ fullName: '', phone: '', email: '' });
+  const [errors, setErrors] = useState({ firstName: '', lastName: '', phone: '', email: '' });
   const [isLoading, setIsLoading] = useState(false);
-  const nameInputRef = useRef<HTMLInputElement>(null);
+  const firstNameInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    nameInputRef.current?.focus();
+    firstNameInputRef.current?.focus();
   }, []);
 
-  const validateName = (name: string): boolean => {
+  const validateFirstName = (name: string): boolean => {
     if (!name || name.trim().length < 2) {
-      setErrors(prev => ({ ...prev, fullName: 'Name must be at least 2 characters' }));
+      setErrors(prev => ({ ...prev, firstName: 'First name must be at least 2 characters' }));
       return false;
     }
-    setErrors(prev => ({ ...prev, fullName: '' }));
+    setErrors(prev => ({ ...prev, firstName: '' }));
+    return true;
+  };
+
+  const validateLastName = (name: string): boolean => {
+    if (!name || name.trim().length < 2) {
+      setErrors(prev => ({ ...prev, lastName: 'Last name must be at least 2 characters' }));
+      return false;
+    }
+    setErrors(prev => ({ ...prev, lastName: '' }));
     return true;
   };
 
@@ -51,10 +62,14 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
     return true;
   };
 
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setFullName(value);
-    setErrors(prev => ({ ...prev, fullName: '' }));
+  const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFirstName(e.target.value);
+    setErrors(prev => ({ ...prev, firstName: '' }));
+  };
+
+  const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLastName(e.target.value);
+    setErrors(prev => ({ ...prev, lastName: '' }));
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,33 +81,35 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setEmail(value);
+    setEmail(e.target.value);
     setErrors(prev => ({ ...prev, email: '' }));
   };
 
   const handleNext = async () => {
-    const nameValid = validateName(fullName);
+    const firstNameValid = validateFirstName(firstName);
+    const lastNameValid = validateLastName(lastName);
     const phoneValid = validatePhoneNumber(phoneNumber);
     const emailValid = validateEmail(email);
 
-    if (!nameValid || !phoneValid || !emailValid) {
+    if (!firstNameValid || !lastNameValid || !phoneValid || !emailValid) {
       return;
     }
 
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1000));
     onNext({
-      fullName: fullName.trim(),
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
       phoneNumber: '+91' + phoneNumber,
       email: email.trim()
     });
   };
 
-  const isNameValid = fullName.trim().length >= 2;
+  const isFirstNameValid = firstName.trim().length >= 2;
+  const isLastNameValid = lastName.trim().length >= 2;
   const isPhoneValid = phoneNumber.replace(/\D/g, '').length === 10;
   const isEmailFormatValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const isValid = isNameValid && isPhoneValid && isEmailFormatValid;
+  const isValid = isFirstNameValid && isLastNameValid && isPhoneValid && isEmailFormatValid;
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
@@ -123,29 +140,55 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
           {/* Form Fields */}
           <div className="flex-1">
             <div className="space-y-5">
-              {/* Full Name */}
+              {/* First Name */}
               <div>
-                <label htmlFor="fullName" className="block text-sm font-semibold text-[#1D3557] mb-2">
-                  Name
+                <label htmlFor="firstName" className="block text-sm font-semibold text-[#1D3557] mb-2">
+                  First Name <span className="text-[#DC2626]">*</span>
                 </label>
                 <input
-                  ref={nameInputRef}
-                  id="fullName"
+                  ref={firstNameInputRef}
+                  id="firstName"
                   type="text"
-                  value={fullName}
-                  onChange={handleNameChange}
-                  onBlur={() => fullName && validateName(fullName)}
-                  placeholder="Your full name"
+                  value={firstName}
+                  onChange={handleFirstNameChange}
+                  onBlur={() => firstName && validateFirstName(firstName)}
+                  placeholder="Your first name"
                   className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
-                    errors.fullName
+                    errors.firstName
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
                       : 'border-[#E5E7EB] focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20'
                   }`}
-                  aria-describedby={errors.fullName ? 'fullName-error' : undefined}
+                  aria-describedby={errors.firstName ? 'firstName-error' : undefined}
                 />
-                {errors.fullName && (
-                  <p id="fullName-error" className="mt-2 text-[13px] text-[#DC2626]">
-                    {errors.fullName}
+                {errors.firstName && (
+                  <p id="firstName-error" className="mt-2 text-[13px] text-[#DC2626]">
+                    {errors.firstName}
+                  </p>
+                )}
+              </div>
+
+              {/* Last Name */}
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-semibold text-[#1D3557] mb-2">
+                  Last Name <span className="text-[#DC2626]">*</span>
+                </label>
+                <input
+                  id="lastName"
+                  type="text"
+                  value={lastName}
+                  onChange={handleLastNameChange}
+                  onBlur={() => lastName && validateLastName(lastName)}
+                  placeholder="Your last name"
+                  className={`w-full h-[52px] px-4 bg-white border rounded-[10px] text-base text-[#1D3557] placeholder:text-[#9CA3AF] focus:outline-none transition-all ${
+                    errors.lastName
+                      ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20'
+                      : 'border-[#E5E7EB] focus:border-[#9B59B6] focus:ring-2 focus:ring-[#9B59B6]/20'
+                  }`}
+                  aria-describedby={errors.lastName ? 'lastName-error' : undefined}
+                />
+                {errors.lastName && (
+                  <p id="lastName-error" className="mt-2 text-[13px] text-[#DC2626]">
+                    {errors.lastName}
                   </p>
                 )}
               </div>
@@ -153,7 +196,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
               {/* Mobile Number */}
               <div>
                 <label htmlFor="mobileNumber" className="block text-sm font-semibold text-[#1D3557] mb-2">
-                  Mobile Number
+                  Mobile Number <span className="text-[#DC2626]">*</span>
                 </label>
                 <div className="flex gap-3">
                   <div className="w-[80px]">
@@ -192,7 +235,7 @@ function RegistrationScreen1({ onNext, onBack }: RegistrationScreen1Props) {
               {/* Email Address */}
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-[#1D3557] mb-2">
-                  Email Address
+                  Email Address <span className="text-[#DC2626]">*</span>
                 </label>
                 <input
                   id="email"

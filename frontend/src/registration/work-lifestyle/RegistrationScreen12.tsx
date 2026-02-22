@@ -51,9 +51,13 @@ function RegistrationScreen12({ onNext, onBack }: RegistrationScreen12Props) {
 
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
-        <h1 className="text-2xl font-semibold text-[#1D3557] mb-8">
+        <h1 className="text-2xl font-semibold text-[#1D3557] mb-3">
           Life pace
         </h1>
+        <p className="text-[15px] text-[#6C757D] mb-8 leading-relaxed">
+          How you live, work, and spend your time matters day to day.{' '}
+          You may want your partner to have a similar lifestyle & life rhythm.
+        </p>
 
         {/* Options */}
         <div className="space-y-3">

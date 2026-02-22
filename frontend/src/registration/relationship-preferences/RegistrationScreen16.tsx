@@ -72,6 +72,10 @@ function RegistrationScreen16({ onNext, onBack }: RegistrationScreen16Props) {
           Partner priorities
         </h1>
 
+        <p className="text-[15px] text-[#6C757D] mb-4 leading-relaxed">
+          The next question asks YOU to prioritise what matters most to YOU.
+        </p>
+
         <p className="text-sm text-[#6C757D] mb-1">
           Choose 3
         </p>

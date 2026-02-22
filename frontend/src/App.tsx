@@ -46,7 +46,8 @@ type Screen = 'landing' | 'registration-1' | 'registration-2' | 'registration-3a
 
 interface RegistrationData {
   authType: 'phone';
-  fullName: string;
+  firstName: string;
+  lastName: string;
   phoneNumber: string;
   email: string;
   gender: string;
@@ -64,6 +65,7 @@ interface RegistrationData {
   religion: string;
   community: string;
   country: string;
+  currentState: string;
   currentCity: string;
   industry: string;
   role: string;
@@ -99,7 +101,8 @@ function App() {
     }
     return {
       authType: 'phone',
-      fullName: '',
+      firstName: '',
+      lastName: '',
       phoneNumber: '',
       email: '',
       gender: '',
@@ -117,6 +120,7 @@ function App() {
       religion: '',
       community: '',
       country: '',
+      currentState: '',
       currentCity: '',
       industry: '',
       role: '',
@@ -167,11 +171,12 @@ function App() {
     setCurrentScreen('landing');
   };
 
-  const handleAuthSubmit = (data: { fullName: string; phoneNumber: string; email: string }) => {
+  const handleAuthSubmit = (data: { firstName: string; lastName: string; phoneNumber: string; email: string }) => {
     setRegistrationData({
       ...registrationData,
       authType: 'phone',
-      fullName: data.fullName,
+      firstName: data.firstName,
+      lastName: data.lastName,
       phoneNumber: data.phoneNumber,
       email: data.email
     });
@@ -270,7 +275,7 @@ function App() {
     setCurrentScreen('registration-9');
   };
 
-  const handleLocationSubmit = (data: { country: string; currentCity: string }) => {
+  const handleLocationSubmit = (data: { country: string; currentState: string; currentCity: string }) => {
     setRegistrationData({ ...registrationData, ...data });
     setCurrentScreen('registration-10b');
   };
@@ -682,7 +687,8 @@ function App() {
         onNext={handleProfileReviewSubmit}
         onBack={handleBackToVideoVerification}
         profileData={{
-          name: 'User',
+          firstName: registrationData.firstName,
+          lastName: registrationData.lastName,
           age: 28,
           city: registrationData.city,
           state: registrationData.state,

@@ -17,7 +17,8 @@ function PlaceholderB({ onContinue }: PlaceholderBProps) {
             Your life today
           </h1>
           <p className="text-lg text-white/90 mb-12 leading-relaxed">
-            How you live and work matters day to day.
+            How you live, work, and spend your time matters day to day.{' '}
+            You may want your partner to have a similar lifestyle & life rhythm.
           </p>
 
           <button

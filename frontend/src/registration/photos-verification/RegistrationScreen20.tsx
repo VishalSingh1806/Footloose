@@ -162,7 +162,7 @@ function RegistrationScreen20({ onNext, onBack }: RegistrationScreen20Props) {
         </h1>
 
         <p className="text-[15px] text-[#6C757D] mb-6">
-          Add 3 photos showing your interests and how you spend your time
+          Lifestyle photos reflect how you actually live. They  help others understand you and connect with intent.
         </p>
 
         {/* Progress Indicator */}

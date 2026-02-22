@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronDown } from 'lucide-react';
 import { STATES, STATES_AND_CITIES } from '../../citiesData';
+import CustomDropdown from '../../components/common/CustomDropdown';
 
 interface RegistrationScreen3BProps {
   onNext: (data: { heightFeet: number; heightInches: number; weight: number; city: string; state: string }) => void;
@@ -158,6 +159,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
               Height
             </label>
             <div className="flex gap-[4%]">
+              {/* Feet */}
               <div className="w-[48%] relative">
                 <select
                   value={heightFeet}
@@ -167,8 +169,16 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                       setErrors(prev => ({ ...prev, height: undefined }));
                     }
                   }}
-                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
                   aria-label="Height in feet"
+                  className={`
+                    w-full h-[52px] px-4 pr-10 bg-white rounded-[10px] border-2 text-base
+                    appearance-none cursor-pointer transition-all duration-200
+                    focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/20
+                    ${heightFeet !== ''
+                      ? 'border-[#9B59B6] text-[#1D3557] focus:border-[#9B59B6]'
+                      : 'border-[#E5E7EB] text-[#ADB5BD] hover:border-[#9CA3AF] focus:border-[#9B59B6]'
+                    }
+                  `}
                 >
                   <option value="">Feet</option>
                   <option value="4">4 ft</option>
@@ -176,8 +186,10 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                   <option value="6">6 ft</option>
                   <option value="7">7 ft</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6C757D] pointer-events-none" />
+                <ChevronDown className={`absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${heightFeet !== '' ? 'text-[#9B59B6]' : 'text-[#6C757D]'}`} />
               </div>
+
+              {/* Inches */}
               <div className="w-[48%] relative">
                 <select
                   value={heightInches}
@@ -187,8 +199,16 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                       setErrors(prev => ({ ...prev, height: undefined }));
                     }
                   }}
-                  className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
                   aria-label="Height in inches"
+                  className={`
+                    w-full h-[52px] px-4 pr-10 bg-white rounded-[10px] border-2 text-base
+                    appearance-none cursor-pointer transition-all duration-200
+                    focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/20
+                    ${heightInches !== ''
+                      ? 'border-[#9B59B6] text-[#1D3557] focus:border-[#9B59B6]'
+                      : 'border-[#E5E7EB] text-[#ADB5BD] hover:border-[#9CA3AF] focus:border-[#9B59B6]'
+                    }
+                  `}
                 >
                   <option value="">Inches</option>
                   {[...Array(12)].map((_, i) => (
@@ -197,7 +217,7 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6C757D] pointer-events-none" />
+                <ChevronDown className={`absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${heightInches !== '' ? 'text-[#9B59B6]' : 'text-[#6C757D]'}`} />
               </div>
             </div>
             {errors.height && (
@@ -237,65 +257,27 @@ function RegistrationScreen3B({ onNext, onBack }: RegistrationScreen3BProps) {
           </div>
 
           {/* State */}
-          <div>
-            <label htmlFor="state" className="block text-sm font-semibold text-[#1D3557] mb-2">
-              Home State
-            </label>
-            <div className="relative">
-              <select
-                id="state"
-                value={state}
-                onChange={(e) => handleStateChange(e.target.value)}
-                className="w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none focus:border-[#9B59B6] transition-colors"
-                aria-describedby={errors.state ? 'state-error' : undefined}
-              >
-                <option value="">Select state</option>
-                {STATES.map((stateName) => (
-                  <option key={stateName} value={stateName}>
-                    {stateName}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6C757D] pointer-events-none" />
-            </div>
-            {errors.state && (
-              <p id="state-error" className="mt-2 text-[13px] text-[#DC2626] animate-[slideDown_0.2s_ease-out]">
-                {errors.state}
-              </p>
-            )}
-          </div>
+          <CustomDropdown
+            id="state"
+            label="Home State"
+            value={state}
+            onChange={(e) => handleStateChange(e.target.value)}
+            options={STATES}
+            placeholder="Select state"
+            error={errors.state}
+          />
 
           {/* City */}
-          <div>
-            <label htmlFor="city" className="block text-sm font-semibold text-[#1D3557] mb-2">
-              Home City
-            </label>
-            <div className="relative">
-              <select
-                id="city"
-                value={city}
-                onChange={(e) => handleCityChange(e.target.value)}
-                disabled={!state}
-                className={`w-full h-[52px] px-4 pr-10 bg-white border border-[#E5E7EB] rounded-[10px] text-base text-[#1D3557] appearance-none focus:outline-none transition-colors ${
-                  state ? 'focus:border-[#9B59B6]' : 'opacity-50 cursor-not-allowed'
-                }`}
-                aria-describedby={errors.city ? 'city-error' : undefined}
-              >
-                <option value="">{state ? 'Select city' : 'Select state first'}</option>
-                {availableCities.map((cityName) => (
-                  <option key={cityName} value={cityName}>
-                    {cityName}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6C757D] pointer-events-none" />
-            </div>
-            {errors.city && (
-              <p id="city-error" className="mt-2 text-[13px] text-[#DC2626] animate-[slideDown_0.2s_ease-out]">
-                {errors.city}
-              </p>
-            )}
-          </div>
+          <CustomDropdown
+            id="city"
+            label="Home City"
+            value={city}
+            onChange={(e) => handleCityChange(e.target.value)}
+            options={availableCities}
+            placeholder={state ? 'Select city' : 'Select state first'}
+            disabled={!state}
+            error={errors.city}
+          />
         </div>
       </div>
 

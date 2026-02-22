@@ -42,9 +42,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
   };
 
   const handleContinue = () => {
-    if (governmentId) {
-      onNext({ governmentId, companyId });
-    }
+    onNext({ governmentId, companyId });
   };
 
   const renderUploadSection = (
@@ -144,7 +142,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
         </h1>
 
         <p className="text-base text-[#6C757D] mb-6">
-          Upload documents for identity verification
+          Upload documents for identity verification. This helps in quick approval & a more trusted profile
         </p>
 
         {/* Upload Sections */}
@@ -155,7 +153,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
             governmentId,
             governmentIdRef,
             (e) => handleFileSelect(e, setGovernmentId),
-            false
+            true
           )}
 
           {/* Company ID */}
@@ -189,15 +187,7 @@ function RegistrationScreen21({ onNext, onBack }: RegistrationScreen21Props) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!governmentId}
-            className={`
-              w-full h-[52px] rounded-xl font-semibold text-base transition-all
-              ${
-                governmentId
-                  ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
-                  : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
-              }
-            `}
+            className="w-full h-[52px] rounded-xl font-semibold text-base transition-all bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)]"
             aria-label="Continue to next step"
           >
             Continue

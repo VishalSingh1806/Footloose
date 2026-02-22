@@ -3,36 +3,53 @@ import { ChevronLeft, ChevronDown } from 'lucide-react';
 import { countriesData } from '../../countriesData';
 
 interface RegistrationScreen10AProps {
-  onNext: (data: { country: string; currentCity: string }) => void;
+  onNext: (data: { country: string; currentState: string; currentCity: string }) => void;
   onBack: () => void;
 }
 
 function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
   const [country, setCountry] = useState<string>('India');
+  const [currentState, setCurrentState] = useState<string>('');
   const [currentCity, setCurrentCity] = useState<string>('');
-  const [cities, setCities] = useState<string[]>([]);
+
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+  const [showStateDropdown, setShowStateDropdown] = useState(false);
   const [showCityDropdown, setShowCityDropdown] = useState(false);
+
   const [citySearchQuery, setCitySearchQuery] = useState('');
 
-  useEffect(() => {
-    const selectedCountry = countriesData.find(c => c.name === country);
-    if (selectedCountry) {
-      setCities(selectedCountry.cities);
-      setCurrentCity('');
-      setCitySearchQuery('');
-    }
-  }, [country]);
-
-  const handleContinue = () => {
-    if (country && currentCity) {
-      onNext({ country, currentCity });
-    }
-  };
-
+  const selectedCountryData = countriesData.find(c => c.name === country);
+  const states = selectedCountryData?.states ?? [];
+  const selectedStateData = states.find(s => s.name === currentState);
+  const cities = selectedStateData?.cities ?? [];
   const filteredCities = cities.filter(city =>
     city.toLowerCase().includes(citySearchQuery.toLowerCase())
   );
+
+  // Reset state + city when country changes
+  useEffect(() => {
+    setCurrentState('');
+    setCurrentCity('');
+    setCitySearchQuery('');
+  }, [country]);
+
+  // Reset city when state changes
+  useEffect(() => {
+    setCurrentCity('');
+    setCitySearchQuery('');
+  }, [currentState]);
+
+  const handleContinue = () => {
+    if (country && currentState && currentCity) {
+      onNext({ country, currentState, currentCity });
+    }
+  };
+
+  const closeAll = () => {
+    setShowCountryDropdown(false);
+    setShowStateDropdown(false);
+    setShowCityDropdown(false);
+  };
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
@@ -65,43 +82,57 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
       {/* Main Content */}
       <div className="flex-1 px-5 py-8 pb-28 max-w-[600px] w-full mx-auto">
         <h1 className="text-2xl font-semibold text-[#1D3557] mb-2">
-          Where do you live now?
+          Where are you based?
         </h1>
 
         <p className="text-[14px] text-[#6C757D] mb-6">
           This is used for matching and events near you
         </p>
 
-        {/* Country Dropdown */}
+        {/* ── Country ── */}
         <div className="mb-6">
           <label className="block text-[15px] text-[#6C757D] mb-3">
             Country
           </label>
           <div className="relative">
             <button
-              onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-              className="w-full h-[52px] px-4 rounded-xl border-2 border-[#E5E7EB] bg-white text-[#1D3557] text-base text-left flex items-center justify-between focus:outline-none focus:border-[#9B59B6] transition-colors"
+              onClick={() => {
+                setShowCountryDropdown(!showCountryDropdown);
+                setShowStateDropdown(false);
+                setShowCityDropdown(false);
+              }}
+              className={`w-full h-[52px] px-4 rounded-xl border-2 bg-white text-base text-left flex items-center justify-between focus:outline-none transition-colors ${
+                country
+                  ? 'border-[#9B59B6] text-[#1D3557]'
+                  : 'border-[#E5E7EB] text-[#ADB5BD]'
+              } focus:border-[#9B59B6]`}
             >
               <span className={country ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
                 {country || 'Select country'}
               </span>
-              <ChevronDown className={`w-5 h-5 text-[#6C757D] transition-transform ${showCountryDropdown ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`w-5 h-5 transition-all ${
+                  country ? 'text-[#9B59B6]' : 'text-[#6C757D]'
+                } ${showCountryDropdown ? 'rotate-180' : ''}`}
+              />
             </button>
 
             {showCountryDropdown && (
               <div className="absolute z-20 w-full mt-2 bg-white border-2 border-[#E5E7EB] rounded-xl shadow-lg max-h-[300px] overflow-y-auto">
-                {countriesData.map((countryData) => (
+                {countriesData.map((c) => (
                   <button
-                    key={countryData.name}
+                    key={c.name}
                     onClick={() => {
-                      setCountry(countryData.name);
+                      setCountry(c.name);
                       setShowCountryDropdown(false);
                     }}
                     className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
-                      country === countryData.name ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold' : 'text-[#1D3557]'
+                      country === c.name
+                        ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold'
+                        : 'text-[#1D3557]'
                     }`}
                   >
-                    {countryData.name}
+                    {c.name}
                   </button>
                 ))}
               </div>
@@ -109,28 +140,94 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
           </div>
         </div>
 
-        {/* City Dropdown */}
+        {/* ── State ── */}
+        <div className="mb-6">
+          <label className="block text-[15px] text-[#6C757D] mb-3">
+            State / Province
+          </label>
+          <div className="relative">
+            <button
+              onClick={() => {
+                if (!country) return;
+                setShowStateDropdown(!showStateDropdown);
+                setShowCountryDropdown(false);
+                setShowCityDropdown(false);
+              }}
+              disabled={!country}
+              className={`w-full h-[52px] px-4 rounded-xl border-2 bg-white text-base text-left flex items-center justify-between focus:outline-none transition-colors ${
+                !country
+                  ? 'border-[#E5E7EB] text-[#ADB5BD] cursor-not-allowed opacity-50'
+                  : currentState
+                  ? 'border-[#9B59B6] text-[#1D3557] focus:border-[#9B59B6]'
+                  : 'border-[#E5E7EB] text-[#ADB5BD] focus:border-[#9B59B6]'
+              }`}
+            >
+              <span className={currentState ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
+                {currentState || (country ? 'Select state' : 'Select country first')}
+              </span>
+              <ChevronDown
+                className={`w-5 h-5 transition-all ${
+                  currentState ? 'text-[#9B59B6]' : 'text-[#6C757D]'
+                } ${showStateDropdown ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {showStateDropdown && country && (
+              <div className="absolute z-20 w-full mt-2 bg-white border-2 border-[#E5E7EB] rounded-xl shadow-lg max-h-[300px] overflow-y-auto">
+                {states.map((s) => (
+                  <button
+                    key={s.name}
+                    onClick={() => {
+                      setCurrentState(s.name);
+                      setShowStateDropdown(false);
+                    }}
+                    className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
+                      currentState === s.name
+                        ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold'
+                        : 'text-[#1D3557]'
+                    }`}
+                  >
+                    {s.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* ── City ── */}
         <div className="mb-6">
           <label className="block text-[15px] text-[#6C757D] mb-3">
             Current City
           </label>
           <div className="relative">
             <button
-              onClick={() => setShowCityDropdown(!showCityDropdown)}
-              disabled={!country}
+              onClick={() => {
+                if (!currentState) return;
+                setShowCityDropdown(!showCityDropdown);
+                setShowCountryDropdown(false);
+                setShowStateDropdown(false);
+              }}
+              disabled={!currentState}
               className={`w-full h-[52px] px-4 rounded-xl border-2 bg-white text-base text-left flex items-center justify-between focus:outline-none transition-colors ${
-                !country
-                  ? 'border-[#E5E7EB] text-[#ADB5BD] cursor-not-allowed'
-                  : 'border-[#E5E7EB] text-[#1D3557] focus:border-[#9B59B6]'
+                !currentState
+                  ? 'border-[#E5E7EB] text-[#ADB5BD] cursor-not-allowed opacity-50'
+                  : currentCity
+                  ? 'border-[#9B59B6] text-[#1D3557] focus:border-[#9B59B6]'
+                  : 'border-[#E5E7EB] text-[#ADB5BD] focus:border-[#9B59B6]'
               }`}
             >
               <span className={currentCity ? 'text-[#1D3557]' : 'text-[#ADB5BD]'}>
-                {currentCity || 'Select city'}
+                {currentCity || (currentState ? 'Select city' : 'Select state first')}
               </span>
-              <ChevronDown className={`w-5 h-5 text-[#6C757D] transition-transform ${showCityDropdown ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`w-5 h-5 transition-all ${
+                  currentCity ? 'text-[#9B59B6]' : 'text-[#6C757D]'
+                } ${showCityDropdown ? 'rotate-180' : ''}`}
+              />
             </button>
 
-            {showCityDropdown && country && (
+            {showCityDropdown && currentState && (
               <div className="absolute z-20 w-full mt-2 bg-white border-2 border-[#E5E7EB] rounded-xl shadow-lg">
                 <div className="p-3 border-b border-[#E5E7EB]">
                   <input
@@ -153,7 +250,9 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
                           setCitySearchQuery('');
                         }}
                         className={`w-full px-4 py-3 text-left hover:bg-[#FAFAFA] transition-colors ${
-                          currentCity === city ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold' : 'text-[#1D3557]'
+                          currentCity === city
+                            ? 'bg-[#F5E6FF] text-[#9B59B6] font-semibold'
+                            : 'text-[#1D3557]'
                         }`}
                       >
                         {city}
@@ -176,11 +275,11 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
         <div className="max-w-[600px] mx-auto">
           <button
             onClick={handleContinue}
-            disabled={!country || !currentCity}
+            disabled={!country || !currentState || !currentCity}
             className={`
               w-full h-[52px] rounded-xl font-semibold text-base transition-all
               ${
-                country && currentCity
+                country && currentState && currentCity
                   ? 'bg-[#9B59B6] hover:bg-[#8E44AD] text-white active:scale-[0.98] shadow-[0_2px_8px_rgba(155,89,182,0.2)] opacity-100'
                   : 'bg-[#9B59B6] text-white opacity-50 cursor-not-allowed'
               }
@@ -192,15 +291,9 @@ function RegistrationScreen10A({ onNext, onBack }: RegistrationScreen10AProps) {
         </div>
       </div>
 
-      {/* Click outside handler */}
-      {(showCountryDropdown || showCityDropdown) && (
-        <div
-          className="fixed inset-0 z-10"
-          onClick={() => {
-            setShowCountryDropdown(false);
-            setShowCityDropdown(false);
-          }}
-        />
+      {/* Click-outside overlay to close all dropdowns */}
+      {(showCountryDropdown || showStateDropdown || showCityDropdown) && (
+        <div className="fixed inset-0 z-10" onClick={closeAll} />
       )}
     </div>
   );
